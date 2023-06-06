@@ -172,12 +172,12 @@
     &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2
 \end{align}
 
-В раховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
+Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
 \begin{align*}
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{2} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
     & = \frac{1}{(1 + \mu_0)} \left(Y_0(y) + Y_1(y) \right)
 \end{align*}
-Знайдем $Y_0(y)$
+Знайдем $Y_0(y)$:
 \begin{align}
     &Y_0(y) =  \frac{\partial}{\partial s} \left( \frac{e^{sy}}{(s+\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=\alpha_n} = \nonumber \\
     &=\frac{e^{\alpha_n y}}{4\alpha_n} \begin{pmatrix}
@@ -185,7 +185,7 @@
     -\alpha_n \mu_0 y & -\alpha_n \mu_0 y + 2 + \mu_0
     \end{pmatrix}
 \end{align}
-Знайдем $Y_1(y)$
+Знайдем $Y_1(y)$:
 \begin{align}
     &Y_1(y) = \frac{\partial}{\partial s} \left(\frac{e^{sy}}{(s-\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=-\alpha_n} = \nonumber \\
     =&\frac{e^{-\alpha_n y}}{4\alpha_n} \begin{pmatrix}
@@ -196,7 +196,7 @@
 
 Таким чином ми можемо записати розв'язок задачі у просторі трансформант:
 \begin{equation}
-    Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  Y_0(y) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}  \right)
+    Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  Y_1(y) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}  \right)
 \end{equation}
 Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_1}).
 Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_B_1}).
