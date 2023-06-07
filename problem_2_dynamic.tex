@@ -63,7 +63,7 @@ $0 \le x \le a$, $0 \le y \le b$.
 \end{equation}
 
 Для цього помножим перше та друге рівняння (\ref{lame_2}) на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруєм по змінній $x$ на інтервалі $0 \le x \le a$.
-Покрокове інтегрування рівняння (\ref{lame_2}) наведено у (\nameref{ap_A_1}).
+Покрокове інтегрування рівняння (\ref{lame_2}) наведено у (\nameref{ap_A}).
 Отримана система рівнянь задачі у просторі трансформант:
 \begin{equation}\label{transf_2}
     \begin{cases}
@@ -240,4 +240,48 @@ $0 \le x \le a$, $0 \le y \le b$.
     Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) +  Y_1(y)  \right) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  \frac{1}{1 + \mu_0} \left( Y_2(y) +  Y_3(y) \right) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}
 \end{equation}
 Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_2}).
-Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_C_1}).
+Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_C}).
+Таким чином ми можемо записати розв'зок у просторі трансформант:
+\begin{align}\label{transf_sol_u_2}
+    &u_n(y) = \frac{( a_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(e^{a_1y} - e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_1 + \nonumber \\
+    & + \frac{( a_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(e^{a_2y} - e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_3 + \nonumber \\
+    & + \frac{(a_1 \alpha_n y)(e^{a_1y} + e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_2 + \frac{(a_2 \alpha_n y)(e^{a_2y} + e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_4
+\end{align}
+\begin{align}\label{transf_sol_v_2}
+    &v_n(y) = \frac{(a_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2})(e^{a_1y} - e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_2 + \nonumber \\
+    & +\frac{(a_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2})(e^{a_2y} - e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_4 - \nonumber \\
+    & - \frac{(a_1 \alpha_n y)(e^{a_1y} + e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_1 - \frac{(a_2 \alpha_n y)(e^{a_2y} + e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_3
+\end{align}
+
+\subsection{Фінальний розв'язок задачі}
+Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
+(\ref{transf_sol_u_2}), (\ref{transf_sol_v_2}), отримаємо фінальний розв'язок задачі
+\begin{equation}
+    u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+\end{equation}
+\begin{equation}
+    v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+\end{equation}
+
+Останній крок це знаходження $v_0(y)$ у випадку коли $n=0$, $\alpha_n =0$.
+Для цього повернемся до другого рівняння (\ref{transf_2}), та запишем його для цього випадку:
+\begin{equation}\label{transf_v_0_2}
+    (1 + \mu_0) v_n^{''}(y) + \frac{\omega^2}{c_2^2}v_0(y) = 0
+\end{equation}
+Та граничні умови:
+\begin{equation}\label{transf_bound_v_0_2}
+    \begin{cases}
+        (2G + \lambda)v_0^{'}(y)|_{y=b} = -p_0 \\
+        v_0(y)|_{y=0} = 0
+    \end{cases}
+\end{equation}
+Де $p_0 = \int_{0}^{a}p(x)dx$
+
+Розв'язок рівняння (\ref{transf_v_0_2}):
+\begin{equation}
+    v_0(y) = c_1 cos \left(y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right) + c_2 sin \left( y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right)
+\end{equation}
+Застовоючи граничні умови (\ref{transf_bound_v_0_2}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
+\begin{equation}
+    v_0(y) = \frac{-p_0}{(2G + \lambda) \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} sin \left(b \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right) } sin \left(y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right)
+\end{equation}

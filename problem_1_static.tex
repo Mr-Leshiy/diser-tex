@@ -40,7 +40,7 @@
 \end{equation}
 
 Для цього помножим перше та друге рівняння (\ref{lame_1}) на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруєм по змінній $x$ на інтервалі $0 \le x \le a$.
-Покрокове інтегрування рівняння (\ref{lame_1}) наведено у (\nameref{ap_A_1}).
+Покрокове інтегрування рівняння (\ref{lame_1}) наведено у (\nameref{ap_A}).
 Отримана система рівнянь задачі у просторі трансформант:
 \begin{equation}\label{transf_1}
     \begin{cases}
@@ -199,20 +199,20 @@
     Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  Y_1(y) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}  \right)
 \end{equation}
 Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_1}).
-Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_B_1}).
+Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_B}).
 Таким чином ми можемо записати розв'зок у просторі трансформант:
-\begin{align}\label{transf_sol_u}
+\begin{align}\label{transf_sol_u_1}
     &u_n(y) = \frac{e^{\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_1 (\alpha_n \mu_0 y + 2 + \mu_0) + c_2 (\alpha_n \mu_0 y) \right] + \nonumber \\
     &\quad + \frac{e^{-\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_3 (\alpha_n \mu_0 y - 2 - \mu_0) + c_4 (-\alpha_n \mu_0 y)\right]
 \end{align}
-\begin{align}\label{transf_sol_v}
+\begin{align}\label{transf_sol_v_1}
     &v_n(y) = \frac{e^{\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_1 (-\alpha_n \mu_0 y) + c_2 (-\alpha_n \mu_0 y + 2 + \mu_0) \right] + \nonumber \\
     &\quad + \frac{e^{-\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_3 (\alpha_n \mu_0 y) + c_4 (-\alpha_n \mu_0 y - 2 - \mu_0)\right]
 \end{align}
 
 \subsection{Фінальний розв'язок задачі}
 Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
-(\ref{transf_sol_u}), (\ref{transf_sol_v}), отримаємо фінальний розв'язок задачі
+(\ref{transf_sol_u_1}), (\ref{transf_sol_v_1}), отримаємо фінальний розв'язок задачі
 \begin{equation}
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
@@ -222,11 +222,11 @@
 
 Останній крок це знаходження $v_0(y)$ у випадку коли $n=0$, $\alpha_n =0$.
 Для цього повернемся до другого рівняння (\ref{transf_1}), та запишем його для цього випадку:
-\begin{equation}\label{transf_1_v_0}
+\begin{equation}\label{transf_v_0_1}
     (1 + \mu_0) v_n^{''}(y) = 0
 \end{equation}
 Та граничні умови:
-\begin{equation}\label{transf_bound_1_v_0}
+\begin{equation}\label{transf_bound_v_0_1}
     \begin{cases}
         (2G + \lambda)v_0^{'}(y)|_{y=b} = -p_0 \\
         v_0(y)|_{y=0} = 0
@@ -234,11 +234,11 @@
 \end{equation}
 Де $p_0 = \int_{0}^{a}p(x)dx$
 
-Розв'язок рівняння (\ref{transf_1_v_0}):
+Розв'язок рівняння (\ref{transf_v_0_1}):
 \begin{equation}
     v_0(y) = c_1 + c_2 y
 \end{equation}
-Застовоючи граничні умови (\ref{transf_bound_1_v_0}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
+Застовоючи граничні умови (\ref{transf_bound_v_0_1}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
 \begin{equation}
     v_0(y) = \frac{-p_0}{(2G + \lambda)}y
 \end{equation}
