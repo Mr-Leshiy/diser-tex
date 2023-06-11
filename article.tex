@@ -1,9 +1,8 @@
-\documentclass[a4paper,14pt]{extarticle}
-
+\documentclass[a4paper,10pt]{extarticle}
 \usepackage{amsmath}
 \usepackage[english,ukrainian]{babel}
-\usepackage{mathptmx}
 \usepackage{nameref}
+\usepackage{graphicx}
 
 \title{Diseration}
 \author{}
@@ -12,7 +11,6 @@
 \numberwithin{equation}{section}
 
 \begin{document}
-\maketitle
 
 \newpage
 
@@ -31,11 +29,23 @@ $\mu_0 = \frac{1}{1 - 2\mu}$ \newline
 $U_x(x,y) = u(x,y)$ - переміщення по осі $x$ \newline
 $U_y(x,y) = v(x,y)$ - переміщення по осі $y$
 
+\section{МЕТОДИКА ПОБУДОВИ РОЗВ’ЗКІВ МІШАНИХ ЗАДАЧ
+ТЕОРІЇ ПРУЖНОСТІ ДЛЯ ПРЯМОКУТНОЇ ОБЛАСТІ}
+\input{general}
+
 \section{Напруженний стан прямокутної області}
 \input{problem_1_static}
 
 \section{Напруженний стан прямокутної області динаміка}
 \input{problem_2_dynamic}
+
+\begin{thebibliography}{1}
+    \bibitem{popov_1}
+    Попов Г. Я. Концентрация упругих напряжений возле штампов разрезов тонких включений и подкреплений. М.: Наука. Главная редакция физико-математической литературы, 1982. 344 с.
+    \bibitem{popov_2}
+    Попов Г.Я. Точные решения некоторых краевых задач механики деформируемого твѐрдого тела. Одесса: Астропринт, 2013. 424 с.
+
+\end{thebibliography}
 
 \section{Додаток А}\label{ap_A}
 \input{apendix_a}
