@@ -64,7 +64,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 Отже умова (\ref{gen_bound_gen}) виконується автоматично.
 
 \subsection{Зведеня задачі до одновимірної у просторі трансформант}
-Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь (\ref{lame_1}) наступному вигляді:
+Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь (\ref{lame_gen}) наступному вигляді:
 \begin{equation}
     \begin{pmatrix}
         u_n(y) \\
@@ -81,7 +81,179 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 Отримана система рівнянь задачі у просторі трансформант:
 \begin{equation}\label{transf_gen}
     \begin{cases}
-        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) + (-\alpha_n^2 - -\alpha_n^2 \mu_0 + \frac{\omega^2}{c_1^2}) u_n(y) = 0 \\
-        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y) + (- \alpha_n^2 + \frac{\omega^2}{c_2^2}) v_n(y) = 0 \\
+        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - (\alpha_n^2 + \alpha_n^2 \mu_0 - \frac{\omega^2}{c_1^2}) u_n(y) = \\
+        = \alpha_n(1 + \mu_0)(\chi_3(y) cos(\alpha_n a) - \chi_1(y)) \\
+        \\
+        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y) - (\alpha_n^2 - \frac{\omega^2}{c_2^2}) v_n(y) = \\
+        = (\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) - \mu_0 (\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
     \end{cases}
 \end{equation}
+
+Застосовуючи інтегральне перетворення до граничних умов,
+отримаємо наступні умови задачі у просторі трансформант
+\begin{equation}\label{transf_bound_gen}
+    \begin{cases}
+        \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n \\
+        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=b} = 0 \\
+        v_n(y)|_{y=0} = 0 \\
+        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=0} = 0
+    \end{cases}
+\end{equation}
+Де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
+
+\subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
+Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
+Рівняння рівноваги (\ref{transf_gen}) запишемо у наступному вигляді:
+\begin{align}\label{transf_mat_gen}
+    &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
+    & L_2\left[ Z_n(y) \right] = F_n(y)
+\end{align}
+Де
+\begin{equation*}
+    A = \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 + \mu_0
+    \end{pmatrix}, \quad
+    B = \begin{pmatrix}
+        0 & -\alpha_n \mu_0 \\
+        \alpha_n \mu_0 & 0
+    \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+    C = \begin{pmatrix}
+        -\alpha_n^2 -\alpha_n^2 \mu_0 + \frac{\omega^2}{c_1^2} & 0 \\
+        0 & -\alpha_n^2 + \frac{\omega^2}{c_2^2}
+    \end{pmatrix}, \quad
+    Z_n(y) = \begin{pmatrix}
+        u_n(y) \\
+        v_n(y)
+    \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+    F_n(y) = \begin{pmatrix}
+        \alpha_n(1 + \mu_0)(\chi_3(y) cos(\alpha_n a) - \chi_1(y)) \\
+        (\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) - \mu_0 (\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
+    \end{pmatrix}
+\end{equation*}
+Граничні умови (\ref{transf_bound_gen}) запишемо у наступному вигляді:
+\begin{align}\label{transf_bound_mat_gen}
+    &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
+    & U_i\left[ Z_n(y) \right] = D_i
+\end{align}
+Де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
+\begin{equation*}
+    E_0 = \begin{pmatrix}
+        1 & 0 \\
+        0 & 2G + \lambda
+    \end{pmatrix}, \quad
+    F_0 = \begin{pmatrix}
+        0 & -\alpha_n \\
+        \alpha_n \lambda & 0
+    \end{pmatrix}, \quad
+\end{equation*}
+\begin{equation*}
+    E_1 = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix}, \quad
+    F_1 = \begin{pmatrix}
+        0 & -\alpha_n \\
+        0 & 1
+    \end{pmatrix}, \quad
+\end{equation*}
+\begin{equation*}
+    D_0 = \begin{pmatrix}
+        0 \\
+        -p_n
+    \end{pmatrix}, \quad
+    D_1 = \begin{pmatrix}
+        0 \\
+        0
+    \end{pmatrix}, \quad
+\end{equation*}
+
+Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_gen}).
+Шукати її будем у наступному вигляді:
+\begin{equation}
+    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
+\end{equation}
+Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_2}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+\begin{equation}
+    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\end{equation}
+\begin{align*}
+    &L_2\left[ e^{sy}*I \right] = e^{sy} \left( s^2A * I + s B*I + C*I \right) = \\
+    &=e^{sy} \begin{pmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_1^2}
+     \end{pmatrix} =>
+\end{align*}
+
+\begin{equation}
+    M(s) = \begin{pmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2}
+     \end{pmatrix}
+\end{equation}
+
+Знайдемо тепер $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$.
+\begin{equation}
+    \widetilde{M(s)} = \begin{pmatrix}
+        s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s \\
+        -\alpha_n \mu_0 s & s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+     \end{pmatrix}
+\end{equation}
+\begin{align}
+    &det[M(s)] = (s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}) + (\alpha_n \mu_0 s)^2 = \nonumber \\
+    &=(1+\mu_0)(s - a_1)(s + a_1)(s - a_2)(s + a_2)
+\end{align}
+Де $a_1$, $a_2$:
+\begin{align*}
+    a_1 = \sqrt{\frac{b_1}{b_3} - \omega \sqrt{\frac{b_2}{b_3}}}, \\
+    a_2 = \sqrt{\frac{b_1}{b_3} + \omega \sqrt{\frac{b_2}{b_3}}} \\
+\end{align*}
+\begin{align*}
+    &b_1 = 2 \alpha_n^2 c_1^2 c_2^2 \mu_0 + 2 \alpha_n^2 c_1^2 c_2^2 - c_1^2 \omega^2 - c_2^2 \mu_0 \omega^2 - c_2^2 \omega^2, \\
+    &b_2 = 4\alpha_n^2 c_1^4 c_2^2 \mu_0^2 + 4 \alpha_n^2 c_1^4 c_2^2 \mu_0 - 4 \alpha_n^2 c_1^2 c_2^4 \mu_0^2  - \\
+    &- 4 \alpha_n^2 c_1^2 c_2^4 \mu_0 + c_1^4 \omega^2 - 2 c_1^2 c_2^2 \mu_0 \omega^2 - 2 c_1^2 c_2^2 \omega^2 + \\ 
+    &+ c_2^4 \mu_0^2 \omega^2 + c_2^4 \omega^2, \\
+    &b_3 = 2 c_1^2 c_2^2 \mu_0 + 2 c_1^2 c_2^2
+\end{align*}
+
+Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
+\begin{align*}
+    &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{2} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
+    & = \frac{1}{(1 + \mu_0)} \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
+\end{align*}
+Знайдем $Y_0(y)$:
+\begin{align}
+    &Y_0(y) =  \left( \frac{e^{sy}}{(s+a_1)(s - a_2)(s + a_2)} \widetilde{M(s)} \right) \Big|_{s=a_1} = \nonumber \\
+    &=\frac{e^{a_1 y}}{2a_1 (a_1^2 - a_2^2)} \begin{pmatrix}
+        a_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 a_1 \\
+        -\alpha_n \mu_0 a_1 & a_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_1(y)$:
+\begin{align}
+    &Y_1(y) =  \left( \frac{e^{sy}}{(s-a_1)(s - a_2)(s + a_2)} \widetilde{M(s)} \right) \Big|_{s=-a_1} = \nonumber \\
+    &=-\frac{e^{-a_1 y}}{2a_1 (a_1^2 - a_2^2)} \begin{pmatrix}
+        a_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & -\alpha_n \mu_0 a_1 \\
+        \alpha_n \mu_0 a_1 & a_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_2(y)$:
+\begin{align}
+    &Y_2(y) =  \left( \frac{e^{sy}}{(s+a_2)(s - a_1)(s + a_1)} \widetilde{M(s)} \right) \Big|_{s=a_2} = \nonumber \\
+    &=\frac{e^{a_2 y}}{2a_2 (a_2^2 - a_1^2)} \begin{pmatrix}
+        a_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 a_2 \\
+        -\alpha_n \mu_0 a_2 & a_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_3(y)$:
+\begin{align}
+    &Y_3(y) =  \left( \frac{e^{sy}}{(s-a_2)(s - a_1)(s + a_1)} \widetilde{M(s)} \right) \Big|_{s=-a_2} = \nonumber \\
+    &=-\frac{e^{-a_2 y}}{2a_2 (a_2^2 - a_1^2)} \begin{pmatrix}
+        a_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & -\alpha_n \mu_0 a_2 \\
+        \alpha_n \mu_0 a_2 & a_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
