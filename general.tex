@@ -49,7 +49,7 @@
 Та граничні умови:
 \begin{equation}\label{bound_gen}
     \begin{cases}
-        \sigma_y(x, y) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y) |_{y=b} =0 \\
+        \sigma_y(x, y) |_{y=b} = -p(x), \quad  \tau_{xy}(x,y) |_{y=b} =0 \\
         v(x,y) |_{y=0}, \quad \tau_{xy}(x,y) |_{y=0} =0 \\
         U_1[f(x,y)]=0, \quad U_2[f(x,y)]=0
     \end{cases}
@@ -106,7 +106,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 Рівняння рівноваги \eqref{transf_gen} запишемо у наступному вигляді:
 \begin{align}\label{transf_mat_gen}
     &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
-    & L_2\left[ Z_n(y) \right] = F_n(y)
+    &L_2\left[ Z_n(y) \right] = F_n(y)
 \end{align}
 Де
 \begin{equation*}
@@ -138,7 +138,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 Граничні умови \eqref{transf_bound_gen} запишемо у наступному вигляді:
 \begin{align}\label{transf_bound_mat_gen}
     &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
-    & U_i\left[ Z_n(y) \right] = D_i
+    &U_i\left[ Z_n(y) \right] = D_i
 \end{align}
 Де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
 \begin{equation*}
@@ -177,7 +177,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
 \end{equation}
-Де $M(s)$ - характерестична матриця рівняння \eqref{transf_mat_2}, а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+Де $M(s)$ - характерестична матриця рівняння \eqref{transf_mat_gen}, а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
 \begin{equation}
     L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
 \end{equation}
@@ -286,7 +286,35 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 
 Таким чином ми можемо записати розв'язок крайової задачі у просторі трансформант:
 \begin{equation}
-    Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0 * D_0 + \Psi_1 * D_1
+    Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0(y) * D_0 + \Psi_1(y) * D_1
 \end{equation}
 
+Введемо наступні позначення $G(y, \xi) = \begin{pmatrix}
+    g_1(y,\xi) & g_2(y,\xi) \\
+    g_3(y,\xi) & g_4(y,\xi)
+\end{pmatrix}$, $F_n(y) = \begin{pmatrix}
+    f_n^1(y) \\
+    f_n^2(y)
+\end{pmatrix}$, $\Psi_i(y) = \begin{pmatrix}
+    \psi_i^1(y) & \psi_i^2(y) \\
+    \psi_i^3(y) & \psi_i^4(y)
+\end{pmatrix}$, $i=0,1$. Враховуючи це, шукані функціі перемішень у просторі трансформант можна записати у наступному вигляді
+\begin{align}\label{transf_sol_u_gen}
+    &u_n(y) = \int_0^b \left[g_1(y, \xi)f_n^1(\xi) + g_2(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^2(y) p_n
+\end{align}
+\begin{align}\label{transf_sol_v_gen}
+    &v_n(y) = \int_0^b \left[g_3(y, \xi)f_n^1(\xi) + g_4(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^4(y) p_n
+\end{align}
 
+\subsection{Фінальний розв'язок задачі}
+Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
+(\ref{transf_sol_u_gen}), (\ref{transf_sol_v_gen}), отримаємо фінальний розв'язок задачі
+\begin{equation}
+    u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+\end{equation}
+\begin{equation}
+    v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+\end{equation}
+
+Залишилось знайти невідомі функції $\chi_1(y)$, $\chi_2(y)$, $\chi_3(y)$, $\chi_4(y)$, для цього треба побудувати систему інтегральних рівнянь,
+використовуючи граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$. В залежності від умов бічних гранях розв’язання задачі зводиться
