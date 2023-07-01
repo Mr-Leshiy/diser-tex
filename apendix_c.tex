@@ -1,1 +1,144 @@
-Для знаходження коєфіцієтів $c_i^k$ для фундаентальних базісних матриць $\Psi_i$, $i=\overline{0,1}$, $k=\overline{0,1}$
+Для знаходження матриць коєфіцієтів $C_k^i$ для фундаентальних базісних матриць $\Psi_i(y)$, $i=\overline{0,1}$, $k=\overline{1,2}$.
+Використовуючи граничні умови \eqref{transf_bound_mat_gen} шукати їх будем з наступних умов:
+\begin{align*}
+    &U_0\left[ \Psi_0(y) \right] = I, \quad U_1\left[ \Psi_0(y) \right] = 0 \\
+    &U_0\left[ \Psi_1(y) \right] = 0, \quad U_1\left[ \Psi_1(y) \right] = I, \quad I = \begin{pmatrix}
+        1 && 0 \\
+        0 && 1
+    \end{pmatrix} \\
+    &U_0\left[ \Psi_i(y) \right] =  \begin{pmatrix}
+        1 & 0 \\
+        0 & 2G + \lambda
+    \end{pmatrix} * \Psi_i^{'}(b) + \begin{pmatrix}
+        0 & -\alpha_n \\
+        \alpha_n \lambda & 0
+    \end{pmatrix} * \Psi_i(b) \\
+    &U_1\left[ \Psi_i(y) \right] =  \begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix} * \Psi_i^{'}(0) + \begin{pmatrix}
+        0 & -\alpha_n \\
+        0 & 1
+    \end{pmatrix} * \Psi_i(0) \\
+\end{align*}
+
+Введемо наступні позначення:
+\begin{equation*}
+    C_1^i = \begin{pmatrix}
+        d_1^i && d_2^i \\
+        d_3^i && d_4^i
+    \end{pmatrix}, \quad
+    C_2^i = \begin{pmatrix}
+        f_1^i && f_2^i \\
+        f_3^i && f_4^i
+    \end{pmatrix},
+\end{equation*}
+\begin{align*}
+    &x_1 =  s_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2}, \quad x_2 = s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} \\
+    &x_3 =  s_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2}, \quad x_4 = s_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} \\
+    &x_5 =  s_1 \alpha_n \mu_0, \quad x_6 = s_2 \alpha_n \mu_0 \\
+    &y_1 = 2s_1 (s_1^2 - s_2^2), \quad y_2 = 2s_2 (s_2^2 - s_1^2)
+\end{align*}
+
+Враховуючи їх та представлення \eqref{psi_gen} випишем вигляд $\Psi_i(y)$:
+\begin{align*}
+    &\Psi_i(y) = \frac{1}{y_1} \begin{pmatrix}
+        x_1(e^{y s_1} - e^{-y s_1})d_1^i + x_5(e^{y s_1} + e^{-y s_1})d_3^i && x_1(e^{y s_1} - e^{-y s_1})d_2^i + x_5(e^{y s_1} + e^{-y s_1})d_4^i \\
+        -x_5(e^{y s_1} + e^{-y s_1})d_1^i + x_2(e^{y s_1} - e^{-y s_1})d_3^i && -x_5(e^{y s_1} + e^{-y s_1})d_2^i + x_2(e^{y s_1} - e^{-y s_1})d_4^i
+    \end{pmatrix} + \\
+    &+ \frac{1}{y_2} \begin{pmatrix}
+        x_3(e^{y s_2} - e^{-y s_2})f_1^i + x_6(e^{y s_2} + e^{-y s_2})f_3^i && x_3(e^{y s_2} - e^{-y s_2})f_2^i + x_6(e^{y s_2} + e^{-y s_2})f_4^i \\
+        -x_6(e^{y s_2} + e^{-y s_2})f_1^i + x_4(e^{y s_2} - e^{-y s_2})f_3^i && -x_6(e^{y s_2} + e^{-y s_2})f_2^i + x_4(e^{y s_2} - e^{-y s_2})f_4^i
+    \end{pmatrix}
+\end{align*}
+\begin{align*}
+    &\Psi_i^{'}(y) = \frac{s_1}{y_1} \begin{pmatrix}
+        x_1(e^{y s_1} - e^{-y s_1})d_1^i + x_5(e^{y s_1} + e^{-y s_1})d_3^i && x_1(e^{y s_1} - e^{-y s_1})d_2^i + x_5(e^{y s_1} + e^{-y s_1})d_4^i \\
+        -x_5(e^{y s_1} + e^{-y s_1})d_1^i + x_2(e^{y s_1} - e^{-y s_1})d_3^i && -x_5(e^{y s_1} + e^{-y s_1})d_2^i + x_2(e^{y s_1} - e^{-y s_1})d_4^i
+    \end{pmatrix} + \\
+    &+ \frac{s_2}{y_2} \begin{pmatrix}
+        x_3(e^{y s_2} - e^{-y s_2})f_1^i + x_6(e^{y s_2} + e^{-y s_2})f_3^i && x_3(e^{y s_2} - e^{-y s_2})f_2^i + x_6(e^{y s_2} + e^{-y s_2})f_4^i \\
+        -x_6(e^{y s_2} + e^{-y s_2})f_1^i + x_4(e^{y s_2} - e^{-y s_2})f_3^i && -x_6(e^{y s_2} + e^{-y s_2})f_2^i + x_4(e^{y s_2} - e^{-y s_2})f_4^i
+    \end{pmatrix}
+\end{align*}
+
+Розглянемо $U_0\left[ \Psi_i(y) \right]$:
+\begin{align*}
+    &U_0\left[ \Psi_i(y) \right]_{1,1} = \frac{s_1}{y_1} \left(x_1(e^{b s_1} - e^{-b s_1})d_1^i + x_5(e^{b s_1} + e^{-b s_1})d_3^i \right) + \\
+    &+ \frac{s_2}{y_2} \left( x_3(e^{b s_2} - e^{-b s_2})f_1^i + x_6(e^{b s_2} + e^{-b s_2})f_3^i \right) 
+    + \frac{\alpha_n}{y_1} \left( x_5(e^{b s_1} + e^{-b s_1})d_1^i - x_2(e^{b s_1} - e^{-b s_1})d_3^i \right) + \\
+    & + \frac{\alpha_n}{y_2} \left( x_6(e^{b s_2} + e^{-b s_2})f_1^i + x_4(e^{b s_2} - e^{-b s_2})f_3^i \right)
+\end{align*}
+\begin{align*}
+    &U_0\left[ \Psi_i(y) \right]_{1,2} = \frac{s_1}{y_1} \left(x_1(e^{b s_1} - e^{-b s_1})d_2^i + x_5(e^{b s_1} + e^{-b s_1})d_4^i \right) + \\
+    &+ \frac{s_2}{y_2} \left( x_3(e^{b s_2} - e^{-b s_2})f_2^i + x_6(e^{b s_2} + e^{-b s_2})f_4^i \right) 
+    + \frac{\alpha_n}{y_1} \left( x_5(e^{b s_1} + e^{-b s_1})d_2^i - x_2(e^{b s_1} - e^{-b s_1})d_4^i \right) + \\
+    & + \frac{\alpha_n}{y_2} \left( x_6(e^{b s_2} + e^{-b s_2})f_2^i + x_4(e^{b s_2} - e^{-b s_2})f_4^i \right)
+\end{align*}
+\begin{align*}
+    &U_0\left[ \Psi_i(y) \right]_{2,1} = \frac{s_1 (2G + \lambda)}{y_1} \left( -x_5(e^{b s_1} + e^{-b s_1})d_1^i + x_2(e^{b s_1} - e^{-b s_1})d_3^i \right) + \\
+    &+ \frac{s_2 (2G + \lambda)}{y_2} \left( -x_6(e^{b s_2} + e^{-b s_2})f_1^i + x_4(e^{b s_2} - e^{-b s_2})f_3^i \right) 
+    + \frac{\alpha_n\lambda}{y_1} \left( x_1(e^{b s_1} - e^{-b s_1})d_1^i + x_5(e^{b s_1} + e^{-b s_1})d_3^i \right) + \\
+    & + \frac{\alpha_n\lambda}{y_2} \left( x_3(e^{b s_2} - e^{-b s_2})f_1^i + x_6(e^{b s_2} + e^{-b s_2})f_3^i \right)
+\end{align*}
+\begin{align*}
+    &U_0\left[ \Psi_i(y) \right]_{2,2} = \frac{s_1 (2G + \lambda)}{y_1} \left( -x_5(e^{b s_1} + e^{-b s_1})d_2^i + x_2(e^{b s_1} - e^{-b s_1})d_4^i \right) + \\
+    &+ \frac{s_2 (2G + \lambda)}{y_2} \left( -x_6(e^{b s_2} + e^{-b s_2})f_2^i + x_4(e^{b s_2} - e^{-b s_2})f_4^i \right) 
+    + \frac{\alpha_n\lambda}{y_1} \left( x_1(e^{b s_1} - e^{-b s_1})d_2^i + x_5(e^{b s_1} + e^{-b s_1})d_4^i \right) + \\
+    & + \frac{\alpha_n\lambda}{y_2} \left( x_3(e^{b s_2} - e^{-b s_2})f_2^i + x_6(e^{b s_2} + e^{-b s_2})f_4^i \right)
+\end{align*}
+
+Розглянемо $U_1\left[ \Psi_i(y) \right]$:
+\begin{align*}
+    &U_1\left[ \Psi_i(y) \right]_{1,1} = \frac{s_1}{y_1} \left( 2 x_1 d_1^i \right) + \frac{s_2}{y_2} \left( 2 x_3 f_1^i \right) 
+    + \frac{\alpha_n}{y_1} \left(2 x_5 d_1^i \right) + \frac{\alpha_n}{y_2} \left(2 x_6 f_1^i \right) \\
+    &U_1\left[ \Psi_i(y) \right]_{1,2} = \frac{s_1}{y_1} \left( 2 x_1 d_2^i \right) + \frac{s_2}{y_2} \left( 2 x_3 f_2^i \right) 
+    + \frac{\alpha_n}{y_1} \left(2 x_5 d_2^i \right) + \frac{\alpha_n}{y_2} \left(2 x_6 f_2^i \right) \\
+    &U_1\left[ \Psi_i(y) \right]_{2,1} = \frac{1}{y_1} \left( -2 x_5 d_1^i \right) + \frac{1}{y_2} \left( -2 x_6 f_1^i \right) \\
+    &U_1\left[ \Psi_i(y) \right]_{2,2} = \frac{1}{y_1} \left( -2 x_5 d_2^i \right) + \frac{1}{y_2} \left( -2 x_6 f_2^i \right)
+\end{align*}
+
+Введемо наступні позначення:
+\begin{align*}
+    &z_1 = \frac{1}{y_1}\left( e^{b s_1} + e^{-b s_1} \right) \left( s_1 x_1 + \alpha_n x_5 \right), \quad
+    z_2 = \frac{1}{y_1}\left( e^{b s_1} - e^{-b s_1} \right) \left( s_1 x_5 - \alpha_n x_2 \right), \\
+    &z_3 = \frac{1}{y_2}\left( e^{b s_2} + e^{-b s_2} \right) \left( s_2 x_3 + \alpha_n x_6 \right), \quad
+    z_4 = \frac{1}{y_2}\left( e^{b s_2} - e^{-b s_2} \right) \left( s_2 x_6 - \alpha_n x_4 \right), \\
+    &z_5 = \frac{1}{y_1}\left( e^{b s_1} - e^{-b s_1} \right) \left( -s_1 (2G + \lambda) x_5 + \alpha_n \lambda x_3 \right), \quad
+    z_6 = \frac{1}{y_1}\left( e^{b s_1} + e^{-b s_1} \right) \left( s_1 (2G + \lambda) x_2 + \alpha_n \lambda x_5 \right), \\
+    &z_7 = \frac{1}{y_2}\left( e^{b s_2} - e^{-b s_2} \right) \left( -s_2 (2G + \lambda) x_6 + \alpha_n \lambda x_3 \right), \quad
+    z_8 = \frac{1}{y_2}\left( e^{b s_2} + e^{-b s_2} \right) \left( s_2 (2G + \lambda) x_4 + \alpha_n \lambda x_6 \right), \\
+    &z_9 = \frac{1}{y_1} \left( 2 s_1 x_1 + 2 \alpha_n x_5 \right), \quad
+    z_{10} = \frac{1}{y_2} \left( 2 s_2 x_3 + 2 \alpha_n x_6 \right), \\
+    &z_{11} = -\frac{2}{y_1} x_5, \quad z_{12} = -\frac{2}{y_2} x_6
+\end{align*}
+
+Враховучи останнє випишем системи відностно невідомих коєфіцієнтів $d_k^i$, $f_k^i$, $i=\overline{0,1}$, $k=\overline{1,4}$
+\begin{equation*}
+    \begin{cases}
+        z_1 d_1^0 + z_2 d_3^0 + z_3 f_1^0 + z_4 f_3^0 = 1 \\
+        z_5 d_1^0 + z_6 d_3^0 + z_7 f_1^0 + z_8 f_3^0 = 0 \\
+        z_9 d_1^0 + z_{10} f_1^0 = 0 \\
+        z_{11} d_1^0 + z_{12} f_1^0 = 0
+    \end{cases}, \quad
+    \begin{cases}
+        z_1 d_2^0 + z_2 d_4^0 + z_3 f_2^0 + z_4 f_4^0 = 0 \\
+        z_5 d_2^0 + z_6 d_4^0 + z_7 f_2^0 + z_8 f_4^0 = 1 \\
+        z_9 d_2^0 + z_{10} f_2^0 = 0 \\
+        z_{11} d_2^0 + z_{12} f_2^0 = 0
+    \end{cases}
+\end{equation*}
+\begin{equation*}
+    \begin{cases}
+        z_1 d_1^1 + z_2 d_3^1 + z_3 f_1^1 + z_4 f_3^1 = 0 \\
+        z_5 d_1^1 + z_6 d_3^1 + z_7 f_1^1 + z_8 f_3^1 = 0 \\
+        z_9 d_1^1 + z_{10} f_1^1 = 1 \\
+        z_{11} d_1^1 + z_{12} f_1^1 = 0
+    \end{cases}, \quad
+    \begin{cases}
+        z_1 d_2^1 + z_2 d_4^1 + z_3 f_2^1 + z_4 f_4^1 = 0 \\
+        z_5 d_2^1 + z_6 d_4^1 + z_7 f_2^1 + z_8 f_4^1 = 0 \\
+        z_9 d_2^1 + z_{10} f_2^1 = 0 \\
+        z_{11} d_2^1 + z_{12} f_2^1 = 1
+    \end{cases}
+\end{equation*}
