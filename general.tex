@@ -298,7 +298,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     &v_n(y) = \int_0^b \left[g_3(y, \xi)f_n^1(\xi) + g_4(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^4(y) p_n
 \end{align}
 
-\subsection{Фінальний розв'язок задачі}
+\subsection{Побудова розв'язоку вихідної задачі}
 Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
 (\ref{transf_sol_u_gen}), (\ref{transf_sol_v_gen}), отримаємо фінальний розв'язок задачі
 \begin{equation}
@@ -308,5 +308,15 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
-Залишилось знайти невідомі функції $\chi_1(y)$, $\chi_2(y)$, $\chi_3(y)$, $\chi_4(y)$, для цього треба побудувати систему інтегральних рівнянь,
-використовуючи граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$. В залежності від умов бічних гранях розв’язання задачі зводиться
+Знайдем тепер $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_gen}, \eqref{transf_bound_gen} при $n=0$, $\alpha_n = 0$.
+Детальний розв'язок якої наведено в (\nameref{ap_D}). Тоді остаточний розв'язок $v(x,y)$ буде мати вигляд
+\begin{align}
+    &v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x) - \psi_0(y) \frac{p_0}{a(2G + \lambda)} + \\
+    &+ \frac{1}{a(1+\mu_0)} \int_{0}^{b}g(y,\xi) \left[ (\frac{\alpha_2}{\beta_2}\chi_4(\xi) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(\xi)) - \frac{\mu_0}{(1+\mu_0)} (\chi_3^{'}(\xi) cos(\alpha_n a) -\chi_1^{'}(\xi)) \right] d\xi
+\end{align}
+
+Залишилось знайти невідомі функції $\chi_1(y)$, $\chi_2(y)$, $\chi_3(y)$, $\chi_4(y)$.
+В подальшому в данній роботі розглянуто випадок таких граничних умов які призводять лише до однієї невідомої функції $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$.
+Для знаходження якої буде побудовано інтегральне рівняння завдяки граничній умові $\sigma_y(x, y) |_{y=b} = -p(x)$.
+
+\subsection{Висновки до другого розділу}
