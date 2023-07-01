@@ -1,6 +1,11 @@
 Знайдемо корені $det[M(s)]=0$
 \begin{align*}
-    &det[M(s)] = (s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}) + (\alpha_n \mu_0 s)^2 = \\
+    &det[M(s)] = 
+    \begin{vmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2}
+     \end{vmatrix} = \\
+    &= (s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}) + (\alpha_n \mu_0 s)^2 = \\
     &= s^4 + s^4 \mu_0 - s^2 \alpha_n^2 + s^2 \frac{\omega^2}{c_2^2} - s^2 \alpha_n^2 - s^2 \alpha_n^2 \mu_0 + \alpha_n^4 - \alpha_n^2 \frac{\omega^2}{c_2^2} - s^2 \alpha_n^2 \mu_0 - \\
     &- s^2 \alpha_n^2 \mu_0 + \alpha_n^4 \mu_0 - \alpha_n^2 \frac{\omega^2}{c_2^2} + s^2 \frac{\omega^2}{c_1^2} + s^2 \mu_0 \frac{\omega^2}{c_1^2} - \alpha_n^2 \frac{\omega^2}{c_1^2} + \frac{\omega^4}{c_1^2 c_2^2} + s^2 \alpha_n^2 \mu_0^2 = \\
     &=(1 + \mu_0) s^4 + (-2 \alpha_n^2 - 2 \alpha_n^2 \mu_0 + \frac{\omega^2}{c_2^2} + \frac{\omega^2}{c_1^2} + \mu_0 \frac{\omega^2}{c_1^2}) s^2 + (\alpha_n^4 - \alpha_n^2 \frac{\omega^2}{c_2^2} + \\ 
