@@ -1,5 +1,13 @@
+
+
 \subsection{Постановка задачі}
-Розглядається пружна прямокутна область, яка займає облась,
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[scale=1]{images/geometry/image_2.jpg}
+    \end{center}
+    \caption{Геометрія проблеми}\label{geom_static_1}
+\end{figure}
+Розглядається пружна прямокутна область (Рис: \ref{geom_static_1}), яка займає облась,
 що описується у декартовій системі координат співвідношенням $0 \le x \le a$, $0 \le y \le b$.
 
 До прямокутної області на грані $y=b$ додане нормальне навантаження
@@ -8,10 +16,10 @@
 \end{equation}
 де $p(x)$ відома функція.
 На бічних гранях виконується умова ідеального контакту
-\begin{equation}
+\begin{equation}\label{bound_1_static_1}
     u(x,y) |_{x=0}, \quad \tau_{xy}(x,y) |_{x=0} =0
 \end{equation}
-\begin{equation}
+\begin{equation}\label{bound_2_static_1}
     u(x,y) |_{x=a}, \quad \tau_{xy}(x,y) |_{x=a} =0
 \end{equation}
 На нижній грані виконуються наступні умови
@@ -19,7 +27,7 @@
     v(x,y) |_{y=0}, \quad \tau_{xy}(x,y) |_{y=0} =0
 \end{equation}
 Розглядаються наступні рівняння рівноваги Ламе:
-\begin{equation}\label{lame_1}
+\begin{equation}\label{lame_static_1}
     \begin{cases}
         \frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 u(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial x\partial y}) = 0 \\
         \frac{\partial^2 v(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x \partial y} + \frac{\partial^2 v(x,y)}{\partial y^2}) = 0 \\
@@ -27,7 +35,7 @@
 \end{equation}
 
 \subsection{Зведеня задачі до одновимірної у просторі трансформант}
-Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь (\ref{lame_1}) наступному вигляді:
+Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь (\ref{lame_static_1}) наступному вигляді:
 \begin{equation}
     \begin{pmatrix}
         u_n(y) \\
@@ -39,10 +47,10 @@
     \end{pmatrix} dx, \quad \alpha_n = \frac{\pi n}{a}, n=\overline{1, \infty}
 \end{equation}
 
-Для цього помножим перше та друге рівняння (\ref{lame_1}) на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруєм по змінній $x$ на інтервалі $0 \le x \le a$.
-Покрокове інтегрування рівняння (\ref{lame_1}) наведено у (\nameref{ap_A}).
+Для цього помножим перше та друге рівняння (\ref{lame_static_1}) на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруєм по змінній $x$ на інтервалі $0 \le x \le a$.
+Покрокове інтегрування рівняння (\ref{lame_static_1}) наведено у (\nameref{ap_A}).
 Отримана система рівнянь задачі у просторі трансформант:
-\begin{equation}\label{transf_1}
+\begin{equation}\label{transf_static_1}
     \begin{cases}
         u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - \alpha_n^2 (1 + \mu_0) u_n(y) = 0 \\
         (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = 0 \\
@@ -63,7 +71,7 @@
 
 \subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
 Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
-Рівняння рівноваги (\ref{transf_1}) запишемо у наступному вигляді:
+Рівняння рівноваги (\ref{transf_static_1}) запишемо у наступному вигляді:
 \begin{align}\label{transf_mat_1}
     &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
     & L_2\left[ Z_n(y) \right] = 0
@@ -168,9 +176,13 @@
      \end{pmatrix}
 \end{equation}
 \begin{align}
-    &det[M(s)] = (s^2 -\alpha_n^2(1 + \mu_0))(s^2 (1 + \mu_0) -\alpha_n^2) + (\alpha_n \mu_0 s)^2 = \nonumber \\
+    &det[M(s)] = \begin{vmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
+     \end{vmatrix} = \nonumber \\
     &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2
 \end{align}
+Де $s_1$, $s_2$, корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
 
 Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
 \begin{align*}
@@ -221,7 +233,7 @@
 \end{equation}
 
 Останній крок це знаходження $v_0(y)$ у випадку коли $n=0$, $\alpha_n =0$.
-Для цього повернемся до другого рівняння (\ref{transf_1}), та запишем його для цього випадку:
+Для цього повернемся до другого рівняння (\ref{transf_static_1}), та запишем його для цього випадку:
 \begin{equation}\label{transf_v_0_1}
     (1 + \mu_0) v_n^{''}(y) = 0
 \end{equation}
