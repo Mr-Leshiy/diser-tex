@@ -1,4 +1,12 @@
+У даному розділі досліджено плоска задача теорії пружності для прямокутної області,
+за умов ідеального контакту на бічних гранях.
 
+Вихідна задача зведена до одновимірної задачі у просторі трансформант за допомогою інтегрального перетворення Фур'є.
+Отримана крайова задача розв'язана точно за допомогою методу матрично диференціального числення,
+фундаментальний розв'язок представлений як інтеграл по замкненому контору, який в свою чергу, був знайденний за допомогою теоремі про лишки.
+Остаточний вигляд для функцій переміщеннь та напружень отриман шляхом оберненого перетворення Фур'є.
+
+Проведено чисельний аналіз отриманих функцій переміщень та напружень для різних розмірів прямокутної області та різних видів навантаження.
 
 \subsection{Постановка задачі}
 \begin{figure}[h]
@@ -263,5 +271,42 @@
 \end{equation}
 
 \subsection{Чисельні розрахунки}
+Наведені чисельні експеренти розглядаються для сталі ($E=200$ ГПА, $\mu=0.25$).
+
+Розглянута прямокунта область $0 \le x \le 10$, $0 \le y \le 15$, при функції навантаження $p(x)=(x-2.5)^2$.
+На малюнках (Рис: \ref{static_1_u_1}), (Рис: \ref{static_1_v_1}), (Рис: \ref{static_1_sigma_x_1}), (Рис: \ref{static_1_sigma_y_1})
+представлені функіі переміщень $u(x,y)$, $v(x,y)$ та напружень $\sigma_x(x,y)$, $\sigma_y(x,y)$ відповідно.
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_u_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_u_2.png}
+        \caption{Функція $u(x, y)$}\label{static_1_u_1}
+    \end{center}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_v_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_v_2.png}
+        \caption{Функція $v(x, y)$}\label{static_1_v_1}
+    \end{center}
+\end{figure}
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_sigma_x_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_sigma_x_2.png}
+        \caption{Функція $\sigma_x(x, y)$}\label{static_1_sigma_x_1}
+    \end{center}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_sigma_y_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/function_sigma_y_2.png}
+        \caption{Функція $\sigma_y(x, y)$}\label{static_1_sigma_y_1}
+    \end{center}
+\end{figure}
 
 \subsection{Висновки до треттього розділу розділу}
+Отримано точне розв'язок статичної задачі для прямокутної області за умов ідеального контакту на бічних гранях.
+Дослідженно поля переміщень та напружень для різних видів навантаження і розмірів прямокутної області
