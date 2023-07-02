@@ -59,7 +59,7 @@
 
 Застосовуючи інтегральне перетворення до граничних умов,
 отримаємо наступні умови задачі у просторі трансформант
-\begin{equation}\label{transf_bound_1}
+\begin{equation}\label{transf_bound_static_1}
     \begin{cases}
         \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n \\
         \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=b} = 0 \\
@@ -72,7 +72,7 @@
 \subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
 Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
 Рівняння рівноваги (\ref{transf_static_1}) запишемо у наступному вигляді:
-\begin{align}\label{transf_mat_1}
+\begin{align}\label{transf_mat_static_1}
     &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
     & L_2\left[ Z_n(y) \right] = 0
 \end{align}
@@ -97,8 +97,8 @@
         v_n(y)
     \end{pmatrix}
 \end{equation*}
-Граничні умови (\ref{transf_bound_1}) запишемо у наступному вигляді:
-\begin{align}\label{transf_bound_mat_1}
+Граничні умови (\ref{transf_bound_static_1}) запишемо у наступному вигляді:
+\begin{align}\label{transf_bound_mat_static_1}
     &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
     & U_i\left[ Z_n(y) \right] = D_i
 \end{align}
@@ -134,12 +134,12 @@
     \end{pmatrix}, \quad
 \end{equation*}
 
-Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_1}).
+Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_static_1}).
 Шукати її будем у наступному вигляді:
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
 \end{equation}
-Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_1}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_static_1}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
 \begin{equation}
     L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
 \end{equation}
@@ -182,7 +182,7 @@
      \end{vmatrix} = \nonumber \\
     &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2
 \end{align}
-Де $s_1$, $s_2$, корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
+Де $\alpha_n$, $-\alpha_n$, корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
 
 Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
 \begin{align*}
@@ -210,21 +210,21 @@
 \begin{equation}
     Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  Y_1(y) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}  \right)
 \end{equation}
-Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_1}).
-Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_B}).
+Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_static_1}).
+Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_E}).
 Таким чином ми можемо записати розв'зок у просторі трансформант:
-\begin{align}\label{transf_sol_u_1}
+\begin{align}\label{transf_sol_u_static_1}
     &u_n(y) = \frac{e^{\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_1 (\alpha_n \mu_0 y + 2 + \mu_0) + c_2 (\alpha_n \mu_0 y) \right] + \nonumber \\
     &\quad + \frac{e^{-\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_3 (\alpha_n \mu_0 y - 2 - \mu_0) + c_4 (-\alpha_n \mu_0 y)\right]
 \end{align}
-\begin{align}\label{transf_sol_v_1}
+\begin{align}\label{transf_sol_v_static_1}
     &v_n(y) = \frac{e^{\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_1 (-\alpha_n \mu_0 y) + c_2 (-\alpha_n \mu_0 y + 2 + \mu_0) \right] + \nonumber \\
     &\quad + \frac{e^{-\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_3 (\alpha_n \mu_0 y) + c_4 (-\alpha_n \mu_0 y - 2 - \mu_0)\right]
 \end{align}
 
 \subsection{Фінальний розв'язок задачі}
 Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
-(\ref{transf_sol_u_1}), (\ref{transf_sol_v_1}), отримаємо фінальний розв'язок задачі
+(\ref{transf_sol_u_static_1}), (\ref{transf_sol_v_static_1}), отримаємо фінальний розв'язок задачі
 \begin{equation}
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
@@ -234,11 +234,11 @@
 
 Останній крок це знаходження $v_0(y)$ у випадку коли $n=0$, $\alpha_n =0$.
 Для цього повернемся до другого рівняння (\ref{transf_static_1}), та запишем його для цього випадку:
-\begin{equation}\label{transf_v_0_1}
+\begin{equation}\label{transf_v_0_static_1}
     (1 + \mu_0) v_n^{''}(y) = 0
 \end{equation}
 Та граничні умови:
-\begin{equation}\label{transf_bound_v_0_1}
+\begin{equation}\label{transf_bound_v_0_static_1}
     \begin{cases}
         (2G + \lambda)v_0^{'}(y)|_{y=b} = -p_0 \\
         v_0(y)|_{y=0} = 0
@@ -246,11 +246,11 @@
 \end{equation}
 Де $p_0 = \int_{0}^{a}p(x)dx$
 
-Розв'язок рівняння (\ref{transf_v_0_1}):
+Розв'язок рівняння (\ref{transf_v_0_static_1}):
 \begin{equation}
     v_0(y) = c_1 + c_2 y
 \end{equation}
-Застовоючи граничні умови (\ref{transf_bound_v_0_1}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
+Застовоючи граничні умови (\ref{transf_bound_v_0_static_1}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
 \begin{equation}
     v_0(y) = \frac{-p_0}{(2G + \lambda)}y
 \end{equation}
