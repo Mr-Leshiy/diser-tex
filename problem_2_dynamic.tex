@@ -101,7 +101,7 @@
 \subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
 Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
 Рівняння рівноваги (\ref{transf_dynamic_1}) запишемо у наступному вигляді:
-\begin{align}\label{transf_mat_2}
+\begin{align}\label{transf_mat_dynamic_1}
     &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
     &L_2\left[ Z_n(y) \right] = 0
 \end{align}
@@ -127,7 +127,7 @@
     \end{pmatrix}
 \end{equation*}
 Граничні умови (\ref{transf_bound_dynamic_1}) запишемо у наступному вигляді:
-\begin{align}\label{transf_bound_mat_2}
+\begin{align}\label{transf_bound_mat_dynamic_1}
     &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
     & U_i\left[ Z_n(y) \right] = D_i
 \end{align}
@@ -163,12 +163,12 @@
     \end{pmatrix}, \quad
 \end{equation*}
 
-Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_2}).
+Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_dynamic_1}).
 Шукати її будем у наступному вигляді:
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
 \end{equation}
-Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_2}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_dynamic_1}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
 \begin{equation}
     L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
 \end{equation}
@@ -206,7 +206,7 @@
 Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
 \begin{align*}
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{4} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
-    & = \frac{1}{(1 + \mu_0)} \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
+    & = \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
 \end{align*}
 Знайдем $Y_0(y)$:
 \begin{align}
@@ -243,17 +243,17 @@
 
 Таким чином ми можемо записати розв'язок задачі у просторі трансформант:
 \begin{equation}
-    Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) +  Y_1(y)  \right) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  \frac{1}{1 + \mu_0} \left( Y_2(y) +  Y_3(y) \right) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}
+    Z_n(y) =\left( Y_0(y) +  Y_1(y)  \right) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} + \left( Y_2(y) +  Y_3(y) \right) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}
 \end{equation}
-Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_2}).
+Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_dynamic_1}).
 Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_C}).
 Таким чином ми можемо записати розв'зок у просторі трансформант:
-\begin{align}\label{transf_sol_u_2}
+\begin{align}\label{transf_sol_u_dynamic_1}
     &u_n(y) = \frac{( a_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(e^{a_1y} - e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_1 + \nonumber \\
     & + \frac{( a_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(e^{a_2y} - e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_3 + \nonumber \\
     & + \frac{(a_1 \alpha_n y)(e^{a_1y} + e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_2 + \frac{(a_2 \alpha_n y)(e^{a_2y} + e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_4
 \end{align}
-\begin{align}\label{transf_sol_v_2}
+\begin{align}\label{transf_sol_v_dynamic_1}
     &v_n(y) = \frac{(a_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2})(e^{a_1y} - e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_2 + \nonumber \\
     & +\frac{(a_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2})(e^{a_2y} - e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_4 - \nonumber \\
     & - \frac{(a_1 \alpha_n y)(e^{a_1y} + e^{-a_1y})}{2a_1(a_1^2 - a_2^2)(1 + \mu_0)}c_1 - \frac{(a_2 \alpha_n y)(e^{a_2y} + e^{-a_2y})}{2a_2(a_2^2 - a_1^2)(1 + \mu_0)}c_3
@@ -261,7 +261,7 @@
 
 \subsection{Побудова розв'язоку вихідної задачі}
 Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
-(\ref{transf_sol_u_2}), (\ref{transf_sol_v_2}), отримаємо фінальний розв'язок задачі
+(\ref{transf_sol_u_dynamic_1}), (\ref{transf_sol_v_dynamic_1}), отримаємо фінальний розв'язок задачі
 \begin{equation}
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
@@ -271,11 +271,11 @@
 
 Останній крок це знаходження $v_0(y)$ у випадку коли $n=0$, $\alpha_n =0$.
 Для цього повернемся до другого рівняння (\ref{transf_dynamic_1}), та запишем його для цього випадку:
-\begin{equation}\label{transf_v_0_2}
+\begin{equation}\label{transf_v_0_dynamic_1}
     (1 + \mu_0) v_n^{''}(y) + \frac{\omega^2}{c_2^2}v_0(y) = 0
 \end{equation}
 Та граничні умови:
-\begin{equation}\label{transf_bound_v_0_2}
+\begin{equation}\label{transf_bound_v_0_dynamic_1}
     \begin{cases}
         (2G + \lambda)v_0^{'}(y)|_{y=b} = -p_0 \\
         v_0(y)|_{y=0} = 0
@@ -283,11 +283,11 @@
 \end{equation}
 Де $p_0 = \int_{0}^{a}p(x)dx$
 
-Розв'язок рівняння (\ref{transf_v_0_2}):
+Розв'язок рівняння (\ref{transf_v_0_dynamic_1}):
 \begin{equation}
     v_0(y) = c_1 cos \left(y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right) + c_2 sin \left( y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right)
 \end{equation}
-Застовоючи граничні умови (\ref{transf_bound_v_0_2}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
+Застовоючи граничні умови (\ref{transf_bound_v_0_dynamic_1}) для знаходження коєфіцієнтів $c_1$, $c_2$, отримаємо розв'язок задачі задачі:
 \begin{equation}
     v_0(y) = \frac{-p_0}{(2G + \lambda) \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} sin \left(b \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right) } sin \left(y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right)
 \end{equation}
