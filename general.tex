@@ -363,10 +363,19 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     a_1(x) = a p(x) - \left[ 2(2G + \lambda) \frac{\partial}{\partial y} \sum_{n=1}^{\infty} \psi_0^{4}(y) p_n cos(\alpha_n x) + 2\lambda \frac{\partial}{\partial x} \sum_{n=1}^{\infty}\psi_0^2(y) p_n sin(\alpha_n x) + \psi_0^{'}(b) p_0\right]|_{y=b}
 \end{equation}
 Враховуючи його отримаємо наступне інтегральне рівняння відносно $f(\xi)$:
-\begin{align*}
+\begin{align}\label{int_gen}
     &\frac{(2G + \lambda)}{(1+\mu_0)} \int_{0}^{b}\frac{\partial g(y, \xi)}{\partial y}|_{y=b} f(\xi) d\xi + \\ 
     &+ \int_{0}^{b} \sum_{n=1}^{\infty} cos(\alpha_n a) cos(\alpha_n x) \left[(2G + \lambda) \frac{\partial g_4(y, \xi)}{\partial y} + \alpha_n \lambda g_2(y, \xi) \right]|_{y=b} f(\xi) d\xi = a_1(x)
+\end{align}
+Розглянемо ряд:
+\begin{align*}
+    &\sum_{n=1}^{\infty} cos(\alpha_n a) cos(\alpha_n x) \left[(2G + \lambda) \frac{\partial g_4(y, \xi)}{\partial y} + \alpha_n \lambda g_2(y, \xi) \right]|_{y=b} = \\
+    &= \sum_{n=1}^{\infty} (-1)^n \alpha_n^{-1} e^{\alpha_n (\xi - b)} cos(\alpha_n x) \left[ \frac{\partial \widetilde{g_4(y, \xi)}}{\partial y} + \lambda \widetilde{g_2(y, \xi)} \right]|_{y=b}
 \end{align*}
+Введемо позначення:
+\begin{equation*}
+    a_2 = \frac{2}{\pi} \lim_{n \rightarrow \infty}\left[ \frac{\partial \widetilde{g_4(y, \xi)}}{\partial y} + \lambda \widetilde{g_2(y, \xi)} \right]|_{y=b}
+\end{equation*}
 
 
 \subsection{Висновки до другого розділу}
