@@ -133,5 +133,45 @@
 \end{equation*}
 
 \subsection*{Випадок динамічної задачі}
-Для знаходження коєфіцієтів $c_1$, $c_2$, $c_3$, $c_4$ випадку динамічної задачі спочатку
-знайдем $\left( Y_0(y) + Y_1(y) \right) * \begin{pmatrix}c_1 \\ c_2\end{pmatrix}$ та $\left( Y_2(y) + Y_3(y) \right) * \begin{pmatrix}c_3 \\ c_4\end{pmatrix}$.
+Розглянемо випадок динамічної задачі. Введемо наступні позначення
+\begin{align*}
+    &x_1 = \alpha_n \mu_0 s_1, \quad x_2 = \alpha_n \mu_0 s_2 \\
+    &x_3 = s_1^2(1 + \mu_0) - \alpha_n^2 + \frac{\omega^2}{c_2^2}, \quad x_4 = s_2^2(1 + \mu_0) - \alpha_n^2 + \frac{\omega^2}{c_2^2} \\
+    &x_5 = s_1^2 - \alpha_n^2(1 + \mu_0) + \frac{\omega^2}{c_1^2}, \quad x_6 = s_2^2 - \alpha_n^2(1 + \mu_0) + \frac{\omega^2}{c_1^2} \\
+    &y_1 = 2s_1 (s_1^2 - s_2^2), \quad y_2 = 2 s_2 (s_2^2 - s_1^2) \\
+    &z_1 = \frac{(e^{b s_1} + e^{-b s_1}) (s_1 x_3 + \alpha_n x_1)}{y_1}, \quad z_2 = \frac{(e^{b s_1} - e^{-b s_1}) (s_1 x_1 - \alpha_n x_5)}{y_1} \\
+    &z_3 = \frac{(e^{b s_2} + e^{-b s_2}) (s_2 x_4 + \alpha_n x_2)}{y_2}, \quad z_4 = \frac{(e^{b s_2} - e^{-b s_2}) (s_2 x_4 - \alpha_n x_6)}{y_2} \\
+    &z_5 = \frac{(e^{b s_1} - e^{-b s_1}) (s_1 x_3 - s_1 x_1 (2G + \lambda))}{y_1}, \quad z_6 = \frac{(e^{b s_1} + e^{-b s_1}) (s_1 x_5 (2G + \lambda) + \alpha_n \lambda x_1)}{y_1} \\
+    &z_7 = \frac{(e^{b s_2} - e^{-b s_2}) (\alpha_n \lambda x_4 - s_2 x_2 (2G + \lambda))}{y_2}, \quad z_8 = \frac{(e^{b s_2} + e^{-b s_2}) (s_2 x_6 (2G + \lambda) + \alpha_n \lambda x_2)}{y_2} \\
+    &z_9 = \frac{s_1 x_3 + \alpha_n x_1}{y_1}, \quad z_{10} = \frac{s_2 x_4 + \alpha_n x_2}{y_2} \\
+    &z_{11} = \frac{x_1}{y_1}, \quad z_{12} = \frac{x_2}{y_2}
+\end{align*}
+Таким чином отримаємо наступну систему:
+\begin{equation*}
+    \begin{cases}
+        z_1 c_1 + z_2 c_2 + z_3 c_3 + z_4 c_4 = 0 \\
+        z_5 c_1 + z_6 c_2 + z_7 c_3 + z_8 c_4 = -p_n \\
+        z_9 c_1 + z_{10} c_3 = 0 \\
+        z_{11} c_1 + z_{12} c_3 = 0
+    \end{cases}, \Leftrightarrow 
+    \begin{cases}
+        c_1 = 0 \\
+        c_3 = 0
+        z_2 c_2 + z_4 c_4 = 0 \\
+        z_6 c_2 + z_8 c_4 = -p_n
+    \end{cases}, \Leftrightarrow 
+\end{equation*}
+\begin{equation*}
+    \begin{cases}
+        c_1 = 0 \\
+        c_3 = 0
+        c_2 = - \frac{z_4}{z_2} c_4 \\
+        z_6 c_2 + z_8 c_4 = -p_n
+    \end{cases}, \Leftrightarrow 
+    \begin{cases}
+        c_1 = 0 \\
+        c_3 = 0 \\
+        c_2 = p_n \frac{z_4}{z_8 z_2 - z_4 z_6} \\
+        c_4 = -p_n \frac{z_2}{z_8 z_2 - z_4 z_6}
+    \end{cases}
+\end{equation*}
