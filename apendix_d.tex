@@ -1,3 +1,4 @@
+\subsection*{Випадок динамічної задачі}
 Знайдем $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_gen}, \eqref{transf_bound_gen} при $n=0$, $\alpha_n = 0$.
 Отримаємо наступну задачу відносно $v_0(y)$:
 \begin{align*}
@@ -53,10 +54,58 @@
     v_0(y) = \frac{1}{(1+\mu_0)} \int_{0}^{b}g(y,\xi) f(\xi) d\xi - \psi_0(y) \frac{p_0}{2G + \lambda}
 \end{equation*}
 
+\subsection*{Випадок статичної задачі}
 У випадку статичної задачі коли $\omega = 0$ отримаємо наступну задачу відносно $v_0(y)$:
 \begin{equation*}
     v_0^{''}(y) = \frac{f(y)}{1+\mu_0}
 \end{equation*}
 \begin{equation*}
     (2G + \lambda)v_0^{'}(b) = -p_0, \quad v_0(0) = 0, \quad p_0 = \int_{0}^{a}p(x)dx
+\end{equation*}
+Спочатку знайдем фундаментальну базисну систему розв'язків задачі $\psi_0(y)$, $\psi_1(y)$:
+\begin{equation*}
+    \psi_i^{''}(y) = 0, i=\overline{0,1} \\
+\end{equation*}
+\begin{equation*}
+    \begin{cases}
+        \psi_0(0) = 1 \\
+        \psi_0^{'}(b) = 0
+    \end{cases}, \quad
+    \begin{cases}
+        \psi_1(0) = 0 \\
+        \psi_1^{'}(b) = 1
+    \end{cases}
+\end{equation*}
+Розв'язок однорідної задачі відносно $\psi_i(y)$ має вигляд:
+\begin{equation}
+    \psi_i(y) = c_1^i + c_2^i y 
+\end{equation}
+Враховучи граничні умови отримаємо остаточний вигляд $\psi_0(y)$, $\psi_1(y)$:
+\begin{align*}
+    \begin{cases}
+        \psi_0(y) = 1 \\
+        \psi_1(y) = y
+    \end{cases}
+\end{align*}
+Побудуємо тепер функцію Гріна задачі:
+\begin{equation*}
+    g(y, \xi) = \begin{cases}
+        -a_1(\xi) \psi_1(y), 0 \le y < \xi \\
+        a_0(\xi) \psi_0(y), \xi < y \le b
+    \end{cases}
+\end{equation*}
+Де $a_0(\xi)$, $a_1(\xi)$ будуть знайдені з наступної системи
+\begin{equation*}
+    \begin{cases}
+        a_0(\xi) \psi_0^{'}(\xi) + a_1(\xi) \psi_1^{'}(\xi) = 1 \\
+        a_0(\xi) \psi_0^(\xi) + a_1(\xi) \psi_1(\xi) = 0
+    \end{cases}, \Leftrightarrow
+    \begin{cases}
+        a_0(\xi) = -\xi \\
+        a_1(\xi) = 1
+    \end{cases}
+\end{equation*}
+Таким чином остаточний розв'язок задачі відносно $v_0(y)$ буде мати наступний вигляд:
+\begin{equation*}
+    v_0(y) = \frac{1}{(1+\mu_0)} \int_{0}^{b}g(y,\xi) f(\xi) d\xi - \psi_0(y) \frac{p_0}{2G + \lambda}
 \end{equation*}
