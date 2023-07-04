@@ -69,6 +69,160 @@
 \begin{equation}\label{transf_static_2}
     \begin{cases}
         u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - \alpha_n^2 (1 + \mu_0) u_n(y) = 0 \\
-        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = -cos(\alpha_n) \frac{\partial v(x,y)}{\partial x}|_{x=a} \\
+        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = -cos(\alpha_n) f(y) \\
     \end{cases}
 \end{equation}
+Де $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$ - невідома функція
+
+Застосовуючи інтегральне перетворення до граничних умов,
+отримаємо наступні умови задачі у просторі трансформант
+\begin{equation}\label{transf_bound_static_2}
+    \begin{cases}
+        \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n \\
+        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=b} = 0 \\
+        v_n(y)|_{y=0} = 0 \\
+        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=0} = 0
+    \end{cases}
+\end{equation}
+Де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
+
+\subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
+Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
+Рівняння рівноваги (\ref{transf_static_2}) запишемо у наступному вигляді:
+\begin{align}\label{transf_mat_static_2}
+    &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
+    &L_2\left[ Z_n(y) \right] = F_n(y)
+\end{align}
+Де
+\begin{equation*}
+    A = \begin{pmatrix}
+        1 & 0 \\
+        0 & 1 + \mu_0
+    \end{pmatrix}, \quad
+    B = \begin{pmatrix}
+        0 & -\alpha_n \mu_0 \\
+        \alpha_n \mu_0 & 0
+    \end{pmatrix}, \quad
+    C = \begin{pmatrix}
+        -\alpha_n^2(1 + \mu_0) & 0 \\
+        0 & -\alpha_n^2
+    \end{pmatrix}
+\end{equation*}
+\begin{equation*}
+    Z_n(y) = \begin{pmatrix}
+        u_n(y) \\
+        v_n(y)
+    \end{pmatrix}, \quad 
+    F_n(y) = \begin{pmatrix}
+        0 \\
+        - cos(\alpha_n a) f(y)
+    \end{pmatrix}
+\end{equation*}
+Граничні умови (\ref{transf_bound_static_2}) запишемо у наступному вигляді:
+\begin{align}\label{transf_bound_mat_static_2}
+    &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
+    & U_i\left[ Z_n(y) \right] = D_i
+\end{align}
+Де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
+\begin{equation*}
+    E_0 = \begin{pmatrix}
+        1 & 0 \\
+        0 & 2G + \lambda
+    \end{pmatrix}, \quad
+    F_0 = \begin{pmatrix}
+        0 & -\alpha_n \\
+        \alpha_n \lambda & 0
+    \end{pmatrix}, \quad
+\end{equation*}
+\begin{equation*}
+    E_1 = \begin{pmatrix}
+        1 & 0 \\
+        0 & 0
+    \end{pmatrix}, \quad
+    F_1 = \begin{pmatrix}
+        0 & -\alpha_n \\
+        0 & 1
+    \end{pmatrix}, \quad
+\end{equation*}
+\begin{equation*}
+    D_0 = \begin{pmatrix}
+        0 \\
+        -p_n
+    \end{pmatrix}, \quad
+    D_1 = \begin{pmatrix}
+        0 \\
+        0
+    \end{pmatrix}, \quad
+\end{equation*}
+
+Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_static_2}).
+Шукати її будем у наступному вигляді:
+\begin{equation}
+    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
+\end{equation}
+Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_static_2}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+\begin{equation}
+    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\end{equation}
+\begin{align*}
+    &L_2\left[ e^{sy}*I \right] = e^{sy} \left( s^2A * I + s B*I + C*I \right) = \\
+    &=e^{sy} \left( \begin{pmatrix}
+        s^2 & 0 \\
+        0 & s^2 (1 + \mu_0)
+    \end{pmatrix} + \begin{pmatrix}
+        0 & -\alpha_n \mu_0 s\\
+        \alpha_n \mu_0 s & 0
+    \end{pmatrix} + \begin{pmatrix}
+        -\alpha_n^2(1 + \mu_0) & 0 \\
+        0 & -\alpha_n^2
+    \end{pmatrix} \right) =  \\
+    &=e^{sy} \begin{pmatrix}
+        s^2 -\alpha_n^2(1 + \mu_0) & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
+     \end{pmatrix} =>
+\end{align*}
+
+\begin{equation}
+    M(s) = \begin{pmatrix}
+        s^2 -\alpha_n^2(1 + \mu_0) & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
+     \end{pmatrix}
+\end{equation}
+
+Знайдемо тепер $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$.
+\begin{equation}
+    \widetilde{M(s)} = \begin{pmatrix}
+        s^2 (1 + \mu_0) -\alpha_n^2 & \alpha_n \mu_0 s \\
+        -\alpha_n \mu_0 s & s^2 -\alpha_n^2(1 + \mu_0)
+     \end{pmatrix}
+\end{equation}
+\begin{align}
+    &det[M(s)] = \begin{vmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
+     \end{vmatrix} = \nonumber \\
+    &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2
+\end{align}
+Де $\alpha_n$, $-\alpha_n$, корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
+
+Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
+\begin{align*}
+    &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{2} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
+    & = \frac{1}{(1 + \mu_0)} \left(Y_0(y) + Y_1(y) \right)
+\end{align*}
+Знайдем $Y_0(y)$:
+\begin{align}
+    &Y_0(y) =  \frac{\partial}{\partial s} \left( \frac{e^{sy}}{(s+\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=\alpha_n} = \nonumber \\
+    &=\frac{e^{\alpha_n y}}{4\alpha_n} \begin{pmatrix}
+    \alpha_n \mu_0 y + 2 + \mu_0 & \alpha_n \mu_0 y \\
+    -\alpha_n \mu_0 y & -\alpha_n \mu_0 y + 2 + \mu_0
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_1(y)$:
+\begin{align}
+    &Y_1(y) = \frac{\partial}{\partial s} \left(\frac{e^{sy}}{(s-\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=-\alpha_n} = \nonumber \\
+    =&\frac{e^{-\alpha_n y}}{4\alpha_n} \begin{pmatrix}
+    \alpha_n \mu_0 y - 2 - \mu_0 & -\alpha_n \mu_0 y \\
+    \alpha_n \mu_0 y & -\alpha_n \mu_0 y - 2 - \mu_0
+    \end{pmatrix}
+\end{align}
