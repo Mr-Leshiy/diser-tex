@@ -171,3 +171,43 @@
         0
     \end{pmatrix}, \quad
 \end{equation*}
+
+Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_dynamic_2}).
+Шукати її будем у наступному вигляді \cite{gantmaher}:
+\begin{equation}
+    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
+\end{equation}
+Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_dynamic_2}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+\begin{equation}
+    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+\end{equation}
+\begin{align*}
+    &L_2\left[ e^{sy}*I \right] = e^{sy} \left( s^2A * I + s B*I + C*I \right) = \\
+    &=e^{sy} \begin{pmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_1^2}
+     \end{pmatrix} \Rightarrow
+\end{align*}
+
+\begin{equation}
+    M(s) = \begin{pmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2}
+     \end{pmatrix}
+\end{equation}
+
+Знайдемо тепер $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$.
+\begin{equation}
+    \widetilde{M(s)} = \begin{pmatrix}
+        s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s \\
+        -\alpha_n \mu_0 s & s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+     \end{pmatrix}
+\end{equation}
+\begin{align}
+    &det[M(s)] = \begin{vmatrix}
+        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
+        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2}
+     \end{vmatrix} = \nonumber \\
+    &=(s - s_1)(s + s_1)(s - s_2)(s + s_2)
+\end{align}
+Де $s_1$, $s_2$, $-s_1$, $-s_2$ корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
