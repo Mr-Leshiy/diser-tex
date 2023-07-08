@@ -407,3 +407,43 @@
 \end{equation}
 Де $g_{k, m} = \frac{1}{\pi} \int_{-1}^{1} \frac{T_{2m + 1}(l)}{\sqrt{1 - l^2}} \int_{0}^{1} \frac{\widetilde{a_3(t, \frac{2a}{\pi} arccos(l) )}}{a_2} \frac{T_{2k + 1}(t)}{\sqrt{1 - t^2}} dt dl$,
 $f_m = \int_{-1}^{1} \frac{T_{2m + 1}(l) \widetilde{a_1(l)}}{\sqrt{1 - l^2}} dl$ інтеграли відомих функцій
+
+\subsection{Чисельні розрахунки}
+Наведені чисельні експеренти розглядаються для сталі ($E=200$ ГПА, $\mu=0.25$).
+
+Розглянута прямокунта область $0 \le x \le 10$, $0 \le y \le 15$, при функції навантаження $p(x)=(x-2.5)^2$.
+На малюнках (Рис: \ref{static_2_u_1}), (Рис: \ref{static_2_v_1}), (Рис: \ref{static_2_sigma_x_1}), (Рис: \ref{static_2_sigma_y_1})
+представлені функіі переміщень $u(x,y)$, $v(x,y)$ та напружень $\sigma_x(x,y)$, $\sigma_y(x,y)$ відповідно.
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/u_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/u_2.png}
+        \caption{Функція $u(x, y)$}\label{static_2_u_1}
+    \end{center}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/v_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/v_2.png}
+        \caption{Функція $v(x, y)$}\label{static_2_v_1}
+    \end{center}
+\end{figure}
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/sigma_x_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/sigma_x_2.png}
+        \caption{Функція $\sigma_x(x, y)$}\label{static_2_sigma_x_1}
+    \end{center}
+\end{figure}
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/sigma_y_1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_2/sigma_y_2.png}
+        \caption{Функція $\sigma_y(x, y)$}\label{static_2_sigma_y_1}
+    \end{center}
+\end{figure}
+
+\subsection{Висновки до треттього розділу розділу}
+Отримано точне розв'язок статичної задачі для прямокутної області за другої основної задачі теорії пружності на бічних гранях.
+Дослідженно поля переміщень та напружень для різних видів навантаження і розмірів прямокутної області.
