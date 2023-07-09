@@ -71,7 +71,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 Отже умова \eqref{gen_bound_gen} виконується автоматично.
 
 \subsection{Зведеня задачі до одновимірної у просторі трансформант}
-Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь \eqref{lame_gen} наступному вигляді:
+Для того, щоб звести задачу до одновимірної задачі, використаємо інтегральне перетворення Фур'є по змінній $x$ до рівнянь \eqref{lame_gen} в наступному вигляді:
 \begin{equation}
     \begin{pmatrix}
         u_n(y) \\
@@ -83,7 +83,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \end{pmatrix} dx, \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
-Для цього помножим перше та друге рівняння \eqref{lame_gen} на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруєм по змінній $x$ на інтервалі $0 \le x \le a$.
+Для цього помножимо перше та друге рівняння \eqref{lame_gen} на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруємо по змінній $x$ на інтервалі $0 \le x \le a$.
 Покрокове інтегрування рівняння \eqref{lame_gen} наведено у (\nameref{ap_A}).
 Отримана система рівнянь задачі у просторі трансформант:
 \begin{equation}\label{transf_gen}
@@ -97,7 +97,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{equation}
 
 Застосовуючи інтегральне перетворення до граничних умов,
-отримаємо наступні умови задачі у просторі трансформант
+отримаємо наступні умови задачі у просторі трансформант:
 \begin{equation}\label{transf_bound_gen}
     \begin{cases}
         \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n \\
@@ -106,7 +106,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
         \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=0} = 0
     \end{cases}
 \end{equation}
-Де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
+де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
 
 \subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
 Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
@@ -147,7 +147,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
     &U_i\left[ Z_n(y) \right] = D_i
 \end{align}
-Де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
+де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
 \begin{equation*}
     E_0 = \begin{pmatrix}
         1 & 0 \\
@@ -184,7 +184,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
 \end{equation}
-Де $M(s)$ - характерестична матриця рівняння \eqref{transf_mat_gen}, а $C$ - замкнений контур який містить усі особливі точки $M^{-1}(s)$. $M(s)$ будемо шукати з наступної умовни
+де $M(s)$ - характерестична матриця рівняння \eqref{transf_mat_gen}, а $C$ - замкнений контур який містить усі особливі точки $M^{-1}(s)$. $M(s)$ будемо шукати з наступної умовни
 \begin{equation}
     L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
 \end{equation}
@@ -217,14 +217,14 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
      \end{vmatrix} = \nonumber \\
     &=(s - s_1)(s + s_1)(s - s_2)(s + s_2)
 \end{align}
-Де $s_1$, $s_2$, $-s_1$, $-s_2$ корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
+де $s_1$, $s_2$, $-s_1$, $-s_2$ корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
 
-Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
+Враховучи це, знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
 \begin{align*}
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{4} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
     & = \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
 \end{align*}
-Знайдем $Y_0(y)$:
+Знайдемо $Y_0(y)$:
 \begin{align}
     &Y_0(y) =  \left( \frac{e^{sy}}{(s+s_1)(s - s_2)(s + s_2)} \widetilde{M(s)} \right) \Big|_{s=s_1} = \nonumber \\
     &=\frac{e^{s_1 y}}{2s_1 (s_1^2 - s_2^2)} \begin{pmatrix}
@@ -232,7 +232,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
         -\alpha_n \mu_0 s_1 & s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
     \end{pmatrix}
 \end{align}
-Знайдем $Y_1(y)$:
+Знайдемо $Y_1(y)$:
 \begin{align}
     &Y_1(y) =  \left( \frac{e^{sy}}{(s-s_1)(s - s_2)(s + s_2)} \widetilde{M(s)} \right) \Big|_{s=-s_1} = \nonumber \\
     &=-\frac{e^{-s_1 y}}{2s_1 (s_1^2 - s_2^2)} \begin{pmatrix}
@@ -240,7 +240,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
         \alpha_n \mu_0 s_1 & s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
     \end{pmatrix}
 \end{align}
-Знайдем $Y_2(y)$:
+Знайдемо $Y_2(y)$:
 \begin{align}
     &Y_2(y) =  \left( \frac{e^{sy}}{(s+s_2)(s - s_1)(s + s_1)} \widetilde{M(s)} \right) \Big|_{s=s_2} = \nonumber \\
     &=\frac{e^{s_2 y}}{2s_2 (s_2^2 - s_1^2)} \begin{pmatrix}
@@ -248,7 +248,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
         -\alpha_n \mu_0 s_2 & s_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
     \end{pmatrix}
 \end{align}
-Знайдем $Y_3(y)$:
+Знайдемо $Y_3(y)$:
 \begin{align}
     &Y_3(y) =  \left( \frac{e^{sy}}{(s-s_2)(s - s_1)(s + s_1)} \widetilde{M(s)} \right) \Big|_{s=-s_2} = \nonumber \\
     &=-\frac{e^{-s_2 y}}{2s_2 (s_2^2 - s_1^2)} \begin{pmatrix}
@@ -258,7 +258,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{align}
 
 \subsection{Побудова матриці-функції Гріна}
-Для побудови матриці-функції Гріна спочатку знайдем тепер фундамельні бизисні матриці $\Psi_0(y)$, $\Psi_1(y)$, шукати їх будем у наступному вигляді:
+Для побудови матриці-функції Гріна спочатку знайдемо тепер фундамельні бизисні матриці $\Psi_0(y)$, $\Psi_1(y)$, шукати їх будем у наступному вигляді:
 \begin{equation}\label{psi_gen}
     \Psi_i(y) = \left( Y_0(y) + Y_1(y) \right) * C_1^i + \left( Y_2(y) + Y_3(y) \right) * C_2^i
 \end{equation}
@@ -327,8 +327,9 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 Знайдем тепер $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_gen}, \eqref{transf_bound_gen} при $n=0$, $\alpha_n = 0$.
 Детальний розв'язок якої наведено в (\nameref{ap_D}). Тоді остаточний розв'язок $v(x,y)$ буде мати вигляд
 \begin{align}
-    &v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x) - \psi_0(y) \frac{p_0}{a(2G + \lambda)} + \\
-    &+ \frac{1}{a(1+\mu_0)} \int_{0}^{b}g(y,\xi) \left[ (\frac{\alpha_2}{\beta_2}\chi_4(\xi) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(\xi)) - \frac{\mu_0}{(1+\mu_0)} (\chi_3^{'}(\xi) cos(\alpha_n a) -\chi_1^{'}(\xi)) \right] d\xi
+    &v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x) - \psi_0(y) \frac{p_0}{a(2G + \lambda)} + \nonumber \\
+    &+ \frac{1}{a(1+\mu_0)} \int_{0}^{b}g(y,\xi) [ (\frac{\alpha_2}{\beta_2}\chi_4(\xi) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(\xi)) - \nonumber \\
+    & - \frac{\mu_0}{(1+\mu_0)} (\chi_3^{'}(\xi) cos(\alpha_n a) -\chi_1^{'}(\xi)) ] d\xi
 \end{align}
 
 Залишилось знайти невідомі функції $\chi_1(y)$, $\chi_2(y)$, $\chi_3(y)$, $\chi_4(y)$.
@@ -337,8 +338,8 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 
 \subsection{Загальна схема розв'язку сінгулярного інтегрального рівняння}
 Розглянемо випадок граничних умов другої основної задачі теорії пружності, в результаті отримаємо лише одну невідому функцію $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$.
-З цього отримаємо значення $f_n^1(\xi) = 0$, $f_n^2(\xi)= -cos(\alpha_n a) f(\xi) $
-Запишем тепер фінальний розв'язок для цього випадку:
+З цього отримаємо значення $f_n^1(\xi) = 0$, $f_n^2(\xi)= -cos(\alpha_n a) f(\xi)$.
+Запишемо тепер фінальний розв'язок для цього випадку:
 \begin{equation}
     u(x,y) = -\frac{2}{a} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_2(y, \xi)cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^2(y) p_n \right) sin(\alpha_n x)
 \end{equation}
@@ -347,14 +348,15 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     &- \frac{2}{a} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_4(y, \xi) cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^4(y) p_n  \right) cos(\alpha_n x)
 \end{align}
 
-Використиєм граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$ для того, щоб отримати інтегральне рівняння:
+Використиємо граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$ для того, щоб отримати інтегральне рівняння:
 \begin{equation*}
     (2G + \lambda)\frac{\partial v(x,y)}{\partial y}|_{y=b} + \lambda\frac{\partial u(x,y)}{\partial x}|_{y=b} = -p(x) \Leftrightarrow
 \end{equation*}
 \begin{align*}
     &-\frac{(2G + \lambda)}{a(1+\mu_0)} \int_{0}^{b}\frac{\partial g(y, \xi)}{\partial y}|_{y=b} f(\xi) d\xi - \psi_0^{'}(b) \frac{p_0}{a} - \\
-    &- \frac{2(2G + \lambda)}{a} \frac{\partial}{\partial y} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_4(y, \xi) cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^{4}(y) p_n \right) cos(\alpha_n x)|_{y=b} - \\
-    & -\frac{2\lambda}{a} \frac{\partial}{\partial x} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_2(y, \xi)cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^2(y) p_n \right) sin(\alpha_n x)|_{y=b} = -p(x)
+    &- \frac{2(2G + \lambda)}{a} \frac{\partial}{\partial y} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_4(y, \xi) cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^{4}(y) p_n \right) \\ 
+    &cos(\alpha_n x)|_{y=b} - \frac{2\lambda}{a} \frac{\partial}{\partial x} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_2(y, \xi)cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^2(y) p_n \right) \\ 
+    &sin(\alpha_n x)|_{y=b} = -p(x)
 \end{align*}
 Введемо позначення:
 \begin{align}
@@ -378,7 +380,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     &= a_2 \sum_{n=0}^{\infty} (-1)^n (2n + 1)^{-1} e^{-(2n + 1) \frac{\pi}{2a} (b - \xi)} cos((2n + 1) \frac{\pi}{2a} x) + a_3(\xi, x)
 \end{align*}
 
-Де:
+де:
 \begin{equation*}
     a_2 = \frac{2}{\pi} \lim_{n \rightarrow \infty}\left[ \frac{\partial \widetilde{g_4(y, \xi)}}{\partial y} + \lambda \widetilde{g_2(y, \xi)} \right]|_{y=b}, 
 \end{equation*}
@@ -395,8 +397,10 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 
 Повернемося до інтегралу
 \begin{align}
-    &\frac{(2G + \lambda)}{(1+\mu_0)} \int_{0}^{b}\frac{\partial g(y, \xi)}{\partial y}|_{y=b} f(\xi) d\xi + \int_{0}^{b} \left( \frac{a_2}{4} ln\left[ \frac{ch(\frac{\pi}{2a}(b - \xi)) + cos(\frac{\pi}{2a}x)}{ch(\frac{\pi}{2a}(b - \xi)) - cos(\frac{\pi}{2a}x)} \right] + a_3(\xi, x) \right) f(\xi) d\xi = \\
-    & = \int_{0}^{b} \left( \frac{a_2}{4} ln\left[ \frac{ch(\frac{\pi}{2a}(b - \xi)) + cos(\frac{\pi}{2a}x)}{ch(\frac{\pi}{2a}(b - \xi)) - cos(\frac{\pi}{2a}x)} \right] + a_3(\xi, x) + \frac{(2G + \lambda)}{(1+\mu_0)} \frac{\partial g(y, \xi)}{\partial y}|_{y=b} \right) f(\xi) d\xi = \\
+    &\frac{(2G + \lambda)}{(1+\mu_0)} \int_{0}^{b}\frac{\partial g(y, \xi)}{\partial y}|_{y=b} f(\xi) d\xi + \nonumber \\ 
+    &+ \int_{0}^{b} \left( \frac{a_2}{4} ln\left[ \frac{ch(\frac{\pi}{2a}(b - \xi)) + cos(\frac{\pi}{2a}x)}{ch(\frac{\pi}{2a}(b - \xi)) - cos(\frac{\pi}{2a}x)} \right] + a_3(\xi, x) \right) f(\xi) d\xi = \nonumber \\
+    &= \int_{0}^{b} ( \frac{a_2}{4} ln\left[ \frac{ch(\frac{\pi}{2a}(b - \xi)) + cos(\frac{\pi}{2a}x)}{ch(\frac{\pi}{2a}(b - \xi)) - cos(\frac{\pi}{2a}x)} \right] + a_3(\xi, x) + \nonumber \\
+    &+ \frac{(2G + \lambda)}{(1+\mu_0)} \frac{\partial g(y, \xi)}{\partial y}|_{y=b} ) f(\xi) d\xi = \nonumber \\
     &= \left[
         \begin{matrix}
             t = \frac{ch(\frac{\pi}{2a}(b - \xi)) - 1}{1 - ch(\frac{\pi b}{2a})} \\
@@ -405,10 +409,10 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
             \xi = b, \quad t = 0 \\
             \xi = b - \frac{2a}{\pi} arch((ch(\frac{\pi b}{2a}) - 1)t + 1)
         \end{matrix}
-        \right] = \\
+        \right] = \nonumber \\
     &=a_5 \int_{0}^{b} a_4(t) \left( \frac{a_2}{4} ln\left[ \frac{t + cos(\frac{\pi}{2a}x)}{t - cos(\frac{\pi}{2a}x)} \right] + \widetilde{a_3(t, x)} \right) \widetilde{f(t)} dt
 \end{align}
-Де:
+де:
 \begin{align*}
     &\widetilde{a_3(t, x)} = a_3\left(b - \frac{2a}{\pi} arch((ch(\frac{\pi b}{2a}) - 1)t + 1), x \right) + \\
     &+ \frac{(2G + \lambda)}{(1+\mu_0)} \frac{\partial g(y, b - \frac{2a}{\pi} arch((ch(\frac{\pi b}{2a}) - 1)t + 1))}{\partial y}|_{y=b} \\
@@ -438,7 +442,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \sum_{k=0}^{\infty}  \varphi_k \frac{T_{2k + 1}( cos(\frac{\pi}{2a}x) )}{4(2k + 1)} + \sum_{k=0}^{\infty} \varphi_k \frac{1}{\pi} \int_{0}^{1} \frac{\widetilde{a_3(t, x)}}{a_2} \frac{T_{2k + 1}(t)}{\sqrt{1 - t^2}} dt = \frac{a_1(x)}{a_5}
 \end{equation}
 
-Введем позначення
+Введемо позначення
 \begin{equation*}
     l = cos(\frac{\pi}{2a}x), \quad \widetilde{a_1(l)} = \frac{a_1(\frac{2a}{\pi} arccos(l))}{a_5}
 \end{equation*}
