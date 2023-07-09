@@ -47,7 +47,7 @@
 \end{equation}
 
 \subsection{Зведеня задачі до одновимірної у просторі трансформант}
-Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь (\ref{lame_static_1}) наступному вигляді:
+Для того, щоб звести задачу до одновимірної задачі, використаємо інтегральне перетворення Фур'є по змінній $x$ до рівнянь (\ref{lame_static_1}) в наступному вигляді:
 \begin{equation}
     \begin{pmatrix}
         u_n(y) \\
@@ -59,7 +59,7 @@
     \end{pmatrix} dx, \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
-Для цього помножим перше та друге рівняння (\ref{lame_static_1}) на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруєм по змінній $x$ на інтервалі $0 \le x \le a$.
+Для цього помножимо перше та друге рівняння (\ref{lame_static_1}) на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруємо по змінній $x$ на інтервалі $0 \le x \le a$.
 Покрокове інтегрування рівняння (\ref{lame_static_1}) наведено у (\nameref{ap_A}).
 Отримана система рівнянь задачі у просторі трансформант:
 \begin{equation}\label{transf_static_1}
@@ -79,10 +79,10 @@
         \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=0} = 0
     \end{cases}
 \end{equation}
-Де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
+де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
 
 \subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
-Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
+Для того щоб розв'язати задачу у простосторі трансформант, перепишемо її у матрично-векторній формі.
 Рівняння рівноваги (\ref{transf_static_1}) запишемо у наступному вигляді:
 \begin{align}\label{transf_mat_static_1}
     &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
@@ -114,7 +114,7 @@
     &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
     & U_i\left[ Z_n(y) \right] = D_i
 \end{align}
-Де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
+де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
 \begin{equation*}
     E_0 = \begin{pmatrix}
         1 & 0 \\
@@ -146,7 +146,7 @@
     \end{pmatrix}, \quad
 \end{equation*}
 
-Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_static_1}).
+Для знаходження розв'язку задачі у просторі трансформант, знайдемо фундаментальну матрицю рівняння (\ref{transf_mat_static_1}).
 Шукати її будем у наступному вигляді \cite{gantmaher}:
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
@@ -201,7 +201,7 @@
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{2} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
     & = \frac{1}{(1 + \mu_0)} \left(Y_0(y) + Y_1(y) \right)
 \end{align*}
-Знайдем $Y_0(y)$:
+Знайдемо $Y_0(y)$:
 \begin{align}
     &Y_0(y) =  \frac{\partial}{\partial s} \left( \frac{e^{sy}}{(s+\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=\alpha_n} = \nonumber \\
     &=\frac{e^{\alpha_n y}}{4\alpha_n} \begin{pmatrix}
@@ -209,7 +209,7 @@
     -\alpha_n \mu_0 y & -\alpha_n \mu_0 y + 2 + \mu_0
     \end{pmatrix}
 \end{align}
-Знайдем $Y_1(y)$:
+Знайдемо $Y_1(y)$:
 \begin{align}
     &Y_1(y) = \frac{\partial}{\partial s} \left(\frac{e^{sy}}{(s-\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=-\alpha_n} = \nonumber \\
     =&\frac{e^{-\alpha_n y}}{4\alpha_n} \begin{pmatrix}
@@ -218,13 +218,13 @@
     \end{pmatrix}
 \end{align}
 
-Таким чином ми можемо записати розв'язок задачі у просторі трансформант:
+Таким чином можна записати розв'язок задачі у просторі трансформант:
 \begin{equation}
     Z_n(y) = \frac{1}{1 + \mu_0} \left( Y_0(y) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} +  Y_1(y) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}  \right)
 \end{equation}
 Залишилось знайти невідомі коєфіцієнти $c_1$, $c_2$, $c_3$, $c_4$, використовуючи граничні умови (\ref{transf_bound_mat_static_1}).
 Покрокове знаходження коєфіцієнтів наведено у (\nameref{ap_E}).
-Таким чином ми можемо записати розв'зок у просторі трансформант:
+Таким чином можна записати розв'зок у просторі трансформант:
 \begin{align}\label{transf_sol_u_static_1}
     &u_n(y) = \frac{e^{\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_1 (\alpha_n \mu_0 y + 2 + \mu_0) + c_2 (\alpha_n \mu_0 y) \right] + \nonumber \\
     &\quad + \frac{e^{-\alpha_n y}}{4 \alpha_n (1 + \mu_0)} \left[c_3 (\alpha_n \mu_0 y - 2 - \mu_0) + c_4 (-\alpha_n \mu_0 y)\right]
