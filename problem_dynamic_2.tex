@@ -211,3 +211,107 @@
     &=(s - s_1)(s + s_1)(s - s_2)(s + s_2)
 \end{align}
 Де $s_1$, $s_2$, $-s_1$, $-s_2$ корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
+
+Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
+\begin{align*}
+    &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{4} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
+    & = \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
+\end{align*}
+Знайдем $Y_0(y)$:
+\begin{align}
+    &Y_0(y) =  \left( \frac{e^{sy}}{(s+s_1)(s - s_2)(s + s_2)} \widetilde{M(s)} \right) \Big|_{s=s_1} = \nonumber \\
+    &=\frac{e^{s_1 y}}{2s_1 (s_1^2 - s_2^2)} \begin{pmatrix}
+        s_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s_1 \\
+        -\alpha_n \mu_0 s_1 & s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_1(y)$:
+\begin{align}
+    &Y_1(y) =  \left( \frac{e^{sy}}{(s-s_1)(s - s_2)(s + s_2)} \widetilde{M(s)} \right) \Big|_{s=-s_1} = \nonumber \\
+    &=-\frac{e^{-s_1 y}}{2s_1 (s_1^2 - s_2^2)} \begin{pmatrix}
+        s_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & -\alpha_n \mu_0 s_1 \\
+        \alpha_n \mu_0 s_1 & s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_2(y)$:
+\begin{align}
+    &Y_2(y) =  \left( \frac{e^{sy}}{(s+s_2)(s - s_1)(s + s_1)} \widetilde{M(s)} \right) \Big|_{s=s_2} = \nonumber \\
+    &=\frac{e^{s_2 y}}{2s_2 (s_2^2 - s_1^2)} \begin{pmatrix}
+        s_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s_2 \\
+        -\alpha_n \mu_0 s_2 & s_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+Знайдем $Y_3(y)$:
+\begin{align}
+    &Y_3(y) =  \left( \frac{e^{sy}}{(s-s_2)(s - s_1)(s + s_1)} \widetilde{M(s)} \right) \Big|_{s=-s_2} = \nonumber \\
+    &=-\frac{e^{-s_2 y}}{2s_2 (s_2^2 - s_1^2)} \begin{pmatrix}
+        s_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & -\alpha_n \mu_0 s_2 \\
+        \alpha_n \mu_0 s_2 & s_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
+
+\subsection{Побудова матриці-функції Гріна}
+Для побудови матриці-функції Гріна спочатку знайдем тепер фундамельні бизисні матриці $\Psi_0(y)$, $\Psi_1(y)$, шукати їх будем у наступному вигляді:
+\begin{equation}\label{psi_dynamic_2}
+    \Psi_i(y) = \left( Y_0(y) + Y_1(y) \right) * C_1^i + \left( Y_2(y) + Y_3(y) \right) * C_2^i
+\end{equation}
+
+Залишилось знайти невідомі матриці коєфіцієнтів $C_1^0$, $C_2^0$, $C_1^1$, $C_2^1$ використовуючи граничні умови \eqref{transf_bound_mat_dynamic_2}.
+Покрокове знаходження яких наведено у (\nameref{ap_C}).
+Для подальшого введемо наступні позначення для елементів матриць $\Psi_0(y)$, $\Psi_1(y)$:
+\begin{equation*}
+    \Psi_0(y) = \begin{pmatrix}
+        \Psi_1^0(y) &  \Psi_2^0(y) \\
+        \Psi_3^0(y) &  \Psi_4^0(y) 
+    \end{pmatrix}, \quad 
+    \Psi_1(y) = \begin{pmatrix}
+        \Psi_1^1(y) &  \Psi_2^1(y) \\
+        \Psi_3^1(y) &  \Psi_4^1(y) 
+    \end{pmatrix}      
+\end{equation*}
+
+Таким чином матрицю Гріна можемо записати у вигляді:
+\begin{equation}
+    G(y,\xi) = 
+    \begin{cases}
+        \Psi_0(y) * \Psi_1(\xi), \quad 0 \le y < \xi \\
+        \Psi_1(y) * \Psi_0(\xi), \quad \xi < y \le b
+    \end{cases}
+\end{equation}
+
+Для данної матриці Гріна виконано усі властивості, зокрема виконані однорідні граничні умови \eqref{transf_bound_mat_dynamic_2}
+та однорідні рівняння рівноваги у просторі трансформант \eqref{transf_mat_dynamic_2}:
+\begin{equation*}
+    L_2\left[  G(y, \xi) \right] = 0
+\end{equation*}
+\begin{equation*}
+    U_0\left[ G(y, \xi) \right] = 0, \quad  U_1\left[ G(y, \xi) \right],
+\end{equation*}
+
+Введемо наступні позначення $G(y, \xi) = \begin{pmatrix}
+    g_1(y,\xi) & g_2(y,\xi) \\
+    g_3(y,\xi) & g_4(y,\xi)
+\end{pmatrix}$. Враховуючи це, шукані функціі перемішень у просторі трансформант можна записати у наступному вигляді
+\begin{align}\label{transf_sol_u_dynamic_2}
+    &u_n(y) = -\int_0^b g_2(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^2(y) p_n
+\end{align}
+\begin{align}\label{transf_sol_v_dynamic_2}
+    &v_n(y) = -\int_0^b g_4(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^4(y) p_n
+\end{align}
+
+\subsection{Побудова розв'язоку вихідної задачі}
+Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
+(\ref{transf_sol_u_dynamic_2}), (\ref{transf_sol_u_dynamic_2}), отримаємо фінальний розв'язок задачі
+\begin{equation}
+    u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+\end{equation}
+\begin{equation}
+    v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+\end{equation}
+
+Знайдем тепер $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_dynamic_2}, \eqref{transf_bound_dynamic_2} при $n=0$, $\alpha_n = 0$.
+Детальний розв'язок якої наведено в (\nameref{ap_D}). Тоді остаточний розв'язок $v(x,y)$ буде мати вигляд
+\begin{align}
+    &v(x,y) = -\frac{1}{a(1+\mu_0)} \int_{0}^{b}g(y,\xi) f(\xi) d\xi - \psi_0(y) \frac{p_0}{a(2G + \lambda)} \nonumber \\
+    &- \frac{2}{a} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_4(y, \xi) cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^4(y) p_n  \right) cos(\alpha_n x)
+\end{align}
