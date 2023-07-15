@@ -56,8 +56,9 @@
 
 Розглянемо
 \begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial x} cos(\alpha_n x)dx = \\
-    &= \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \alpha_n \left( u(x,y) cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \int_{0}^{a} u(x,y) sin(\alpha_n x) dx \right) = \\
+    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \\
+    &- \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \\
+    &- \alpha_n \left( u(x,y) cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \int_{0}^{a} u(x,y) sin(\alpha_n x) dx \right) = \\
     &= -\alpha_n^2 u_n(y)
 \end{align*}
 
@@ -68,8 +69,8 @@
 
 Розглянемо
 \begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x \partial y} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial y} sin(\alpha_n x) |_{x=0}^{x=a} - \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial y} cos(\alpha_n x) dx = \\
-    &= -\alpha_n \frac{\partial}{\partial y} \int_{0}^{a} v(x,y) cos(\alpha_n x) dx = -\alpha_n v_n^{'}(y)
+    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x \partial y} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial y} sin(\alpha_n x) |_{x=0}^{x=a} - \\
+    &- \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial y} cos(\alpha_n x) dx = -\alpha_n \frac{\partial}{\partial y} \int_{0}^{a} v(x,y) cos(\alpha_n x) dx = -\alpha_n v_n^{'}(y)
 \end{align*}
 
 Тоді перше рівняння у просторі трансформант прийме вигляд:
@@ -85,8 +86,9 @@
 
 Розглянемо
 \begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x^2} cos(\alpha_n x)dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial x} sin(\alpha_n x) dx = \\
-    &=\frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \left(v(x,y) sin(\alpha_n x)|_{x=0}^{x=a} - \alpha_n \int_{0}^{a} v(x,y) cos(\alpha_n x) dx  \right) = \\
+    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x^2} cos(\alpha_n x)dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+    &+ \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial x} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+    &+ \alpha_n \left(v(x,y) sin(\alpha_n x)|_{x=0}^{x=a} - \alpha_n \int_{0}^{a} v(x,y) cos(\alpha_n x) dx  \right) = \\
     &= -\alpha_n^2 v_n(y)
 \end{align*}
 
@@ -97,8 +99,9 @@
 
 Розглянемо
 \begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y \partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial y} sin(\alpha_n x) dx = \\
-    &=\frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \frac{\partial}{\partial y} \int_{0}^{a} u(x,y) sin(\alpha_n x) dx = \alpha_n u_n^{'}(y)
+    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y \partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+    &+ \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial y} sin(\alpha_n x) dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+    &+ \alpha_n \frac{\partial}{\partial y} \int_{0}^{a} u(x,y) sin(\alpha_n x) dx = \alpha_n u_n^{'}(y)
 \end{align*}
 
 Тоді друге рівняння у просторі трансформант прийме вигляд:
