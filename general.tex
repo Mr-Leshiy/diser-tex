@@ -1,40 +1,39 @@
-У даному розділі наведено опис аналітичного апарату, який використовується для розв'язання мішаних задач теорії пружності для прямокутної області.
-Цей підхід базується на результати раніше проведених досліджень, зокрема робіт \cite{popov_1} і \cite{popov_2}.
-Розглянута методика розв'язання мішаних плоских задач ґрунтується на застосуванні інтегральних перетворень безпосередньо до системи рівнянь рівноваги Ламе та крайових умов.
-Це дозволяє зводити вихідну задачу до векторної одновимірної крайової задачі.
-Векторна одновимірна крайова задача точно розв'язується за допомогою матричного диференційного числення та матричної функції Гріна.
-Що призводить у результаті до сингулярного інтегрального рівнняння яке розв'язане за допомогою методу ортогональних многочленів описанного \cite{popov_3}.
+У даному розділі наведено теоретичні засади підходу, який використовується для розв'язання мішаних задач теорії пружності для прямокутної області.
+Він базується на зведенні вихідної задачі, шляхом застосування методу інтегральних перетворень, до одновимірної задачі у просторі трансформант.
+Побудова матричної функції Гріна та розв'язання відповідних крайових задач надає можливість отримати аналітичний розв'язок поставленої задачі.
+Матеріал цього розділу викладено у працях
+\cite{pozhylenkov_1}, \cite{pozhylenkov_2}, \cite{pozhylenkov_3}, \cite{pozhylenkov_4}, \cite{pozhylenkov_5}, \cite{pozhylenkov_6}.
 
-\subsection{Постановка задачі}
+\subsection{Загальна постанова задачі}
 \begin{figure}[h]
     \begin{center}
         \includegraphics[scale=1]{images/geometry/image_4.jpg}
     \end{center}
-    \caption{Геометрія проблеми}\label{geom_gen}
+    \caption{Геометрія задачі}\label{geom_gen}
 \end{figure}
-Розглядається пружна прямокутна область (Рис: \ref{geom_gen}), яка займає область, що у декартовій системі координат описується співвідношенням $0 \le x \le a$, $0 \le y \le b$.
+Розглядається пружний прямокутник (Рис: \ref{geom_gen}), який займає область, що у декартовій системі координат описується співвідношенням $0 \le x \le a$, $0 \le y \le b$.
 
-До прямокутної області на грані $y=b$ додане нормальне навантаження
+До прямокутної області по грані $y=b$ додане нормальне навантаження
 \begin{equation}
     \sigma_y(x, y, t) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y,t) |_{y=b} =0, \quad 0 \le x \le a
 \end{equation}
-де $p(x, t)$ відома функція.
-На нижній грані виконуються наступні умови
+де $p(x, t)$ відома функція, $t$ - час.
+По нижній грані виконуються умови ідеального контакту
 \begin{equation}
     v(x,y,t) |_{y=0}, \quad \tau_{xy}(x,y,t) |_{y=0} =0
 \end{equation}
-На бічних гранях $x=0$ та $x=a$ граничні умови запишемо у формі
+На бічних гранях $x=0$ та $x=a$ граничні умови подано у формі
 \begin{equation}\label{gen_bound_gen}
-    U_1[f(x,y,t)]=0, \quad U_2[f(x,y,t)]=0 , \quad 0 \le y \le b
+    U_1[f(x,y,t)]=0, \quad U_2[f(x,y,t)]=0 , \quad 0 \le y \le b,
 \end{equation}
-Де 
+де 
 \begin{align*}
     &U_1[f(x,y,t)]=\left[\alpha_1f(x,y,t) + \beta_1 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=0} \\
     &U_2[f(x,y,t)]=\left[\alpha_2f(x,y,t) + \beta_2 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=a} \\
 \end{align*}
-граничні функціонали у загальному виді (для кожної конкретної задачі вони будуть деталізовані), $f(x,y,t)=(u(x,y,t), v(x,y,t))^T$ - вектор переміщеннь.
+- граничні функціонали у загальному зображенні (для кожної конкретної задачі вони будуть деталізовані), $f(x,y,t)=(u(x,y,t), v(x,y,t))^T$ - вектор переміщеннь.
 
-Розглядаються наступні рівняння рівноваги Ламе:
+Переміщення усередині прямокутника мають задовільняти рівняння Ламе:
 \begin{equation}
     \begin{cases}
         \frac{\partial^2 u(x,y,t)}{\partial x^2} + \frac{\partial^2 u(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y,t)}{\partial x^2} + \frac{\partial^2 v(x,y,t)}{\partial x\partial y}) = \frac{1}{c_1^2} \frac{\partial^2 u(x,y,t)}{\partial t^2} \\
@@ -42,18 +41,18 @@
     \end{cases}
 \end{equation}
 
-Будемо розглядати випадок гармонічних коливань, тому можемо предствавити функції у наступному вигляді:
-\begin{equation}
-    u(x,y,t) = u(x,y) e^{i \omega t}, \quad v(x,y,t) = v(x,y) e^{i \omega t}, \quad p(x,t) = p(x) e^{i \omega t}
+Тут і далі розглянуто постановки задач у випадку гармонічних коливань
+\begin{equation}\label{garm_gen}
+    u(x,y,t) = u(x,y) e^{i \omega t}, \quad v(x,y,t) = v(x,y) e^{i \omega t}, \quad p(x, y, t) = p(x, y) e^{i \omega t}
 \end{equation}
-Таким чином отримаємо наступні рівняння рівноваги:
+З урахуванням подання переміщеннь \eqref{garm_gen} рівняння рівноваги переформульовано:
 \begin{equation}\label{lame_gen}
     \begin{cases}
         \frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 u(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial x\partial y}) = -\frac{\omega^2}{c_1^2}  u(x,y) \\
         \frac{\partial^2 v(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x \partial y} + \frac{\partial^2 v(x,y)}{\partial y^2}) = -\frac{\omega^2}{c_2^2} v(x,y) \\
     \end{cases}
 \end{equation}
-Та граничні умови:
+Граничні умови набувають вигляду:
 \begin{equation}\label{bound_gen}
     \begin{cases}
         \sigma_y(x, y) |_{y=b} = -p(x), \quad  \tau_{xy}(x,y) |_{y=b} =0 \\
@@ -62,17 +61,19 @@
     \end{cases}
 \end{equation}
 
-Введемо невідомі функції $\chi_1(y) = u(0, y)$, $\chi_2(y) = v(0, y)$, $\chi_3(y) = u(a, y)$, $\chi_4(y) = v(a, y)$.
-Враховучи умову \eqref{gen_bound_gen}, отримаємо, що 
-$\frac{\partial u(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_1(y)$,
-$\frac{\partial v(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_2(y)$,
-$\frac{\partial u(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_3(y)$,
-$\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
-Отже умова \eqref{gen_bound_gen} виконується автоматично.
+% Введемо нові невідомі функції $\chi_1(y) = u(0, y)$, $\chi_2(y) = v(0, y)$, $\chi_3(y) = u(a, y)$, $\chi_4(y) = v(a, y)$.
+% Враховучи умову \eqref{gen_bound_gen}, отримаємо, що 
+% $\frac{\partial u(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_1(y)$,
+% $\frac{\partial v(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_2(y)$,
+% $\frac{\partial u(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_3(y)$,
+% $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 
-\subsection{Зведення задачі до одновимірної у просторі трансформант та її розв'язання}\label{to_one_dimensional}
-Для того, щоб звести задачу до одновимірної задачі, використаємо інтегральне перетворення Фур'є по змінній $x$ до рівнянь \eqref{lame_gen} в наступному вигляді:
-\begin{equation}
+Потрібно відшукати хвильове поле пружного прямокутника,
+що задовольняє крайову задачу \eqref{lame_gen}, \eqref{bound_gen}.
+
+\subsection{Зведення вихідної задачі до задачі у просторі трансформант}
+Для зведення вихідної задачі до одновимірної задачі до рівняннь \eqref{lame_gen} застосовано інтегральне перетворення Фур'є за змінною $x$:
+\begin{equation}\label{int_trans_gen}
     \begin{pmatrix}
         u_n(y) \\
         v_n(y)
@@ -83,75 +84,75 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \end{pmatrix} dx, \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
-Для цього помножимо перше та друге рівняння \eqref{lame_gen} на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ відповідно та проінтегруємо по змінній $x$ на інтервалі $0 \le x \le a$.
+Для цього перше та друге рівняння \eqref{lame_gen} помножено відповідно на $sin(\alpha_n x)$ та $cos(\alpha_n x)$ та проінтегровано за змінною $x$ на інтервалі $0 \le x \le a$.
 
-Розглянемо перше рівняння:
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx + \int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y^2} sin(\alpha_n x)dx + \\ 
-    & + \mu_0 \left( \int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx +  \int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x \partial y} sin(\alpha_n x) dx\right) + \\
-    & + \frac{\omega^2}{c_1^2} \int_{0}^{a} u(x,y) sin(\alpha_n x)dx = 0
-\end{align*}
+% Розглянемо перше рівняння:
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx + \int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y^2} sin(\alpha_n x)dx + \\ 
+%     & + \mu_0 \left( \int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx +  \int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x \partial y} sin(\alpha_n x) dx\right) + \\
+%     & + \frac{\omega^2}{c_1^2} \int_{0}^{a} u(x,y) sin(\alpha_n x)dx = 0
+% \end{align*}
 
-Розглянемо
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \\
-    &- \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \\
-    &- \alpha_n \left( u(x,y) cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \int_{0}^{a} u(x,y) sin(\alpha_n x) dx \right) = \\
-    &=-\alpha_n(\chi_3(y) cos(\alpha_n a) - \chi_1(y)) -\alpha_n^2 u_n(y)
-\end{align*}
+% Розглянемо
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x^2} sin(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \\
+%     &- \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial x} sin(\alpha_n x) |_{x=0}^{x=a} - \\
+%     &- \alpha_n \left( u(x,y) cos(\alpha_n x) |_{x=0}^{x=a} + \alpha_n \int_{0}^{a} u(x,y) sin(\alpha_n x) dx \right) = \\
+%     &=-\alpha_n(\chi_3(y) cos(\alpha_n a) - \chi_1(y)) -\alpha_n^2 u_n(y)
+% \end{align*}
 
-Розглянемо
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y^2} sin(\alpha_n x)dx = \frac{\partial^2}{\partial y^2} \int_{0}^{a} u(x,y) sin(\alpha_n x)dx = u_n^{''}(y)
-\end{align*}
+% Розглянемо
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y^2} sin(\alpha_n x)dx = \frac{\partial^2}{\partial y^2} \int_{0}^{a} u(x,y) sin(\alpha_n x)dx = u_n^{''}(y)
+% \end{align*}
 
-Розглянемо
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x \partial y} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial y} sin(\alpha_n x) |_{x=0}^{x=a} - \\
-    &- \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial y} cos(\alpha_n x) dx = -\alpha_n \frac{\partial}{\partial y} \int_{0}^{a} v(x,y) cos(\alpha_n x) dx = -\alpha_n v_n^{'}(y)
-\end{align*}
+% Розглянемо
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x \partial y} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial y} sin(\alpha_n x) |_{x=0}^{x=a} - \\
+%     &- \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial y} cos(\alpha_n x) dx = -\alpha_n \frac{\partial}{\partial y} \int_{0}^{a} v(x,y) cos(\alpha_n x) dx = -\alpha_n v_n^{'}(y)
+% \end{align*}
 
-Тоді перше рівняння у просторі трансформант прийме вигляд:
-\begin{align*}
-    &u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) -(\alpha_n^2 + \alpha_n^2 \mu_0 - \frac{\omega^2}{c_1^2}) u_n(y) = \\
-    &= \alpha_n(1 + \mu_0)(\chi_3(y) cos(\alpha_n a) - \chi_1(y))
-\end{align*}
+% Тоді перше рівняння у просторі трансформант прийме вигляд:
+% \begin{align*}
+%     &u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) -(\alpha_n^2 + \alpha_n^2 \mu_0 - \frac{\omega^2}{c_1^2}) u_n(y) = \\
+%     &= \alpha_n(1 + \mu_0)(\chi_3(y) cos(\alpha_n a) - \chi_1(y))
+% \end{align*}
 
-Розлянемо друге рівняння
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x^2} cos(\alpha_n x)dx + \int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial y^2} cos(\alpha_n x)dx + \\ 
-    & + \mu_0 \left( \int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x \partial y} cos(\alpha_n x)dx +  \int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial y^2} cos(\alpha_n x) dx\right) + \\
-    & + \frac{\omega^2}{c_2^2} \int_{0}^{a} v(x,y) cos(\alpha_n x)dx = 0
-\end{align*}
+% Розлянемо друге рівняння
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x^2} cos(\alpha_n x)dx + \int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial y^2} cos(\alpha_n x)dx + \\ 
+%     & + \mu_0 \left( \int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial x \partial y} cos(\alpha_n x)dx +  \int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial y^2} cos(\alpha_n x) dx\right) + \\
+%     & + \frac{\omega^2}{c_2^2} \int_{0}^{a} v(x,y) cos(\alpha_n x)dx = 0
+% \end{align*}
 
-Розглянемо
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x^2} cos(\alpha_n x)dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \\
-    &+ \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial x} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \\
-    &+ \alpha_n \left(v(x,y) sin(\alpha_n x)|_{x=0}^{x=a} - \alpha_n \int_{0}^{a} v(x,y) cos(\alpha_n x) dx  \right) = \\
-    &= -(\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) -\alpha_n^2 v_n(y)
-\end{align*}
+% Розглянемо
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial x^2} cos(\alpha_n x)dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+%     &+ \alpha_n \int_{0}^{a} \frac{\partial v(x,y)}{\partial x} sin(\alpha_n x) dx = \frac{\partial v(x,y)}{\partial x} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+%     &+ \alpha_n \left(v(x,y) sin(\alpha_n x)|_{x=0}^{x=a} - \alpha_n \int_{0}^{a} v(x,y) cos(\alpha_n x) dx  \right) = \\
+%     &= -(\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) -\alpha_n^2 v_n(y)
+% \end{align*}
 
-Розглянемо
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial y^2} cos(\alpha_n x)dx = \frac{\partial^2}{\partial y^2} \int_{0}^{a} v(x,y) cos(\alpha_n x)dx = v_n^{''}(y)
-\end{align*}
+% Розглянемо
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 v(x,y)}{\partial y^2} cos(\alpha_n x)dx = \frac{\partial^2}{\partial y^2} \int_{0}^{a} v(x,y) cos(\alpha_n x)dx = v_n^{''}(y)
+% \end{align*}
 
-Розглянемо
-\begin{align*}
-    &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y \partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} + \\
-    &+ \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial y} sin(\alpha_n x) dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} +\\
-    &+ \alpha_n \frac{\partial}{\partial y} \int_{0}^{a} u(x,y) sin(\alpha_n x) dx = \alpha_n u_n^{'}(y) + \\
-    &+(\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
-\end{align*}
+% Розглянемо
+% \begin{align*}
+%     &\int_{0}^{a} \frac{\partial^2 u(x,y)}{\partial y \partial x} cos(\alpha_n x)dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} + \\
+%     &+ \alpha_n \int_{0}^{a} \frac{\partial u(x,y)}{\partial y} sin(\alpha_n x) dx = \frac{\partial u(x,y)}{\partial y} cos(\alpha_n x) |_{x=0}^{x=a} +\\
+%     &+ \alpha_n \frac{\partial}{\partial y} \int_{0}^{a} u(x,y) sin(\alpha_n x) dx = \alpha_n u_n^{'}(y) + \\
+%     &+(\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
+% \end{align*}
 
-Тоді друге рівняння у просторі трансформант прийме вигляд:
-\begin{align*}
-    &(1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - (\alpha_n^2 -  \frac{\omega^2}{c_2^2}) v_n(y) = \\ 
-    &= (\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) - \mu_0 (\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
-\end{align*}
+% Тоді друге рівняння у просторі трансформант прийме вигляд:
+% \begin{align*}
+%     &(1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - (\alpha_n^2 -  \frac{\omega^2}{c_2^2}) v_n(y) = \\ 
+%     &= (\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) - \mu_0 (\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
+% \end{align*}
 
-Отримана система рівнянь задачі у просторі трансформант:
+Тоді у просторі трансформант маємо:
 \begin{equation}\label{transf_gen}
     \begin{cases}
         u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - (\alpha_n^2 + \alpha_n^2 \mu_0 - \frac{\omega^2}{c_1^2}) u_n(y) = \\
@@ -162,8 +163,16 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \end{cases}
 \end{equation}
 
-Застосовуючи інтегральне перетворення до граничних умов,
-отримаємо наступні умови задачі у просторі трансформант:
+% перепроверить
+Тут $\chi_1(y) = u(0, y)$, $\chi_2(y) = v(0, y)$, $\chi_3(y) = u(a, y)$, $\chi_4(y) = v(a, y)$.
+Враховучи умову \eqref{gen_bound_gen}, отримаємо, що 
+$\frac{\partial u(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_1(y)$,
+$\frac{\partial v(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_2(y)$,
+$\frac{\partial u(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_3(y)$,
+$\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
+
+Після застосування інтегрального перетворення \eqref{int_trans_gen} до крайових умов \eqref{bound_gen}
+отримано подання крайових умов у просторі трансформант:
 \begin{equation}\label{transf_bound_gen}
     \begin{cases}
         \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n \\
@@ -174,14 +183,15 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{equation}
 де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
 
-% \subsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
-Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
-Рівняння рівноваги \eqref{transf_gen} запишемо у наступному вигляді:
+
+Для того щоб розв'язати задачу у простосторі трансформант, її переписано у векторній формі.
 \begin{align}\label{transf_mat_gen}
-    &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y) \nonumber \\
     &L_2\left[ Z_n(y) \right] = F_n(y)
 \end{align}
-Де
+де $L_2$ - диференціальний оператор другого порядку
+\begin{align}
+    &L_2\left[ Z_n(y) \right] = A * Z_n^{''}(y) + B * Z_n^{'}(y) + C * Z_n(y), 
+\end{align}
 \begin{equation*}
     A = \begin{pmatrix}
         1 & 0 \\
@@ -200,7 +210,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     Z_n(y) = \begin{pmatrix}
         u_n(y) \\
         v_n(y)
-    \end{pmatrix}
+    \end{pmatrix},
 \end{equation*}
 \begin{equation*}
     F_n(y) = \begin{pmatrix}
@@ -208,12 +218,14 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
         (\frac{\alpha_2}{\beta_2}\chi_4(y) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(y)) - \mu_0 (\chi_3^{'}(y) cos(\alpha_n a) -\chi_1^{'}(y))
     \end{pmatrix}
 \end{equation*}
-Граничні умови \eqref{transf_bound_gen} запишемо у наступному вигляді:
+Граничні умови \eqref{transf_bound_gen} записано у зображенні:
 \begin{align}\label{transf_bound_mat_gen}
-    &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i) \nonumber \\
     &U_i\left[ Z_n(y) \right] = D_i
 \end{align}
 де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
+\begin{align}
+    &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i)
+\end{align}
 \begin{equation*}
     E_0 = \begin{pmatrix}
         1 & 0 \\
@@ -242,10 +254,11 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     D_1 = \begin{pmatrix}
         0 \\
         0
-    \end{pmatrix}, \quad
+    \end{pmatrix} \quad
 \end{equation*}
 
-Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння \eqref{transf_mat_gen}.
+Для знаходження розв'язку задачі потрібно відшукати фундаментальну матрицю рівняння \eqref{transf_mat_gen}.
+% Посмотреть как у Зіни єтот кусок (раздел 2.2 - 2.3)
 Шукати її будем у наступному вигляді \cite{gantmaher}:
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
@@ -323,14 +336,20 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \end{pmatrix}
 \end{align}
 
-\subsection{Побудова матриці-функції Гріна}
-Для побудови матриці-функції Гріна спочатку знайдемо тепер фундамельні бизисні матриці $\Psi_0(y)$, $\Psi_1(y)$, шукати їх будем у наступному вигляді:
+\subsection{Побудова матричної функції Гріна}
+Для побудови матриці-функції Гріна спочатку знайдено фундаментальні базисні матриці $\Psi_0(y)$, $\Psi_1(y)$, які мають задовільняти матричну крайову задачу \cite{popov_2}:
+\begin{align}\label{psi_probl_gen}
+    &L_2\left[ \Psi_i(y) \right] = 0, \nonumber \\
+    &U_i\left[ \Psi_j(y) \right] = \delta_{j,i}, \quad j= \overline{0, 1}, i= \overline{0, 1}
+\end{align}
+
+Для цього їх вибрано у поданні:
 \begin{equation}\label{psi_gen}
     \Psi_i(y) = \left( Y_0(y) + Y_1(y) \right) * C_1^i + \left( Y_2(y) + Y_3(y) \right) * C_2^i
 \end{equation}
+Тут матриці $Y_i(y)$, $i=\overline{0, 3}$ визначено формулами (??), де $C_1^j$, $C_2^j$, $j=\overline{0, 1}$ невідомі матриці коєфіцієнтів, які знайдено з граничних умов \eqref{psi_probl_gen}
+(покрокове знаходження наведено у Додатку С).
 
-Залишилось знайти невідомі матриці коєфіцієнтів $C_1^0$, $C_2^0$, $C_1^1$, $C_2^1$ використовуючи граничні умови \eqref{transf_bound_mat_gen}.
-Покрокове знаходження яких наведено у (\nameref{ap_C}).
 Для подальшого введемо наступні позначення для елементів матриць $\Psi_0(y)$, $\Psi_1(y)$:
 \begin{equation*}
     \Psi_0(y) = \begin{pmatrix}
@@ -344,7 +363,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{equation*}
 
 Таким чином матрицю Гріна можемо записати у вигляді:
-\begin{equation}
+\begin{equation}\label{grin_matrix_gen}
     G(y,\xi) = 
     \begin{cases}
         \Psi_0(y) * \Psi_1(\xi), \quad 0 \le y < \xi \\
@@ -352,8 +371,8 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \end{cases}
 \end{equation}
 
-Для данної матриці Гріна виконано усі властивості, зокрема виконані однорідні граничні умови \eqref{transf_bound_mat_gen}
-та однорідні рівняння рівноваги у просторі трансформант \eqref{transf_mat_gen}:
+Для данної матриці Гріна виконано усі властивості, зокрема виконано однорідні граничні умови \eqref{transf_bound_mat_gen}
+та задовільнено однорідне рівняння рівноваги у просторі трансформант \eqref{transf_mat_gen}:
 \begin{equation*}
     L_2\left[  G(y, \xi) \right] = 0
 \end{equation*}
@@ -361,7 +380,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     U_0\left[ G(y, \xi) \right] = 0, \quad  U_1\left[ G(y, \xi) \right] = 0,
 \end{equation*}
 
-Таким чином ми можемо записати розв'язок крайової задачі у просторі трансформант:
+За допомогою функції Гріна \eqref{grin_matrix_gen} розв'язок неоднорідної векторної крайової задачі у просторі трансформант записано у поданні \cite{popov_2}
 \begin{equation}
     Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0(y) * D_0 + \Psi_1(y) * D_1
 \end{equation}
@@ -372,7 +391,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{pmatrix}$, $F_n(y) = \begin{pmatrix}
     f_n^1(y) \\
     f_n^2(y)
-\end{pmatrix}$. Враховуючи це, шукані функціі перемішень у просторі трансформант можна записати у наступному вигляді
+\end{pmatrix}$. Враховуючи це, шукані функціі переміщень у просторі трансформант можна записати у формі
 \begin{align}\label{transf_sol_u_gen}
     &u_n(y) = \int_0^b \left[g_1(y, \xi)f_n^1(\xi) + g_2(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^2(y) p_n
 \end{align}
@@ -381,28 +400,26 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{align}
 
 % \subsection{Побудова розв'язоку вихідної задачі}
-Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
-(\ref{transf_sol_u_gen}), (\ref{transf_sol_v_gen}), отримаємо фінальний розв'язок задачі
-\begin{equation}
+Фінальний розв'язок вихідної задачі отримано після застосування оберненного перетворення Фур'є до трансформант \eqref{transf_sol_u_gen}, \eqref{transf_sol_v_gen}
+\begin{equation}\label{final_sol_u_gen}
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 \begin{equation}
     v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
-Знайдем тепер $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_gen}, \eqref{transf_bound_gen} при $n=0$, $\alpha_n = 0$.
-Детальний розв'язок якої наведено в (\nameref{ap_D}). Тоді остаточний розв'язок $v(x,y)$ буде мати вигляд
-\begin{align}
+Знайдем тепер $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_gen}, \eqref{transf_bound_gen} при $n=0$, $\alpha_n = 0$
+(детальний розв'язок наведено у Додатку D). Тоді остаточний розв'язок $v(x,y)$ набуває вигляду
+\begin{align}\label{final_sol_v_gen}
     &v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x) - \psi_0(y) \frac{p_0}{a(2G + \lambda)} + \nonumber \\
     &+ \frac{1}{a(1+\mu_0)} \int_{0}^{b}g(y,\xi) [ (\frac{\alpha_2}{\beta_2}\chi_4(\xi) cos(\alpha_n a) - \frac{\alpha_1}{\beta_1}\chi_2(\xi)) - \nonumber \\
     & - \frac{\mu_0}{(1+\mu_0)} (\chi_3^{'}(\xi) cos(\alpha_n a) -\chi_1^{'}(\xi)) ] d\xi
 \end{align}
 
-Залишилось знайти невідомі функції $\chi_1(y)$, $\chi_2(y)$, $\chi_3(y)$, $\chi_4(y)$.
-В подальшому в данній роботі розглянуто випадок таких граничних умов які призводять лише до однієї невідомої функції $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$.
-Для знаходження якої буде побудовано інтегральне рівняння завдяки граничній умові $\sigma_y(x, y) |_{y=b} = -p(x)$.
+Невідомі функції $\chi_i(y)$, $i=\overline{1, 4}$ що містяться у формулі розв'язку \eqref{final_sol_u_gen}, \eqref{final_sol_v_gen} знайдено для кожної конкретної постанови задачі окремо.
 
 \subsection{Загальна схема розв'язку сінгулярного інтегрального рівняння}
+% Сделать как у Зіни
 Розглянемо випадок граничних умов другої основної задачі теорії пружності, в результаті отримаємо лише одну невідому функцію $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$.
 З цього отримаємо значення $f_n^1(\xi) = 0$, $f_n^2(\xi)= -cos(\alpha_n a) f(\xi)$.
 Запишемо тепер фінальний розв'язок для цього випадку:
