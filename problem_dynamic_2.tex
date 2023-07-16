@@ -51,7 +51,7 @@
     \end{cases}
 \end{equation}
 
-\subsubsection{Зведеня задачі до одновимірної у просторі трансформант}
+\subsubsection{Розв'язання векторної крайовою задачі у просторі трансформант}
 Для того, щоб звести задачу до одновимірної задачі, використаєм інтегральне перетворення Фур'є по змінній $x$ у до рівнянь (\ref{lame_dynamic_2}) наступному вигляді:
 \begin{equation}
     \begin{pmatrix}
@@ -91,7 +91,6 @@ $\int_{0}^{a}\frac{\omega^2}{c_2^2}v(x,y)cos(\alpha_n x)dx = \frac{\omega^2}{c_2
 \end{equation}
 Де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
 
-\subsubsection{Зведення задачі у просторі трансформант до матрично-векторної форми}
 Для того щоб розв'язати задачу у простосторі трансформант, перепишмо її у матрично-векторній формі.
 Рівняння рівноваги (\ref{transf_dynamic_2}) запишемо у наступному вигляді:
 \begin{align}\label{transf_mat_dynamic_2}
@@ -241,7 +240,6 @@ $\int_{0}^{a}\frac{\omega^2}{c_2^2}v(x,y)cos(\alpha_n x)dx = \frac{\omega^2}{c_2
     \end{pmatrix}
 \end{align}
 
-\subsubsection{Побудова матриці-функції Гріна}
 Для побудови матриці-функції Гріна спочатку знайдем тепер фундамельні бизисні матриці $\Psi_0(y)$, $\Psi_1(y)$, шукати їх будем у наступному вигляді:
 \begin{equation}\label{psi_dynamic_2}
     \Psi_i(y) = \left( Y_0(y) + Y_1(y) \right) * C_1^i + \left( Y_2(y) + Y_3(y) \right) * C_2^i
@@ -290,7 +288,6 @@ $\int_{0}^{a}\frac{\omega^2}{c_2^2}v(x,y)cos(\alpha_n x)dx = \frac{\omega^2}{c_2
     &v_n(y) = -\int_0^b g_4(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^4(y) p_n
 \end{align}
 
-\subsubsection{Побудова розв'язоку вихідної задачі}
 Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
 (\ref{transf_sol_u_dynamic_2}), (\ref{transf_sol_u_dynamic_2}), отримаємо фінальний розв'язок задачі
 \begin{equation}
@@ -307,7 +304,7 @@ $\int_{0}^{a}\frac{\omega^2}{c_2^2}v(x,y)cos(\alpha_n x)dx = \frac{\omega^2}{c_2
     &- \frac{2}{a} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_4(y, \xi) cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^4(y) p_n  \right) cos(\alpha_n x)
 \end{align}
 
-\subsubsection{Розв'язок сінгулярного інтегрального рівняння}
+\subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
 Залишилось знайти невідому функцію $f(y)$ для якої побудуєм інтегральне рівнняння використовуючи граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$.
 \begin{equation*}
     (2G + \lambda)\frac{\partial v(x,y)}{\partial y}|_{y=b} + \lambda\frac{\partial u(x,y)}{\partial x}|_{y=b} = -p(x) \Leftrightarrow
