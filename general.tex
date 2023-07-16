@@ -163,7 +163,6 @@
     \end{cases}
 \end{equation}
 
-% перепроверить
 Тут $\chi_1(y) = u(0, y)$, $\chi_2(y) = v(0, y)$, $\chi_3(y) = u(a, y)$, $\chi_4(y) = v(a, y)$.
 Враховучи умову \eqref{gen_bound_gen}, отримаємо, що 
 $\frac{\partial u(0, y)}{\partial x}=-\frac{\alpha_1}{\beta_1} \chi_1(y)$,
@@ -257,24 +256,25 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
     \end{pmatrix} \quad
 \end{equation*}
 
-Для знаходження розв'язку задачі потрібно відшукати фундаментальну матрицю рівняння \eqref{transf_mat_gen}.
-% Посмотреть как у Зіни єтот кусок (раздел 2.2 - 2.3)
-Шукати її будем у наступному вигляді \cite{gantmaher}:
+Розв'язок векторної одновимірної крайової задачі знайдено як суперпозиція загального розв'язку векторного однорідного рівняння $Z_n^0(y)$
+та часткового розв'язку неоднорідного рівняння $Z_n^1(y)$.
 \begin{equation}
-    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
+    Z_n(y) = Z_n^0(y) + Z_n^1(y)
 \end{equation}
-де $M(s)$ - характерестична матриця рівняння \eqref{transf_mat_gen}, а $C$ - замкнений контур який містить усі особливі точки $M^{-1}(s)$. $M(s)$ будемо шукати з наступної умовни
-\begin{equation}
-    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
-\end{equation}
-\begin{align*}
-    &L_2\left[ e^{sy}*I \right] = e^{sy} \left( s^2A * I + s B*I + C*I \right) = \\
-    &=e^{sy} \begin{pmatrix}
-        s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
-        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_1^2}
-     \end{pmatrix} \Rightarrow
-\end{align*}
 
+Ці розв'язки знайдено за допомогою апарату матричного диференціального числення \cite{popov_4}, \cite{gantmaher},
+для чого потрібно побудувати фундаментальну мачтричну систему розв'язків відпоідного матричного однорідного рівняння та
+фундаментальну базісну систему розв'язків відповідної матричної крайової задачі.
+
+Як показано у \cite{popov_4} для знаходження розв'зку однорідного векторного рівняння \eqref{transf_mat_gen},
+спочатку треба побудувати розв'язок матричного однорідного рівняння
+\begin{equation}\label{hom_mat_trans_gen}
+    L_2\left[ Y_n(y) \right] = 0
+\end{equation}
+де $Y_n(y)$ - матриця порядку $2\times2$.
+
+Представимо матрицю $Y_n(y)$ у наступній формі $Y_n(y) = e^{sy}*I$, $I$ - одинична матриця, та підставимо до \eqref{hom_mat_trans_gen}.
+В результаті отримаємо рівність $L_2\left[ e^{sy}*I \right] = e^{sy} * M(s)$, де матриця $M(s)$ має вигляд:
 \begin{equation}
     M(s) = \begin{pmatrix}
         s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
@@ -282,13 +282,14 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
      \end{pmatrix}
 \end{equation}
 
-Знайдемо тепер $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$.
+Згідно до \cite{popov_5} розв'язок матричного однорідного рівняння побудовано у формі
 \begin{equation}
-    \widetilde{M(s)} = \begin{pmatrix}
-        s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s \\
-        -\alpha_n \mu_0 s & s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
-     \end{pmatrix}
+    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
 \end{equation}
+де $M^{-1}(s)$ - матриця обернена до матриці $M(s)$, $C$ - замкнений контур який містить усі особливі точки матриці $M^{-1}(s)$.
+
+Матрицю $M^{-1}(s)$ знайдено у наступному поданні $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$, де $\widetilde{M(s)}$ - транспонована матриця алгебричних доповнень,
+$det[M(s)]$ - детермінант матриці, який знайдено як поліном четвертого ступеня
 \begin{align}
     &det[M(s)] = \begin{vmatrix}
         s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
@@ -298,37 +299,42 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{align}
 де $s_1$, $s_2$, $-s_1$, $-s_2$ корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
 
+Обернена матриця має вигляд
+\begin{align}
+    &M^{-1}(s)= \frac{1}{(s - s_1)(s + s_1)(s - s_2)(s + s_2)} \nonumber \\
+    &\begin{pmatrix}
+        s^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s \\
+        -\alpha_n \mu_0 s & s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
+    \end{pmatrix}
+\end{align}
 Враховучи це, знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
 \begin{align*}
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{4} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
-    & = \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
+    & = \left(Y_1(y) + Y_2(y) + Y_3(y) + Y_4(y) \right)
 \end{align*}
-Знайдемо $Y_0(y)$:
-\begin{align}
+де
+\begin{align}\label{fund_mat_0_gen}
     &Y_0(y) =  \left( \frac{e^{sy}}{(s+s_1)(s - s_2)(s + s_2)} \widetilde{M(s)} \right) \Big|_{s=s_1} = \nonumber \\
     &=\frac{e^{s_1 y}}{2s_1 (s_1^2 - s_2^2)} \begin{pmatrix}
         s_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s_1 \\
         -\alpha_n \mu_0 s_1 & s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
     \end{pmatrix}
 \end{align}
-Знайдемо $Y_1(y)$:
-\begin{align}
+\begin{align}\label{fund_mat_1_gen}
     &Y_1(y) =  \left( \frac{e^{sy}}{(s-s_1)(s - s_2)(s + s_2)} \widetilde{M(s)} \right) \Big|_{s=-s_1} = \nonumber \\
     &=-\frac{e^{-s_1 y}}{2s_1 (s_1^2 - s_2^2)} \begin{pmatrix}
         s_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & -\alpha_n \mu_0 s_1 \\
         \alpha_n \mu_0 s_1 & s_1^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
     \end{pmatrix}
 \end{align}
-Знайдемо $Y_2(y)$:
-\begin{align}
+\begin{align}\label{fund_mat_2_gen}
     &Y_2(y) =  \left( \frac{e^{sy}}{(s+s_2)(s - s_1)(s + s_1)} \widetilde{M(s)} \right) \Big|_{s=s_2} = \nonumber \\
     &=\frac{e^{s_2 y}}{2s_2 (s_2^2 - s_1^2)} \begin{pmatrix}
         s_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & \alpha_n \mu_0 s_2 \\
         -\alpha_n \mu_0 s_2 & s_2^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2}
     \end{pmatrix}
 \end{align}
-Знайдемо $Y_3(y)$:
-\begin{align}
+\begin{align}\label{fund_mat_3_gen}
     &Y_3(y) =  \left( \frac{e^{sy}}{(s-s_2)(s - s_1)(s + s_1)} \widetilde{M(s)} \right) \Big|_{s=-s_2} = \nonumber \\
     &=-\frac{e^{-s_2 y}}{2s_2 (s_2^2 - s_1^2)} \begin{pmatrix}
         s_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2} & -\alpha_n \mu_0 s_2 \\
@@ -347,7 +353,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \begin{equation}\label{psi_gen}
     \Psi_i(y) = \left( Y_0(y) + Y_1(y) \right) * C_1^i + \left( Y_2(y) + Y_3(y) \right) * C_2^i
 \end{equation}
-Тут матриці $Y_i(y)$, $i=\overline{0, 3}$ визначено формулами (??), де $C_1^j$, $C_2^j$, $j=\overline{0, 1}$ невідомі матриці коєфіцієнтів, які знайдено з граничних умов \eqref{psi_probl_gen}
+Тут матриці $Y_i(y)$, $i=\overline{0, 3}$ визначено формулами \eqref{fund_mat_0_gen}-\eqref{fund_mat_3_gen}, де $C_1^j$, $C_2^j$, $j=\overline{0, 1}$ невідомі матриці коєфіцієнтів, які знайдено з граничних умов \eqref{psi_probl_gen}
 (покрокове знаходження наведено у Додатку С).
 
 Для подальшого введемо наступні позначення для елементів матриць $\Psi_0(y)$, $\Psi_1(y)$:
