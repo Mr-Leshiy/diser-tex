@@ -5,36 +5,38 @@
     \end{center}
     \caption{Геометрія проблеми}\label{geom_static_2}
 \end{figure}
-Розглядається пружна прямокутна область (Рис: \ref{geom_static_2}), яка займає облась,
-що описується у декартовій системі координат співвідношенням $-a \le x \le a$, $0 \le y \le b$.
+Розглядається пружна прямокутне тіло (Рис: \ref{geom_static_2}), яке займає облась,
+що описується у декартовій системі координат співвідношеннями $-a \le x \le a$, $0 \le y \le b$.
 
-До прямокутної області на грані $y=b$ додане нормальне навантаження
-\begin{equation}
+На грані $y=b$ додане нормальне навантаження
+\begin{equation}\label{bound_1_static_2}
     \sigma_y(x, y) |_{y=b} = -p(x), \quad  \tau_{xy}(x,y) |_{y=b} =0
 \end{equation}
 де $p(x)$ відома функція.
 
 На бічних гранях виконується умова другої основної задачі теорії пружності
-\begin{equation}
+\begin{equation}\label{bound_2_static_2}
     u(x,y) |_{x=\pm a} = 0, \quad v(x,y) |_{x=\pm a} =0
 \end{equation}
-На нижній грані виконуються наступні умови
-\begin{equation}
+На нижній грані виконується умова ідеального контакту
+\begin{equation}\label{bound_3_static_2}
     v(x,y) |_{y=0} = 0, \quad \tau_{xy}(x,y) |_{y=0} =0
 \end{equation}
-Розглядаються наступні рівняння рівноваги Ламе:
+Потрібно відшукати розв'язок рівняннь рівноваги
 \begin{equation}\label{lame_static_2}
     \begin{cases}
         \frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 u(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial x\partial y}) = 0 \\
         \frac{\partial^2 v(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x \partial y} + \frac{\partial^2 v(x,y)}{\partial y^2}) = 0 \\
     \end{cases}
 \end{equation}
-Щоб розв'язати поставлену задачу буде розглянута тільки половона прямокутної області $0 \le x \le a$, $0 \le y \le b$
-та використовуючи властивості симметрії граничні умови на бічних гранях будуть мати вигляд:
-\begin{equation}\label{bound_1_static_2}
+за умови виконання \eqref{bound_1_static_2} - \eqref{bound_3_static_2}
+
+Щоб розв'язати поставлену задачу буде розглянуто половона прямокутної області $0 \le x \le a$, $0 \le y \le b$
+та використовуючи властивості симметрії граничні умови на бічних гранях будуть мати наступний вигляд:
+\begin{equation}\label{bound_4_static_2}
     u(x,y) |_{x=0} = 0, \quad \tau_{xy}(x,y) |_{x=0} =0
 \end{equation}
-\begin{equation}\label{bound_2_static_2}
+\begin{equation}\label{bound_5_static_2}
     u(x,y) |_{x=a} = 0, \quad v(x,y) |_{x=a} = 0
 \end{equation}
 
