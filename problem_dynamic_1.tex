@@ -2,33 +2,33 @@
 Розглядається пружне прямокутне тіло (Рис: \ref{geom_gen}), яке займає облась,
 що описується у декартовій системі координат співвідношеннями $0 \le x \le a$, $0 \le y \le b$.
 
-До грані $y=b$ додане нормальне навантаження
+До грані $y=b$ додано нормальне динамічне навантаження
 \begin{equation}\label{bound_1_dynamic_1}
-    \sigma_y(x, y, t) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y,t) |_{y=b} =0
+    \sigma_y(x, y, t) |_{y=b} = -\widetilde{p}(x, t), \quad  \tau_{xy}(x,y,t) |_{y=b} =0,
 \end{equation}
 де $p(x,t)$ відома функція.
 На бічних та нижній гранях виконуються умови ідеального контакту
 \begin{equation}\label{bound_2_dynamic_1}
-    u(x,y,t) |_{x=0} = 0, \quad \tau_{xy}(x,y,t) |_{x=0} =0
+    \widetilde{u}(x,y,t) |_{x=0} = 0, \quad \tau_{xy}(x,y,t) |_{x=0} =0
 \end{equation}
 \begin{equation}\label{bound_3_dynamic_1}
-    u(x,y,t) |_{x=a} = 0, \quad \tau_{xy}(x,y,t) |_{x=a} =0
+    \widetilde{u}(x,y,t) |_{x=a} = 0, \quad \tau_{xy}(x,y,t) |_{x=a} =0
 \end{equation}
 \begin{equation}\label{bound_4_dynamic_1}
-    v(x,y,t) |_{y=0} = 0, \quad \tau_{xy}(x,y,t) |_{y=0} =0
+    \widetilde{v}(x,y,t) |_{y=0} = 0, \quad \tau_{xy}(x,y,t) |_{y=0} =0
 \end{equation}
 Потрібно відшукати розв'язок рівняннь Ламе
 \begin{equation}
     \begin{cases}
-        \frac{\partial^2 u(x,y,t)}{\partial x^2} + \frac{\partial^2 u(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y,t)}{\partial x^2} + \frac{\partial^2 v(x,y,t)}{\partial x\partial y}) = \frac{1}{c_1^2} \frac{\partial^2 u(x,y,t)}{\partial t^2} \\
-        \frac{\partial^2 v(x,y,t)}{\partial x^2} + \frac{\partial^2 v(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y,t)}{\partial x \partial y} + \frac{\partial^2 v(x,y,t)}{\partial y^2}) = \frac{1}{c_2^2} \frac{\partial^2 v(x,y,t)}{\partial t^2} \\
+        \frac{\partial^2 \widetilde{u}(x,y,t)}{\partial x^2} + \frac{\partial^2 \widetilde{u}(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 \widetilde{u}(x,y,t)}{\partial x^2} + \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial x\partial y}) = \frac{1}{c_1^2} \frac{\partial^2 \widetilde{u}(x,y,t)}{\partial t^2} \\
+        \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial x^2} + \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 \widetilde{u}(x,y,t)}{\partial x \partial y} + \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial y^2}) = \frac{1}{c_2^2} \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial t^2} \\
     \end{cases}
 \end{equation}
-за умови виконання крайових умов \eqref{bound_1_dynamic_1} - \eqref{bound_4_dynamic_1}
+за умови виконання крайових умов \eqref{bound_1_dynamic_1} - \eqref{bound_4_dynamic_1}.
 
-Тут і далі розглянуто постановка задачі у випадку гармонічних коливань
+Тут і далі постановку задачі розглянуто у випадку гармонічних коливань
 \begin{equation}\label{garm_dynamic_1}
-    u(x,y,t) = u(x,y) e^{i \omega t}, \quad v(x,y,t) = v(x,y) e^{i \omega t}, \quad p(x, y, t) = p(x, y) e^{i \omega t}
+    \widetilde{u}(x,y,t) = u(x,y) e^{i \omega t}, \quad  \widetilde{v}(x,y,t) = v(x,y) e^{i \omega t}, \quad \widetilde{p}(x, y, t) = p(x, y) e^{i \omega t}
 \end{equation}
 З урахуванням подання переміщеннь \eqref{garm_dynamic_1} рівняння Ламе переформульовано:
 \begin{equation}\label{lame_dynamic_1}
@@ -63,15 +63,14 @@
     \end{pmatrix} dx, \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
-Після інтегрування за частинами обох рівнянь Ламе оримаємо наступні рівняння у просторі трансформант
+Після інтегрування за частинами обох рівнянь Ламе отримано наступну систему звичайних диференціальних рівняннь у просторі трансформант
 \begin{equation}\label{transf_dynamic_1}
     \begin{cases}
         u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) + (-\alpha_n^2 -\alpha_n^2 \mu_0 + \frac{\omega^2}{c_1^2}) u_n(y) = 0 \\
         (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y) + (- \alpha_n^2 + \frac{\omega^2}{c_2^2}) v_n(y) = 0 \\
     \end{cases}
 \end{equation}
-Застосовуючи інтегральне перетворення \eqref{int_trans_dynamic_1} до крайових умов \eqref{bound_dynamic_1},
-отримаємо крайові умови задачі у просторі трансформант
+Застосування інтегрального перетворення \eqref{int_trans_dynamic_1} до крайових умов \eqref{bound_dynamic_1} призводить до крайових умов у просторі трансформант
 \begin{equation}\label{transf_bound_dynamic_1}
     \begin{cases}
         \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n, \\
@@ -82,7 +81,7 @@
 \end{equation}
 де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$.
 
-Для того щоб розв'язати задачу у простосторі трансформант, її переписано у векторній формі.
+Для того, щоби розв'язати задачу у простосторі трансформант, її переписано у векторній формі.
 Рівняння рівноваги (\ref{transf_dynamic_1}) запишемо у наступному вигляді:
 \begin{equation}\label{transf_mat_dynamic_1}
     L_2\left[ Z_n(y) \right] = 0
@@ -111,7 +110,7 @@
         v_n(y)
     \end{pmatrix}
 \end{equation*}
-Граничні умови (\ref{transf_bound_dynamic_1}) запишемо у наступному вигляді:
+Граничні умови (\ref{transf_bound_dynamic_1}) запишемо у паданні:
 \begin{equation}\label{transf_bound_mat_dynamic_1}
     U_i\left[ Z_n(y) \right] = D_i
 \end{equation}
@@ -150,18 +149,18 @@
     \end{pmatrix}, \quad
 \end{equation*}
 
-Будемо шукати однорідний розв'язок рівняння,
-для цього спочатку побудуємо фундаментальну матрицю рівняння \eqref{transf_mat_static_1}.
-Її будемо шукати у наступному поданні \cite{gantmaher}:
+Потрібно відшукати розв'зок однорідного рівняння (3.42??),
+для чого спочатку побудовано його фундаментальну матрицю.
+Її шукатимемо у наступному поданні \cite{gantmaher}:
 \begin{equation}
-    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
+    Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds,
 \end{equation}
-Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_dynamic_1}), а $C$ - замкнений контур який містить усі особливі точки.
-Матрицю $M(s)$ будемо шукати з наступної умови
+де $M(s)$ - характеристична матриця рівняння (\ref{transf_mat_dynamic_1}), $C$ - замкнений контур, який містить усі особливі точки підінтегрального виразу.
+Матрицю $M(s)$ шукатимемо за схемою
 \begin{equation}
-    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
 \end{equation}
-де матриця $M(s)$ має вигляд:
+Тут матриця $M(s)$ має вигляд:
 \begin{equation}
     M(s) = \begin{pmatrix}
         s^2 - \alpha_n^2 - \alpha_n^2\mu_0 + \frac{\omega^2}{c_1^2} & -\alpha_n \mu_0 s \\
@@ -169,7 +168,7 @@
      \end{pmatrix}
 \end{equation}
 
-Знайдемо тепер $M^{-1}(s)$, яку побудовано у наступній формі $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$, де $\widetilde{M(s)}$ - транспонована матриця алгебричних доповнень,
+Знайдемо тепер обернену матрицю $M^{-1}(s)$, яку побудовано у наступній формі $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$, де $\widetilde{M(s)}$ - транспонована матриця алгебричних доповнень,
 $det[M(s)]$ - детермінант матриці
 \begin{equation}
     \widetilde{M(s)} = \begin{pmatrix}
@@ -184,9 +183,9 @@ $det[M(s)]$ - детермінант матриці
      \end{vmatrix} = \nonumber \\
     &=(s - s_1)(s + s_1)(s - s_2)(s + s_2),
 \end{align}
-де $s_1$, $s_2$, $-s_1$, $-s_2$ корені $det[M(s)]=0$, детальне знаходження яких наведено у Додатку B.
+знайдено чотири прості корені рівняння $det[M(s)]=0$: $-s_1$, $-s_2$, $s_1$, $s_2$, детальне знаходження яких наведено у Додатку B.
 
-Враховучи це, тепер знайдемо значення фундаментальної матриці за допомогою теореми про лишки:
+Враховучи це, запишемо фундаментальну матричну систему розв'язків:
 \begin{align*}
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{4} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
     & = \left(Y_0(y) + Y_1(y) + Y_2(y) + Y_3(y) \right)
@@ -221,12 +220,14 @@ $det[M(s)]$ - детермінант матриці
     \end{pmatrix}
 \end{align}
 
-Отримаємо розв'зок однорідного рівняння у просторі трансформант, який подано у формі
-\begin{equation}
-    Z_n(y) =\left( Y_0(y) +  Y_1(y)  \right) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} + \left( Y_2(y) +  Y_3(y) \right) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}
+Таким чином розв'зок однорідного векторного рівняння у просторі трансформант набуває вигляду
+\begin{equation}\label{transf_sol_dynamic_1}
+    Z_n(y) =\left( Y_0(y) +  Y_1(y)  \right) * \begin{pmatrix} c_1 \\ c_2 \end{pmatrix} + \left( Y_2(y) +  Y_3(y) \right) * \begin{pmatrix} c_3 \\ c_4 \end{pmatrix}.
 \end{equation}
-Для того, щоб відшукати невідомі коєфіцієнти $c_i$, $i=\overline{1, 4}$ потрібно задовольнити граничні умови \eqref{transf_bound_mat_dynamic_1} (\nameref{ap_E}).
-Тепер можна записати фінальний розв'язок векторної крайової задачі у просторі трансформант:
+Граничні умови \eqref{transf_bound_mat_dynamic_1} використано для того, щоб відшукати невідомі константи $c_i$, $i=\overline{1, 4}$,
+детально продемостровано у Додатку C.
+
+Розв'язок \eqref{transf_sol_dynamic_1} векторної крайової задачі у просторі трансформант подано наступними виразами
 \begin{align}\label{transf_sol_u_dynamic_1}
     &u_n(y) = \frac{( s_1^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(e^{s_1y} - e^{-s_1y})}{2s_1(s_1^2 - s_2^2)(1 + \mu_0)}c_1 + \nonumber \\
     & + \frac{( s_2^2 (1 + \mu_0) -\alpha_n^2 + \frac{\omega^2}{c_2^2})(e^{s_2y} - e^{-s_2y})}{2s_2(s_2^2 - s_1^2)(1 + \mu_0)}c_3 + \nonumber \\
@@ -238,38 +239,40 @@ $det[M(s)]$ - детермінант матриці
     & - \frac{(s_1 \alpha_n y)(e^{s_1y} + e^{-s_1y})}{2s_1(s_1^2 - s_2^2)(1 + \mu_0)}c_1 - \frac{(s_2 \alpha_n y)(e^{s_2y} + e^{-s_2y})}{2s_2(s_2^2 - s_1^2)(1 + \mu_0)}c_3
 \end{align}
 
-Використовуючи оберненне інтегральне перетворення Фур'є для трансформант переміщень \eqref{transf_sol_u_dynamic_1}, \eqref{transf_sol_v_dynamic_1} завершує побудову розв'язку вихідної задачі
-\begin{equation}
+Оберненне інтегральне перетворення Фур'є для трансформант переміщень \eqref{transf_sol_u_dynamic_1}, \eqref{transf_sol_v_dynamic_1}
+завершує побудову розв'язку вихідної задачі
+\begin{equation}\label{final_sol_u_dynamic_1}
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{final_sol_v_dynamic_1}
     v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 
 Останній крок - це знаходження $v_0(y)$ у випадку коли $n=0$, $\alpha_0 =0$.
-Для цього повернемся до другого рівняння (\ref{transf_dynamic_1}), та запишем його для цього випадку:
+Друге рівняння (\ref{transf_dynamic_1}) приймає вигляд
 \begin{equation}\label{transf_v_0_dynamic_1}
     (1 + \mu_0) v_0^{''}(y) + \frac{\omega^2}{c_2^2}v_0(y) = 0
 \end{equation}
-Та запишимо відповідні граничні умови:
+Також переписано граничні умови
 \begin{equation}\label{transf_bound_v_0_dynamic_1}
     \begin{cases}
         (2G + \lambda)v_0^{'}(y)|_{y=b} = -p_0 \\
         v_0(y)|_{y=0} = 0
     \end{cases}
 \end{equation}
-де $p_0 = \int_{0}^{a}p(x)dx$
+де $p_0 = \int_{0}^{a}p(x)dx$.
 
-Розв'язок рівняння (\ref{transf_v_0_dynamic_1}) буде мати вигляд:
+Розв'язок рівняння (\ref{transf_v_0_dynamic_1}) має вигляд:
 \begin{equation}
     v_0(y) = c_1 cos \left(y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right) + c_2 sin \left( y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right)
 \end{equation}
-Отже
+Отже з урахуванням умов \eqref{transf_bound_v_0_dynamic_1}
 \begin{equation}
     v_0(y) = \frac{-p_0}{(2G + \lambda) \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} sin \left(b \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right) } sin \left(y \sqrt{\frac{\omega^2}{c_2^2(1 + \mu_0)}} \right)
 \end{equation}
+Тепер формули \eqref{final_sol_u_dynamic_1}, \eqref{final_sol_v_dynamic_1} повністю описують хвильове поле прямокутної області.
 
-\subsubsection{Числові розрахунки}
+\subsubsection{Числові розрахункиь та обговорення}
 Наведені чисельні експеренти розглядаються для сталі ($E=200$ ГПА, $\mu=0.25$).
 
 Розглянута прямокунта область $0 \le x \le 10$, $0 \le y \le 15$, при функції навантаження $p(x)=(x-2.5)^2$ та частоті коливань $\omega=0.75$.
