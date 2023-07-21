@@ -218,18 +218,6 @@ $det[M(s)]$ - детермінант матриці
 де $C_1^j$, $C_2^j$, $j=\overline{0, 1}$ невідомі матриці коєфіцієнтів, які знайдено з граничних умов \eqref{psi_probl_static_2}
 (покрокове знаходження наведено у Додатку С).
 
-Для подальшого введемо наступні позначення для елементів матриць $\Psi_0(y)$, $\Psi_1(y)$:
-\begin{equation*}
-    \Psi_0(y) = \begin{pmatrix}
-        \Psi_1^0(y) &  \Psi_2^0(y) \\
-        \Psi_3^0(y) &  \Psi_4^0(y) 
-    \end{pmatrix}, \quad 
-    \Psi_1(y) = \begin{pmatrix}
-        \Psi_1^1(y) &  \Psi_2^1(y) \\
-        \Psi_3^1(y) &  \Psi_4^1(y) 
-    \end{pmatrix}      
-\end{equation*}
-
 Таким чином матрицю Гріна можемо записати у подані:
 \begin{equation}\label{grin_matrix_static_2}
     G(y,\xi) = 
@@ -245,24 +233,22 @@ $det[M(s)]$ - детермінант матриці
     L_2\left[  G(y, \xi) \right] = 0
 \end{equation*}
 \begin{equation*}
-    U_0\left[ G(y, \xi) \right] = 0, \quad  U_1\left[ G(y, \xi) \right],
+    U_0\left[ G(y, \xi) \right] = 0, \quad  U_1\left[ G(y, \xi) \right] = 0,
 \end{equation*}
 
-Таким чином ми можемо записати розв'язок крайової задачі у просторі трансформант:
+Таким чином розв'язок неоднорідної векторної крайової задачі у просторі трансформант записано у поданні \cite{popov_2}
 \begin{equation}
     Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0(y) * D_0 + \Psi_1(y) * D_1
 \end{equation}
 
-Введемо наступні позначення $G(y, \xi) = \begin{pmatrix}
+Введемо наступні позначення для матриці Гріна $G(y, \xi) = \begin{pmatrix}
     g_1(y,\xi) & g_2(y,\xi) \\
     g_3(y,\xi) & g_4(y,\xi)
-\end{pmatrix}$, $F_n(y) = \begin{pmatrix}
-    f_n^1(y) \\
-    f_n^2(y)
-\end{pmatrix}$, $\Psi_i(y) = \begin{pmatrix}
+\end{pmatrix}$,, $\Psi_i(y) = \begin{pmatrix}
     \psi_i^1(y) & \psi_i^2(y) \\
     \psi_i^3(y) & \psi_i^4(y)
-\end{pmatrix}$, $i=0,1$. Враховуючи це, шукані функціі перемішень у просторі трансформант можна записати у наступному вигляді
+\end{pmatrix}$, $i=0,1$.
+Враховуючи це, шукані функціі перемішень у просторі трансформант представлено у наступному вигляді
 \begin{align}\label{transf_sol_u_static_2}
     &u_n(y) = \int_0^b \left[g_1(y, \xi)f_n^1(\xi) + g_2(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^2(y) p_n
 \end{align}
@@ -270,8 +256,7 @@ $det[M(s)]$ - детермінант матриці
     &v_n(y) = \int_0^b \left[g_3(y, \xi)f_n^1(\xi) + g_4(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^4(y) p_n
 \end{align}
 
-Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
-(\ref{transf_sol_u_static_2}), (\ref{transf_sol_u_static_2}), отримаємо фінальний розв'язок задачі
+Фінальний розв'язок вихідної задачі отримано після застосування оберненного перетворення Фур'є до трансформант \eqref{transf_sol_u_static_2}, \eqref{transf_sol_u_static_2}
 \begin{equation}
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
@@ -287,7 +272,7 @@ $det[M(s)]$ - детермінант матриці
 \end{align}
 
 \subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
-Залишилось знайти невідому функцію $f(y)$ для якої побудуєм інтегральне рівнняння використовуючи граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$.
+Залишилось знайти невідому функцію $f(y)$ для якої побудовано сінгулярне інтегральне рівнняння за допомогою граничної умови $\sigma_y(x, y) |_{y=b} = -p(x)$.
 \begin{equation*}
     (2G + \lambda)\frac{\partial v(x,y)}{\partial y}|_{y=b} + \lambda\frac{\partial u(x,y)}{\partial x}|_{y=b} = -p(x) \Leftrightarrow
 \end{equation*}
