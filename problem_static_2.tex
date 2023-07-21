@@ -147,33 +147,18 @@
     \end{pmatrix}, \quad
 \end{equation*}
 
-Для знаходження розв'язку задачі у просторі трансформант, знайдем фундаментальну матрицю рівняння (\ref{transf_mat_static_2}).
-Шукати її будем у наступному вигляді \cite{gantmaher}:
+Потрібно відшукати розв'язок однорідного векторного рівняння \eqref{transf_mat_static_2}.
+З цією метою спочатку розшукуємо розв'язок однорідного матричного рівняння.
+Його побудовано у вигляді \cite{gantmaher}:
 \begin{equation}
     Y(y) = \frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds
 \end{equation}
-Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_static_2}), а $C$ - замкнений контур який містить усі особливі точки. Яку будемо шукати з наступної умовни
+Де $M(s)$ - характерестична матриця рівняння (\ref{transf_mat_static_2}), $C$ - замкнений контур який містить усі особливі точки підінтегрального виразу.
+Матрицю $M(s)$ знайдено з наступної умови
 \begin{equation}
-    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}
+    L_2\left[ e^{sy}*I \right] = e^{sy} * M(s), \quad I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix},
 \end{equation}
-\begin{align*}
-    &L_2\left[ e^{sy}*I \right] = e^{sy} \left( s^2A * I + s B*I + C*I \right) = \\
-    &=e^{sy} \left( \begin{pmatrix}
-        s^2 & 0 \\
-        0 & s^2 (1 + \mu_0)
-    \end{pmatrix} + \begin{pmatrix}
-        0 & -\alpha_n \mu_0 s\\
-        \alpha_n \mu_0 s & 0
-    \end{pmatrix} + \begin{pmatrix}
-        -\alpha_n^2(1 + \mu_0) & 0 \\
-        0 & -\alpha_n^2
-    \end{pmatrix} \right) =  \\
-    &=e^{sy} \begin{pmatrix}
-        s^2 -\alpha_n^2(1 + \mu_0) & -\alpha_n \mu_0 s \\
-        \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
-     \end{pmatrix} \Rightarrow
-\end{align*}
-
+де матриця $M(s)$ має вигляд
 \begin{equation}
     M(s) = \begin{pmatrix}
         s^2 -\alpha_n^2(1 + \mu_0) & -\alpha_n \mu_0 s \\
@@ -181,13 +166,15 @@
      \end{pmatrix}
 \end{equation}
 
-Знайдемо тепер $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$.
+Обернену матрицю $M^{-1}(s)$ знайдено у наступному поданні $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$, 
+де $\widetilde{M(s)}$ - транспонована матриця алгебричних доповнень
 \begin{equation}
     \widetilde{M(s)} = \begin{pmatrix}
         s^2 (1 + \mu_0) -\alpha_n^2 & \alpha_n \mu_0 s \\
         -\alpha_n \mu_0 s & s^2 -\alpha_n^2(1 + \mu_0)
      \end{pmatrix}
 \end{equation}
+$det[M(s)]$ - детермінант матриці
 \begin{align}
     &det[M(s)] = \begin{vmatrix}
         s^2 - \alpha_n^2 - \alpha_n^2\mu_0 & -\alpha_n \mu_0 s \\
@@ -195,14 +182,14 @@
      \end{vmatrix} = \nonumber \\
     &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2
 \end{align}
-Де $\alpha_n$, $-\alpha_n$, корені $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
+де $-\alpha_n$, $\alpha_n$, корені другої кратності рівняння $det[M(s)]=0$, детальне знаходження яких наведено в (\nameref{ap_B}).
 
-Враховучи це, тепер знайдемо значення фундаментальної матрицю за допомогою теореми про лишки:
+За допомогою теореми про лишки знайдено фундаментальну матричну систему
 \begin{align*}
     &\frac{1}{2\pi i} \oint_C e^{sy} M^{-1}(s)ds = \frac{2 \pi i}{2 \pi i (1 + \mu_0)} \sum_{i=1}^{2} Res\left[ e^{sy} \frac{\widetilde{M(s)}}{det[M(s)]} \right] = \\
     & = \frac{1}{(1 + \mu_0)} \left(Y_0(y) + Y_1(y) \right)
 \end{align*}
-Знайдем $Y_0(y)$:
+де
 \begin{align}
     &Y_0(y) =  \frac{\partial}{\partial s} \left( \frac{e^{sy}}{(s+\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=\alpha_n} = \nonumber \\
     &=\frac{e^{\alpha_n y}}{4\alpha_n} \begin{pmatrix}
@@ -210,7 +197,6 @@
     -\alpha_n \mu_0 y & -\alpha_n \mu_0 y + 2 + \mu_0
     \end{pmatrix}
 \end{align}
-Знайдем $Y_1(y)$:
 \begin{align}
     &Y_1(y) = \frac{\partial}{\partial s} \left(\frac{e^{sy}}{(s-\alpha_n)^2} \widetilde{M(s)} \right) \Big|_{s=-\alpha_n} = \nonumber \\
     =&\frac{e^{-\alpha_n y}}{4\alpha_n} \begin{pmatrix}
@@ -219,13 +205,19 @@
     \end{pmatrix}
 \end{align}
 
-Для побудови матриці-функції Гріна спочатку знайдем тепер фундамельні бизисні матриці $\Psi_0(y)$, $\Psi_1(y)$, шукати їх будем у наступному вигляді:
-\begin{equation}\label{psi_static_2}
-    \Psi_i(y) = Y_0(y) * C_1^i + Y_2(y) * C_2^i
-\end{equation}
+Для побудови матриці-функції Гріна спочатку знайдено фундаментальну базисну систему розв'язків $\Psi_0(y)$, $\Psi_1(y)$, які мають задовільняти матричну крайову задачу \cite{popov_2}:
+\begin{align}\label{psi_probl_static_2}
+    &L_2\left[ \Psi_i(y) \right] = 0, \nonumber \\
+    &U_i\left[ \Psi_j(y) \right] = \delta_{j,i}, \quad j= \overline{0, 1}, i= \overline{0, 1}
+\end{align}
 
-Залишилось знайти невідомі матриці коєфіцієнтів $C_1^0$, $C_2^0$, $C_1^1$, $C_2^1$ використовуючи граничні умови \eqref{transf_bound_mat_static_2}.
-Покрокове знаходження яких наведено у (\nameref{ap_C}).
+Для цього їх вибрано у формі:
+\begin{equation}\label{psi_static_2}
+    \Psi_i(y) = Y_0(y) * C_1^i + Y_2(y) * C_2^i,
+\end{equation}
+де $C_1^j$, $C_2^j$, $j=\overline{0, 1}$ невідомі матриці коєфіцієнтів, які знайдено з граничних умов \eqref{psi_probl_static_2}
+(покрокове знаходження наведено у Додатку С).
+
 Для подальшого введемо наступні позначення для елементів матриць $\Psi_0(y)$, $\Psi_1(y)$:
 \begin{equation*}
     \Psi_0(y) = \begin{pmatrix}
@@ -238,8 +230,8 @@
     \end{pmatrix}      
 \end{equation*}
 
-Таким чином матрицю Гріна можемо записати у вигляді:
-\begin{equation}
+Таким чином матрицю Гріна можемо записати у подані:
+\begin{equation}\label{grin_matrix_static_2}
     G(y,\xi) = 
     \begin{cases}
         \Psi_0(y) * \Psi_1(\xi), \quad 0 \le y < \xi \\
