@@ -30,14 +30,14 @@
 \begin{equation}\label{garm_dynamic_1}
     \widetilde{u}(x,y,t) = u(x,y) e^{i \omega t}, \quad  \widetilde{v}(x,y,t) = v(x,y) e^{i \omega t}, \quad \widetilde{p}(x, y, t) = p(x, y) e^{i \omega t}
 \end{equation}
-З урахуванням подання переміщеннь \eqref{garm_dynamic_1} рівняння Ламе переформульовано:
+З урахуванням подання переміщеннь \eqref{garm_dynamic_1} рівняння Ламе переформульовано
 \begin{equation}\label{lame_dynamic_1}
     \begin{cases}
         \frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 u(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial x\partial y}) = -\frac{\omega^2}{c_1^2}  u(x,y) \\
         \frac{\partial^2 v(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x \partial y} + \frac{\partial^2 v(x,y)}{\partial y^2}) = -\frac{\omega^2}{c_2^2} v(x,y) \\
     \end{cases}
 \end{equation}
-Граничні умови набувають вигляду:
+Граничні умови набувають вигляду
 \begin{equation}\label{bound_dynamic_1}
     \begin{cases}
         \sigma_y(x, y) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y) |_{y=b} = 0 \\
@@ -51,7 +51,7 @@
 що задовольняє крайову задачу \eqref{lame_dynamic_1}, \eqref{bound_dynamic_1}.
 
 \subsubsection{Побудова точного розв'язку вихідної задачі}
-Для того, щоби звести задачу до одновимірної задачі у просторі трансформант, використано інтегральне перетворення Фур'є за змінною $x$ до рівнянь (\ref{lame_static_1}):
+Для того, щоби звести задачу до одновимірної задачі у просторі трансформант, використано інтегральне перетворення Фур'є за змінною $x$ до рівнянь \eqref{lame_dynamic_1}:
 \begin{equation}\label{int_trans_dynamic_1}
     \begin{pmatrix}
         u_n(y) \\
