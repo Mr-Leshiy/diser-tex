@@ -11,11 +11,11 @@
     \end{center}
     \caption{Геометрія задачі}\label{geom_gen}
 \end{figure}
-Розглядається пружний прямокутник (Рис: \ref{geom_gen}), який займає область, що у декартовій системі координат описується співвідношенням $0 \le x \le a$, $0 \le y \le b$.
+Розглядається пружний прямокутник (Рис: \ref{geom_gen}), який займає область, що у декартовій системі координат описується співвідношеннями $0 \le x \le a$, $0 \le y \le b$.
 
 До прямокутної області по грані $y=b$ додане нормальне навантаження
 \begin{equation}
-    \sigma_y(x, y, t) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y,t) |_{y=b} =0, \quad 0 \le x \le a
+    \sigma_y(x, y, t) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y,t) |_{y=b} =0,
 \end{equation}
 де $p(x, t)$ відома функція, $t$ - час.
 По нижній грані виконуються умови ідеального контакту
@@ -24,12 +24,12 @@
 \end{equation}
 На бічних гранях $x=0$ та $x=a$ граничні умови подано у формі
 \begin{equation}\label{gen_bound_gen}
-    U_1[f(x,y,t)]=0, \quad U_2[f(x,y,t)]=0 , \quad 0 \le y \le b,
+    U_1[f(x,y,t)]=0, \quad U_2[f(x,y,t)]=0 ,
 \end{equation}
 де 
 \begin{align*}
-    &U_1[f(x,y,t)]=\left[\alpha_1f(x,y,t) + \beta_1 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=0} \\
-    &U_2[f(x,y,t)]=\left[\alpha_2f(x,y,t) + \beta_2 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=a} \\
+    &U_1[f(x,y,t)]=\left[\alpha_1f(x,y,t) + \beta_1 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=0}, \\
+    &U_2[f(x,y,t)]=\left[\alpha_2f(x,y,t) + \beta_2 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=a}, \\
 \end{align*}
 - граничні функціонали у загальному зображенні (для кожної конкретної задачі вони будуть деталізовані), $f(x,y,t)=(u(x,y,t), v(x,y,t))^T$ - вектор переміщеннь.
 
@@ -108,18 +108,17 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 отримано подання крайових умов у просторі трансформант:
 \begin{equation}\label{transf_bound_gen}
     \begin{cases}
-        \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n \\
-        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=b} = 0 \\
-        v_n(y)|_{y=0} = 0 \\
-        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=0} = 0
+        \left( (2G + \lambda)v_n^{'}(y) + \alpha_n \lambda u_n(y) \right)|_{y=b} = -p_n, \\
+        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=b} = 0, \\
+        v_n(y)|_{y=0} = 0, \\
+        \left(u_n^{'}(y) - \alpha_n v_n(y)  \right)|_{y=0} = 0,
     \end{cases}
 \end{equation}
-де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$
-
+де $p_n = \int_{0}^{a} p(x) cos(\alpha_n x) dx$.
 
 Для того щоб розв'язати задачу у простосторі трансформант, її переписано у векторній формі.
 \begin{align}\label{transf_mat_gen}
-    &L_2\left[ Z_n(y) \right] = F_n(y)
+    &L_2\left[ Z_n(y) \right] = F_n(y),
 \end{align}
 де $L_2$ - диференціальний оператор другого порядку
 \begin{align}
@@ -153,11 +152,11 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 \end{equation*}
 Граничні умови \eqref{transf_bound_gen} записано у зображенні:
 \begin{align}\label{transf_bound_mat_gen}
-    &U_i\left[ Z_n(y) \right] = D_i
+    &U_i\left[ Z_n(y) \right] = D_i,
 \end{align}
-де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$,
+де $i = \overline{0, 1}$, $b_0 = b$, $b_1 = 0$
 \begin{align}
-    &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i)
+    &U_i\left[ Z_n(y) \right] = E_i * Z_n^{'}(b_i) + F_i * Z_n(b_i),
 \end{align}
 \begin{equation*}
     E_0 = \begin{pmatrix}
