@@ -57,11 +57,11 @@
 В результаті отримано наступну систему звичайних диференціальних рівнянь у просторі трансформант
 \begin{equation}\label{transf_static_2}
     \begin{cases}
-        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - \alpha_n^2 (1 + \mu_0) u_n(y) = 0 \\
-        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = -cos(\alpha_n) f(y) \\
+        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - \alpha_n^2 (1 + \mu_0) u_n(y) = -(1 + \mu_0)sin(\alpha_n a) f(y) \\
+        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = 0 \\
     \end{cases},
 \end{equation}
-де $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$ - невідома функція.
+де $f(y) = \frac{\partial u(x,y)}{\partial x}|_{x=a}$ - невідома функція.
 
 Крайові умови у просторі трансформант подано у вигляді
 \begin{equation}\label{transf_bound_static_2}
@@ -103,8 +103,8 @@
         v_n(y)
     \end{pmatrix}, \quad 
     F_n(y) = \begin{pmatrix}
-        0 \\
-        - cos(\alpha_n a) f(y)
+        -(1 + \mu_0)sin(\alpha_n a) f(y) \\
+        0
     \end{pmatrix}
 \end{equation*}
 Граничні умови (\ref{transf_bound_static_2}) записано за домогою граничних функціоналів
@@ -289,7 +289,7 @@ $det[M(s)]$ - детермінант матриці
 
 \subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
 В отриманих розв'язках \eqref{sol_u_static_2}, \eqref{sol_v_static_2} міститься невідома функція $f(y)$.
-Для того, щоби знайти її потрібно задовольнити граничну умову $\sigma_y(x, y) |_{y=b} = -p(x)$,
+Для того, щоби знайти її потрібно задовольнити граничну умову $u(x, y) |_{x=a} = 0$,
 це призводить до необхідності розв'язання сінгулярного інтегрального рівняння
 \begin{equation}\label{int_eq_static_2}
     \frac{1}{\pi} \int_{-1}^{1} \left( ln\left[ \frac{1}{\lvert x - t \rvert} \right] + a_2(t, x) \right) f(t) dt = a_1(x),

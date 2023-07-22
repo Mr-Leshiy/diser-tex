@@ -51,11 +51,11 @@
 Після застосування перетворення Фур'є \eqref{int_trans_static_2} та інтегрування за частинами обох рівнянь \eqref{lame_dynamic_2} отримано систему звичайних диференціальних рівнянь у просторі трансформант
 \begin{equation}\label{transf_dynamic_2}
     \begin{cases}
-        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) + (-\alpha_n^2 -\alpha_n^2 \mu_0 + \frac{\omega^2}{c_1^2}) u_n(y) = 0, \\
-        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y) + (- \alpha_n^2 + \frac{\omega^2}{c_2^2}) v_n(y) = -cos(\alpha_n) f(y),\\
+        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) + (-\alpha_n^2 -\alpha_n^2 \mu_0 + \frac{\omega^2}{c_1^2}) u_n(y) = -(1 + \mu_0)sin(\alpha_n a) f(y), \\
+        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y) + (- \alpha_n^2 + \frac{\omega^2}{c_2^2}) v_n(y) = 0,\\
     \end{cases}
 \end{equation}
-де $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$ - невідома функція.
+де $f(y) = \frac{\partial u(x,y)}{\partial x}|_{x=a}$ - невідома функція.
 
 Інтегральне перетворення застосовано відповідно до крайових умов \eqref{bound_dynamic_2}
 \begin{equation}\label{transf_bound_dynamic_2}
@@ -99,8 +99,8 @@
         v_n(y)
     \end{pmatrix}, \quad 
     F_n(y) = \begin{pmatrix}
-        0 \\
-        - cos(\alpha_n a) f(y)
+        -(1 + \mu_0)sin(\alpha_n a) f(y) \\
+        0
     \end{pmatrix}
 \end{equation*}
 Граничні умови (\ref{transf_bound_dynamic_2}) записано за допомогою крайових функціоналів:
