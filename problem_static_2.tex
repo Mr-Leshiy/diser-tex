@@ -278,10 +278,10 @@ $det[M(s)]$ - детермінант матриці
 \end{pmatrix}$, $i=0,1$.
 \newline З урахуванням цих позначень \textcolor{red}{та \eqref{transf_gen_sol_static_2}}, шукані функціі перемішень у просторі трансформант зображено у наступному вигляді
 \begin{align}\label{transf_sol_u_static_2}
-    &u_n(y) = \int_0^b \left[g_1(y, \xi)f_n^1(\xi) + g_2(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^2(y) p_n
+    &u_n(y) = (-1)^n (1+\mu_0) \int_0^b \left[g_1(y, \xi)f(\xi)\right]d\xi - \psi_0^2(y) p_n,
 \end{align}
 \begin{align}\label{transf_sol_v_static_2}
-    &v_n(y) = \int_0^b \left[g_3(y, \xi)f_n^1(\xi) + g_4(y, \xi)f_n^2(\xi) \right]d\xi - \psi_0^4(y) p_n
+    &v_n(y) = (-1)^n (1+\mu_0)  \int_0^b \left[g_3(y, \xi)f(\xi) \right]d\xi - \psi_0^4(y) p_n,
 \end{align}
 
 Фінальний розв'язок вихідної задачі отримано після застосування оберненного перетворення Фур'є до трансформант \eqref{transf_sol_u_static_2}, \eqref{transf_sol_u_static_2}

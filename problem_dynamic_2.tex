@@ -257,14 +257,14 @@ $det[M(s)]$ - детермінант матриці
 
 % C этого места
 
-Остаточний розв'язок містить невідому функцію, яку згодом відшукано
+% Остаточний розв'язок містить невідому функцію, яку згодом відшукано
 
 Шукані функціі перемішень у просторі трансформант можна записати у наступному вигляді
 \begin{align}\label{transf_sol_u_dynamic_2}
-    &u_n(y) = -\int_0^b g_2(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^2(y) p_n
+    &u_n(y) = (-1)^n (1+\mu_0) \int_0^b g_1(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^2(y) p_n
 \end{align}
 \begin{align}\label{transf_sol_v_dynamic_2}
-    &v_n(y) = -\int_0^b g_4(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^4(y) p_n
+    &v_n(y) = (-1)^n (1+\mu_0) \int_0^b g_3(y, \xi)f(\xi) cos(\alpha_n a) d\xi - \psi_0^4(y) p_n
 \end{align}
 
 Викорустовуючи обернене інтегральне перетворення Фур'є до розв'язку задачі у просторі трансформант
@@ -273,15 +273,8 @@ $det[M(s)]$ - детермінант матриці
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
 \begin{equation}
-    v(x,y) = \frac{v_0(y)}{a} + \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
+    v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi n}{a}
 \end{equation}
-
-Знайдем тепер $v_0(y)$ розглянувши задачу у просторі трансформант \eqref{transf_dynamic_2}, \eqref{transf_bound_dynamic_2} при $n=0$, $\alpha_n = 0$.
-Детальний розв'язок якої наведено в (\nameref{ap_D}). Тоді остаточний розв'язок $v(x,y)$ буде мати вигляд
-\begin{align}
-    &v(x,y) = -\frac{1}{a(1+\mu_0)} \int_{0}^{b}g(y,\xi) f(\xi) d\xi - \psi_0(y) \frac{p_0}{a(2G + \lambda)} \nonumber \\
-    &- \frac{2}{a} \sum_{n=1}^{\infty} \left( \int_0^b \left[g_4(y, \xi) cos(\alpha_n a) f(\xi) \right]d\xi + \psi_0^4(y) p_n  \right) cos(\alpha_n x)
-\end{align}
 
 \subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
 Залишилось знайти невідому функцію $f(y)$ для якої побудовано сінгулярне інтегральне рівнняння за допомогою граничної умови $\sigma_y(x, y) |_{y=b} = -p(x)$.
