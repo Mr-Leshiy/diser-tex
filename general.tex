@@ -15,35 +15,35 @@
 
 До прямокутної області по грані $y=b$ додане нормальне навантаження
 \begin{equation}
-    \sigma_y(x, y, t) |_{y=b} = -p(x, t), \quad  \tau_{xy}(x,y,t) |_{y=b} =0,
+    \widetilde{\sigma_y}(x, y, t) |_{y=b} = -p(x, t), \quad  \widetilde{\tau_{xy}}(x,y,t) |_{y=b} =0,
 \end{equation}
-де $p(x, t)$ відома функція, $t$ - час.
+де $\widetilde{p}(x, t)$ відома функція, $t$ - час.
 По нижній грані виконуються умови ідеального контакту
 \begin{equation}
-    v(x,y,t) |_{y=0}, \quad \tau_{xy}(x,y,t) |_{y=0} =0
+    \widetilde{v}(x,y,t) |_{y=0}, \quad \widetilde{\tau_{xy}}(x,y,t) |_{y=0} =0
 \end{equation}
 На бічних гранях $x=0$ та $x=a$ граничні умови подано у формі
 \begin{equation}\label{gen_bound_gen}
-    U_1[f(x,y,t)]=0, \quad U_2[f(x,y,t)]=0 ,
+    \widetilde{U_1}[\widetilde{f}(x,y,t)]=0, \quad \widetilde{U_2}[\widetilde{f}(x,y,t)]=0 ,
 \end{equation}
 де 
 \begin{align*}
-    &U_1[f(x,y,t)]=\left[\alpha_1f(x,y,t) + \beta_1 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=0}, \\
-    &U_2[f(x,y,t)]=\left[\alpha_2f(x,y,t) + \beta_2 \frac{\partial f(x,y,t)}{\partial x} \right]|_{x=a}, \\
+    &\widetilde{U_1}[\widetilde{f}(x,y,t)]=\left[\alpha_1\widetilde{f}(x,y,t) + \beta_1 \frac{\partial \widetilde{f}(x,y,t)}{\partial x} \right]|_{x=0}, \\
+    &\widetilde{U_2}[\widetilde{f}(x,y,t)]=\left[\alpha_2\widetilde{f}(x,y,t) + \beta_2 \frac{\partial \widetilde{f}(x,y,t)}{\partial x} \right]|_{x=a}, \\
 \end{align*}
-- граничні функціонали у загальному зображенні (для кожної конкретної задачі вони будуть деталізовані), $f(x,y,t)=(u(x,y,t), v(x,y,t))^T$ - вектор переміщеннь.
+- граничні функціонали у загальному зображенні (для кожної конкретної задачі вони будуть деталізовані), $\widetilde{f}(x,y,t)=(\widetilde{u}(x,y,t), \widetilde{v}(x,y,t))^T$ - вектор переміщеннь.
 
 Переміщення усередині прямокутника мають задовільняти рівняння Ламе:
 \begin{equation}
     \begin{cases}
-        \frac{\partial^2 u(x,y,t)}{\partial x^2} + \frac{\partial^2 u(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y,t)}{\partial x^2} + \frac{\partial^2 v(x,y,t)}{\partial x\partial y}) = \frac{1}{c_1^2} \frac{\partial^2 u(x,y,t)}{\partial t^2} \\
-        \frac{\partial^2 v(x,y,t)}{\partial x^2} + \frac{\partial^2 v(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y,t)}{\partial x \partial y} + \frac{\partial^2 v(x,y,t)}{\partial y^2}) = \frac{1}{c_2^2} \frac{\partial^2 v(x,y,t)}{\partial t^2} \\
+        \frac{\partial^2 \widetilde{u}(x,y,t)}{\partial x^2} + \frac{\partial^2 \widetilde{u}(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 \widetilde{u}(x,y,t)}{\partial x^2} + \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial x\partial y}) = \frac{1}{c_1^2} \frac{\partial^2 \widetilde{u}(x,y,t)}{\partial t^2} \\
+        \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial x^2} + \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial y^2} + \mu_0 (\frac{\partial^2 \widetilde{u}(x,y,t)}{\partial x \partial y} + \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial y^2}) = \frac{1}{c_2^2} \frac{\partial^2 \widetilde{v}(x,y,t)}{\partial t^2} \\
     \end{cases}
 \end{equation}
 
 Тут і далі розглянуто постановки задач у випадку гармонічних коливань
 \begin{equation}\label{garm_gen}
-    u(x,y,t) = u(x,y) e^{i \omega t}, \quad v(x,y,t) = v(x,y) e^{i \omega t}, \quad p(x, y, t) = p(x, y) e^{i \omega t}
+    \widetilde{u}(x,y,t) = u(x,y) e^{i \omega t}, \quad \widetilde{v}(x,y,t) = v(x,y) e^{i \omega t}, \quad \widetilde{p}(x, y, t) = p(x, y) e^{i \omega t}
 \end{equation}
 З урахуванням подання переміщеннь \eqref{garm_gen} рівняння рівноваги переформульовано:
 \begin{equation}\label{lame_gen}
@@ -223,7 +223,7 @@ $\frac{\partial v(a, y)}{\partial x}=-\frac{\alpha_2}{\beta_2} \chi_4(y)$.
 
 \textcolor{red}
 {
-Для знаходження фундаментальної базисної системи розв'язків знайдено побудувано розв'язок матричного однорідного рівняння
+Для знаходження фундаментальної базисної системи розв'язків побудувано розв'язок матричного однорідного рівняння
 }
 \begin{equation}\label{hom_mat_trans_gen}
     L_2\left[ Y_n(y) \right] = 0
@@ -303,9 +303,9 @@ $det[M(s)]$ - детермінант матриці, який знайдено �
 Для побудови матриці-функції Гріна спочатку знайдено фундаментальні базисні матриці $\Psi_0(y)$, $\Psi_1(y)$, які мають задовільняти матричну крайову задачу \cite{popov_2}:
 \begin{align}\label{psi_probl_gen}
     &L_2\left[ \Psi_i(y) \right] = 0, \nonumber \\
-    &U_i\left[ \Psi_j(y) \right] = \delta_{j,i}, \quad j= \overline{0, 1}, i= \overline{0, 1}
+    &U_i\left[ \Psi_j(y) \right] = \delta_{j,i}I, \quad j= \overline{0, 1}, i= \overline{0, 1},
 \end{align}
-
+де $\delta_{j,i}$ - символ Кронекера, $I$ - одинична матриця.
 Для цього їх вибрано у поданні:
 \begin{equation}\label{psi_gen}
     \Psi_i(y) = \left( Y_0(y) + Y_1(y) \right) * C_1^i + \left( Y_2(y) + Y_3(y) \right) * C_2^i
@@ -384,8 +384,8 @@ $det[M(s)]$ - детермінант матриці, який знайдено �
 Невідомі функції $\chi_i(y)$, $i=\overline{1, 4}$ що містяться у формулі розв'язку \eqref{final_sol_u_gen}, \eqref{final_sol_v_gen} знайдено для кожної конкретної постанови задачі окремо.
 
 \subsection{Загальна схема розв'язку сінгулярного інтегрального рівняння}
-Розглянемо випадок виконання граничних умов другої основної задачі теорії пружності на бічних гранях, в результаті кількість невідомих функцій скоротиться до однієї $f(y) = \frac{\partial u(x,y)}{\partial x}|_{x=a}$.
-З цього отримаємо значення $f_n^1(\xi) = -(1+\mu_0) sin(\alpha_n a) f(\xi)$, $f_n^2(\xi)=0$.
+Розглянемо випадок виконання граничних умов другої основної задачі теорії пружності на бічних гранях, в результаті кількість невідомих функцій скоротиться до однієї $f(y) = \frac{\partial v(x,y)}{\partial x}|_{x=a}$.
+З цього отримаємо значення $f_n^1(\xi) = 0$, $f_n^2(\xi)= -cos(\alpha_n a) f(\xi)$.
 Для знаходження невідомої функції $f(y)$ використано граничну умову $u(x, y) |_{x=a} = 0$ та побудовано сінгульрне інтегральне рівнняння:
 \begin{equation}\label{int_eq_gen}
     \frac{1}{\pi} \int_{-1}^{1} \left( ln\left[ \frac{1}{\lvert x - t \rvert} \right] + a_3(t, x) \right) f(t) dt = a_1(x),
