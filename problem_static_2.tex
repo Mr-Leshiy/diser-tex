@@ -276,11 +276,11 @@ $det[M(s)]$ - детермінант матриці
 \end{equation}
 
 \subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
-В отриманих розв'язках \eqref{sol_u_static_2}, \eqref{sol_v_static_2} міститься невідома функція $f(y)$.
-Для того, щоби знайти її потрібно задовольнити граничну умову $u(x, y) |_{x=a} = 0$,
+В отриманих розв'язках \eqref{sol_u_static_2}, \eqref{sol_v_static_2} міститься невідома функція $f(\xi)$.
+Для того, щоби знайти її потрібно задовольнити граничну умову $v(x, y) |_{x=0} = 0$,
 це призводить до необхідності розв'язання сінгулярного інтегрального рівняння
 \begin{equation}\label{int_eq_static_2}
-    \frac{1}{\pi} \int_{-1}^{1} \left( ln\left[ \frac{1}{\lvert x - t \rvert} \right] + a_2(t, x) \right) f(t) dt = a_1(x),
+    \frac{1}{\pi} \int_{-1}^{1} \left( ln\left[ \frac{1}{\lvert x - \xi \rvert} \right] + a_2(\xi, x) \right) f(\xi) d\xi = a_1(x),
 \end{equation}
 де
 % нужно поправить
@@ -299,13 +299,13 @@ $det[M(s)]$ - детермінант матриці
 Інтегральне рівняння \eqref{int_eq_static_2} розв'язано за допомогою метода ортогональних поліномів \cite{popov_3}.
 Невідому функцію розвинено у ряд за поліномами Чебишева першого роду
 \begin{equation}\label{unk_fun_static_2}
-    f(t) = \frac{1}{\sqrt{1 - t^2}} \sum_{k=0}^{\infty} \varphi_k T_{k}(t),
+    f(t) = \frac{1}{\sqrt{1 - \xi^2}} \sum_{k=0}^{\infty} \varphi_k T_{k}(\xi),
 \end{equation}
-де $\varphi_k$ - невідомі коєфіцієнти, $T_{k}(t)$ - поліном Чебишева першого роду.
+де $\varphi_k$ - невідомі коєфіцієнти, $T_{k}(\xi)$ - поліном Чебишева першого роду.
 
 Наявність спектрального співвідношення B.1.9 \cite{ortogonal}
 \begin{equation}
-    \frac{1}{\pi} \int_{-1}^{1} ln\left[ \frac{1}{\lvert x - t \rvert} \right] \frac{T_k(t)}{\sqrt{1 - t^2}} dt = \upsilon_k T_k(x),
+    \frac{1}{\pi} \int_{-1}^{1} ln\left[ \frac{1}{\lvert x - \xi \rvert} \right] \frac{T_k(\xi)}{\sqrt{1 - \xi^2}} d\xi = \upsilon_k T_k(x),
     \begin{cases}
         \upsilon_0 = ln 2, \\
         \upsilon_k = k^{-1}, k \ge 1
@@ -315,7 +315,7 @@ $det[M(s)]$ - детермінант матриці
 \begin{equation}\label{int_system_static_2}
     \frac{\phi_m \pi}{2m} + \sum_{k=0}^{\infty} \phi_k g_{k, m} = f_m,
 \end{equation}
-де $g_{k, m} = \frac{1}{\pi} \int_{-1}^{1} \frac{T_{m}(x)}{\sqrt{1 - x^2}} \int_{0}^{1} \frac{a_3(t, x )}{a_2(t)} \frac{T_{k}(t)}{\sqrt{1 - t^2}} dt dx$,
+де $g_{k, m} = \frac{1}{\pi} \int_{-1}^{1} \frac{T_{m}(x)}{\sqrt{1 - x^2}} \int_{0}^{1} \frac{a_3(\xi, x )}{a_2(\xi)} \frac{T_{k}(\xi)}{\sqrt{1 - \xi^2}} d\xi dx$,
 $f_m = \int_{-1}^{1} \frac{T_{m}(x) a_1(x)}{\sqrt{1 - x^2}} dx$ інтеграли від відомих функцій.
 Отриману систему розв'язано за допомогою метода редукції.
 
