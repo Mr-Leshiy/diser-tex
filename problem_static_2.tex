@@ -16,27 +16,27 @@
 
 На бічних гранях виконуються умови другої основної задачі теорії пружності
 \begin{equation}\label{bound_2_static_2}
-    u(x,y) |_{x=\pm a} = 0, \quad v(x,y) |_{x=\pm a} =0
+    u(x,y) |_{x=\pm a} = 0, \quad v(x,y) |_{x=\pm a} =0.
 \end{equation}
 На нижній грані виконується умова ідеального контакту
 \begin{equation}\label{bound_3_static_2}
-    v(x,y) |_{y=0} = 0, \quad \tau_{xy}(x,y) |_{y=0} =0
+    v(x,y) |_{y=0} = 0, \quad \tau_{xy}(x,y) |_{y=0} =0.
 \end{equation}
 Потрібно відшукати розв'язок рівняннь рівноваги
 \begin{equation}\label{lame_static_2}
     \begin{cases}
-        \frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 u(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial x\partial y}) = 0 \\
-        \frac{\partial^2 v(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x \partial y} + \frac{\partial^2 v(x,y)}{\partial y^2}) = 0 \\
+        \frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 u(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial x\partial y}) = 0, \\
+        \frac{\partial^2 v(x,y)}{\partial x^2} + \frac{\partial^2 v(x,y)}{\partial y^2} + \mu_0 (\frac{\partial^2 u(x,y)}{\partial x \partial y} + \frac{\partial^2 v(x,y)}{\partial y^2}) = 0, \\
     \end{cases}
 \end{equation}
 за виконання крайових умов \eqref{bound_1_static_2} - \eqref{bound_3_static_2}.
 
 Для того, щоби розв'язати поставлену задачу використано умови симетрії. Тоді крайові умови переформульовано у поданні
 \begin{equation}\label{bound_4_static_2}
-    u(x,y) |_{x=0} = 0, \quad \tau_{xy}(x,y) |_{x=0} =0, \quad 0 \le y \le b
+    u(x,y) |_{x=0} = 0, \quad \tau_{xy}(x,y) |_{x=0} =0, \quad 0 \le y \le b,
 \end{equation}
 \begin{equation}\label{bound_5_static_2}
-    u(x,y) |_{x=a} = 0, \quad v(x,y) |_{x=a} = 0, \quad 0 \le y \le b
+    u(x,y) |_{x=a} = 0, \quad v(x,y) |_{x=a} = 0, \quad 0 \le y \le b.
 \end{equation}
 
 \subsubsection{Розв'язання векторної крайовою задачі у просторі трансформант}
@@ -57,9 +57,9 @@
 В результаті отримано наступну систему звичайних диференціальних рівнянь у просторі трансформант
 \begin{equation}\label{transf_static_2}
     \begin{cases}
-        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - \alpha_n^2 (1 + \mu_0) u_n(y) = -(1 + \mu_0)sin(\alpha_n a) f(y) \\
-        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = 0 \\
-    \end{cases},
+        u_n^{''}(y) - \alpha_n \mu_0 v_n^{'}(y) - \alpha_n^2 (1 + \mu_0) u_n(y) = -(1 + \mu_0)sin(\alpha_n a) f(y), \\
+        (1 + \mu_0) v_n^{''}(y) + \alpha_n \mu_0 u_n^{'}(y)  - \alpha_n^2 v_n(y) = 0, \\
+    \end{cases}
 \end{equation}
 де $f(y) = \frac{\partial u(x,y)}{\partial x}|_{x=a}$ - невідома функція.
 
@@ -105,7 +105,7 @@
     F_n(y) = \begin{pmatrix}
         -(1 + \mu_0)sin(\alpha_n a) f(y) \\
         0
-    \end{pmatrix}
+    \end{pmatrix}.
 \end{equation*}
 Граничні умови (\ref{transf_bound_static_2}) записано за домогою граничних функціоналів
 \begin{equation}\label{transf_bound_mat_static_2}
@@ -143,37 +143,18 @@
     D_1 = \begin{pmatrix}
         0 \\
         0
-    \end{pmatrix}, \quad
+    \end{pmatrix}. \quad
 \end{equation*}
 
-\textcolor{red}
-{
-Розв'язок векторної одновимірної неоднорідної крайової задачі у просторі трансформант знайдено за допомогою матричної функції Гріна
-та знайдено у наступному подані \cite{popov_2}
-}
+Розв'язок векторної одновимірної неоднорідної крайової задачі у просторі трансформант знайденно за допомогою матричної функції Гріна
+та записано у наступному поданні \cite{popov_2}
 \begin{equation}\label{transf_gen_sol_static_2}
     Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0(y) * D_0 + \Psi_1(y) * D_1,
 \end{equation}
-\textcolor{red}
-{
 де $G(y,\xi)$ - матрична функція Гріна, $\Psi_i(y)$, $i=\overline{0, 1}$ - фундаментальна базисна система розв'язків задачі.
-}
 
-\textcolor{orange}
-{
-Розв'язок векторної одновимірної крайової задачі знайдено як суперпозицію загального розв'язку векторного однорідного рівняння $Z_n^0(y)$
-та часткового розв'язку неоднорідного рівняння $Z_n^1(y)$
-}
-\begin{equation}
-    Z_n(y) = Z_n^0(y) + Z_n^1(y)
-\end{equation}
-\textcolor{orange}
-{
-Ці розв'язки знайдено за допомогою апарату матричного диференціального числення \cite{popov_4}, \cite{gantmaher},
-для чого побудовано фундаментальну матричну систему розв'язків.
-}
 
-\textcolor{red}{Для знаходження матричної функції Гріна та фундаментальної базисної системи розв'язків}
+Для знаходження матричної функції Гріна та фундаментальної базисної системи розв'язків
 спочатку знайдено розв'язок однорідного матричного рівняння \eqref{transf_mat_static_2}.
 Для цього використано алгоритм побудови фундаментальної матриці рівняння \cite{gantmaher}:
 \begin{equation}
@@ -189,7 +170,7 @@
     M(s) = \begin{pmatrix}
         s^2 -\alpha_n^2(1 + \mu_0) & -\alpha_n \mu_0 s \\
         \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
-     \end{pmatrix}
+     \end{pmatrix}.
 \end{equation}
 Обернену матрицю $M^{-1}(s)$ знайдено у наступному поданні $M^{-1}(s) = \frac{\widetilde{M(s)}}{det[M(s)]}$, 
 де $\widetilde{M(s)}$ - транспонована матриця алгебричних доповнень
@@ -197,7 +178,7 @@
     \widetilde{M(s)} = \begin{pmatrix}
         s^2 (1 + \mu_0) -\alpha_n^2 & \alpha_n \mu_0 s \\
         -\alpha_n \mu_0 s & s^2 -\alpha_n^2(1 + \mu_0)
-     \end{pmatrix}
+     \end{pmatrix},
 \end{equation}
 $det[M(s)]$ - детермінант матриці
 \begin{align}
@@ -205,7 +186,7 @@ $det[M(s)]$ - детермінант матриці
         s^2 - \alpha_n^2 - \alpha_n^2\mu_0 & -\alpha_n \mu_0 s \\
         \alpha_n \mu_0 s & s^2 (1 + \mu_0) -\alpha_n^2
      \end{vmatrix} = \nonumber \\
-    &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2
+    &=(1+\mu_0)(s - \alpha_n)^2(s + \alpha_n)^2,
 \end{align}
 де $-\alpha_n$, $\alpha_n$, корені другої кратності рівняння $det[M(s)]=0$, детальне знаходження яких наведено в Дотатку B.
 
@@ -232,7 +213,7 @@ $det[M(s)]$ - детермінант матриці
 
 Для побудови неоднорідного розв'язку векторного рівняння знайдено матричну функцію Гріна.
 
-Відповідно до методу, запропонованому у \cite{popov_2} для побудови матриці Гріна необхідно спочатку знайти фундаментальну базисну систему розв'язків $\Psi_0(y)$, $\Psi_1(y)$.
+Відповідно до методу, запропонованому у \cite{popov_2}, для побудови матриці Гріна необхідно спочатку знайти фундаментальну базисну систему розв'язків $\Psi_0(y)$, $\Psi_1(y)$.
 Під останньою розуміємо функції, що задовольняють крайовій задачі
 \begin{align}\label{psi_probl_static_2}
     &L_2\left[ \Psi_i(y) \right] = 0, \nonumber \\
@@ -264,24 +245,26 @@ $det[M(s)]$ - детермінант матриці
     U_0\left[ G(y, \xi) \right] = 0, \quad  U_1\left[ G(y, \xi) \right] = 0.
 \end{equation*}
 
-\textcolor{orange}{Таким чином, розв'язок неоднорідної векторної крайової задачі у просторі трансформант записано у поданні \cite{popov_2}}
+Таким чином, розв'язок неоднорідної векторної крайової задачі у просторі трансформант записано у поданні \eqref{transf_gen_sol_static_2}
 \begin{equation}
-    Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0(y) * D_0 + \Psi_1(y) * D_1
+    Z_n(y) = \int_0^b G(y,\xi) F_n(\xi) d\xi + \Psi_0(y) * D_0 + \Psi_1(y) * D_1,
 \end{equation}
+вектори $D_i$, $i=\overline{0,1}$ визначено формулами \eqref{transf_bound_mat_static_2}.
 
-Введемо наступні позначення для компонент матриць \newline $G(y, \xi) = \begin{pmatrix}
+Введемо наступні позначення для компонент матриць
+\newline $G(y, \xi) = \begin{pmatrix}
     g_1(y,\xi) & g_2(y,\xi) \\
     g_3(y,\xi) & g_4(y,\xi)
 \end{pmatrix}$ та $\Psi_i(y) = \begin{pmatrix}
     \psi_i^1(y) & \psi_i^2(y) \\
     \psi_i^3(y) & \psi_i^4(y)
 \end{pmatrix}$, $i=0,1$.
-\newline З урахуванням цих позначень \textcolor{red}{та \eqref{transf_gen_sol_static_2}}, шукані функціі перемішень у просторі трансформант зображено у наступному вигляді
+\newline З урахуванням цих позначень та \eqref{transf_gen_sol_static_2}, шукані функціі перемішень у просторі трансформант зображено у наступному вигляді
 \begin{align}\label{transf_sol_u_static_2}
-    &u_n(y) = (-1)^n (1+\mu_0) \int_0^b \left[g_1(y, \xi)f(\xi)\right]d\xi - \psi_0^2(y) p_n,
+    &u_n(y) = (-1)^n (1+\mu_0) \int_0^b g_1(y, \xi)f(\xi) d\xi - \psi_0^2(y) p_n,
 \end{align}
 \begin{align}\label{transf_sol_v_static_2}
-    &v_n(y) = (-1)^n (1+\mu_0)  \int_0^b \left[g_3(y, \xi)f(\xi) \right]d\xi - \psi_0^4(y) p_n,
+    &v_n(y) = (-1)^n (1+\mu_0)  \int_0^b g_3(y, \xi)f(\xi) d\xi - \psi_0^4(y) p_n.
 \end{align}
 
 Фінальний розв'язок вихідної задачі отримано після застосування оберненного перетворення Фур'є до трансформант \eqref{transf_sol_u_static_2}, \eqref{transf_sol_u_static_2}
@@ -289,7 +272,7 @@ $det[M(s)]$ - детермінант матриці
     u(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} u_n(y) sin(\alpha_n x),
 \end{equation}
 \begin{equation}\label{sol_v_static_2}
-    v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi}{a}(n - \frac{1}{2})
+    v(x,y) = \frac{2}{a} \sum_{n=1}^{\infty} v_n(y) cos(\alpha_n x), \quad \alpha_n = \frac{\pi}{a}(n - \frac{1}{2}).
 \end{equation}
 
 \subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
