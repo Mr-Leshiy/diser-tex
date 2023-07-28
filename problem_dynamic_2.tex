@@ -244,36 +244,30 @@
 
 \subsubsection{Розв'зання сингулярного інтегрального рівняння задачі}
 Для того, щоби знайти невідому функцію $f(\xi)$, задовільнемо крайову умову $u(x, y) |_{x=a} = 0$.
-% поменять t на \xi
 \begin{equation}\label{int_eq_dynamic_2}
-    \frac{1}{\pi} \int_{-1}^{1} \left( ln\left[ \frac{1}{\lvert x - \xi \rvert} \right] + a_2(\xi, x) \right) f(\xi) d\xi = a_1(x),
+    \frac{1}{\pi} \int_{-1}^{1} \left( ln\left[ \frac{1}{\lvert y - \xi \rvert} \right] + a_2(y, \xi) \right) f(\xi) d\xi = a_1(y),
 \end{equation}
 де
-% нужно поправить
 \begin{align*}
-    &a_1(x) = a p(x) - 2(2G + \lambda) \frac{\partial}{\partial y} \sum_{n=1}^{\infty} \psi_0^{4}(y) p_n cos(\alpha_n x)|_{y=b} - \nonumber \\
-    &- 2\lambda \frac{\partial}{\partial x} \sum_{n=1}^{\infty}\psi_0^2(y) p_n sin(\alpha_n x)|_{y=b} - \psi_0^{'}(b) p_0
+    &a_1(y) = \frac{2}{(1 + \mu_0)a}  \sum_{n=1}^{\infty} (-1)^n \psi_0^2(y) p_n
 \end{align*}
-\begin{equation*}
-    a_2(t) = \frac{2}{\pi} \lim_{n \rightarrow \infty}\left[ \frac{\partial \widetilde{g_4(y, \xi)}}{\partial y} + \lambda \widetilde{g_2(y, \xi)} \right]|_{y=b}, 
-\end{equation*}
 \begin{align*}
-    &a_3(t, x) = \sum_{n=1}^{N} cos(\alpha_n a) cos(\alpha_n x) \left[(2G + \lambda) \frac{\partial g_4(y, t)}{\partial y} + \alpha_n \lambda g_2(y, t) \right]|_{y=b} - \\
-    & - a_2 \sum_{n=0}^{N} (-1)^n (2n + 1)^{-1} e^{-(2n + 1) \frac{\pi}{2a} (b - t)} cos((2n + 1) \frac{\pi}{2a} x)
+    &a_2(y, \xi) = - \frac{4}{(1 + \mu_0)\pi} \sum_{n=0}^{N} (-1)^n(2n + 1)^{-1} sin((2n + 1) \frac{\pi}{2}) e^{-(2n + 1)\frac{2a}{\pi} (2b - \xi - y)} + \\
+    &+  \frac{2}{(1 + \mu_0)a} \sum_{n=1}^{N} g_1(y, \xi) + \frac{1}{(1 + \mu_0)\pi} ln\left[ ch(\frac{\pi}{2a}(2b - \xi - y))\right]
 \end{align*}
 
 Аналогічно методиці, описаній в параграфі (4.1.3), сінгулярне інтегральне рівняння \eqref{int_eq_dynamic_2}
 розв'язується за допомогою методу ортогональних поліномів \cite{popov_3}.
 В результаті якого невідому функцію $f(\xi)$ розвинуто у ряд за поліномами Чебишова першого роду
 \begin{equation}\label{unk_fun_dynamic_2}
-    f(t) = \frac{1}{\sqrt{1 - \xi^2}} \sum_{k=0}^{\infty} \varphi_k T_{k}(\xi),
+    f(\xi) = \frac{1}{\sqrt{1 - \xi^2}} \sum_{k=0}^{\infty} \varphi_k T_{k}(\xi),
 \end{equation}
 де $\varphi_k$ - невідомі коєфіцієнти, $T_{k}(\xi)$ - поліном Чебишева першого роду.
 
 Невідомі коєфіцієнти $\varphi_k$, $k=\overline{0, \infty}$ знайдено шляхом розв'язання лінійної нескінченої системи алгебричних рівнянь відносно шуканих коєфіцієнтів,
 котру в свою чергу розв'язано методом редукції
 \begin{equation}\label{int_system_dynamic_2}
-    \frac{\phi_m \pi}{2m} + \sum_{k=0}^{\infty} \phi_k g_{k, m} = f_m,
+    \phi_m v_m \frac{\pi}{2} + \sum_{k=0}^{\infty} \phi_k g_{k, m} = f_m,
 \end{equation}
-де $g_{k, m} = \frac{1}{\pi} \int_{-1}^{1} \frac{T_{m}(x)}{\sqrt{1 - x^2}} \int_{0}^{1} \frac{a_3(\xi, x )}{a_2(\xi)} \frac{T_{k}(\xi)}{\sqrt{1 - \xi^2}} d\xi dx$,
-$f_m = \int_{-1}^{1} \frac{T_{m}(x) a_1(x)}{\sqrt{1 - x^2}} dx$ інтеграли відомих функцій.
+де $g_{k, m} = \frac{1}{\pi} \int_{-1}^{1} \frac{T_{m}(y)}{\sqrt{1 - y^2}} \int_{-1}^{1} a_2(\xi, y) \frac{T_{k}(\xi)}{\sqrt{1 - \xi^2}} d\xi dy$,
+$f_m = \int_{-1}^{1} \frac{T_{m}(y) a_1(y)}{\sqrt{1 - y^2}} dy$ інтеграли відомих функцій.
