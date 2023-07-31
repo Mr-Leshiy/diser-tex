@@ -5,6 +5,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage[a4paper, left=30mm, right=30mm, top=20mm, bottom=20mm]{geometry}
+\usepackage{float}
 
 \title{Dissertation}
 \author{}
@@ -28,6 +29,7 @@
 \newpage
 
 \renewcommand{\contentsname}{\centering Зміст}
+\renewcommand{\bibname}{Література}
 \tableofcontents
 
 \newpage
@@ -90,6 +92,7 @@ $U_y(x,y) = v(x,y)$ - переміщення по осі $y$
 \input{summary}
 \newpage
 
+\addcontentsline{toc}{section}{\protect\numberline{}СПИСОК ВИКОРИСТАНИХ ДЖЕРЕЛ}
 \begin{thebibliography}{1}
     \bibitem{novacki_1}
     Nowacki W.: Teoria Sprezystosci. Panstwowe Wydawnictwo Naukowe, Warszawa (1970).
