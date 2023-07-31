@@ -86,9 +86,9 @@
 \end{figure}
 
 З графіків Рис. \ref{static_1_sigma_y(x,b:2)} - \ref{static_1_sigma_y(x,b)} можна побачити,
-що функції напруження в середині прямокутника (при $x=\frac{a}{2}$ або $y=\frac{b}{2}$)
-міняють характер монотонності в залежності від розмірів геометричної області, а на гранях області (при $x=a$ або $y=b$)
-характер залишається не змінним, лише міняються абсолютні значення функцій напружень.
+що функція напруження $\sigma_y(x, y)$ в середині прямокутника (при $x=\frac{a}{2}$ або $y=\frac{b}{2}$)
+міняє характер монотонності в залежності від розмірів геометричної області, а на гранях області (при $x=a$ або $y=b$)
+характер залишається не змінним, лише міняються абсолютні значення функції напружень.
 
 Також на Рис. \ref{static_1_sigma_y(x,b)} видно, що функція напруження $\sigma_y(x,y)$ повністю задовольняє граничній умові при будь-яких розмірах області
 та дорівнює значенню заданного навантаженню $p(x) = (x - 5.5)^2$ на грані $y=b$.
@@ -96,9 +96,50 @@
 які повністю накладаються одні на одну,
 як і в попередньому випадку.
 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(a:2,y)1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(a:2,y)2.png}
+        \caption{Напруження $\sigma_x(\frac{a}{2}, y)$}\label{static_1_sigma_x(a:2,y)}
+    \end{center}
+\end{figure}
 
-\subsubsection{Випадок граничних умов другої основної задачі теорії пружності на бічних гранях}
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(a,y)1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(a,y)2.png}
+        \caption{Напруження $\sigma_x(a, y)$}\label{static_1_sigma_x(a,y)}
+    \end{center}
+\end{figure}
+
+Для функцій напруження $\sigma_x(x, y)$ Рис. \ref{static_1_sigma_x(a:2,y)} - \ref{static_1_sigma_x(a,y)},
+аналогічно як і для попередніх функій,
+при збільшенні розмірів прямокутника збільшуються абсолютні значення функції переміщення,
+характер монотонності змінюється в обох випадаках: в середині області ($x=a$), та на її границі ($x=\frac{a}{2}$).
+
+
+На Рис. \ref{static_1_sigma_x(x,b:2)} - \ref{static_1_sigma_x(x,b)} видно, що при зміні геометричних розмірів прямокутної області,
+змінюються лише абсолютні значення функції $\sigma_x(x, y)$, її характер при фіксованих значеннях $y$ не змінюється.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(x,b:2)1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(x,b:2)2.png}
+        \caption{Напруження $\sigma_x(x, \frac{b}{2})$}\label{static_1_sigma_x(x,b:2)}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(x,b)1.png}
+        \includegraphics[width=0.49\textwidth, scale=1]{images/results/static_1/sigma_x(x,b)2.png}
+        \caption{Напруження $\sigma_x(x, b)$}\label{static_1_sigma_x(x,b)}
+    \end{center}
+\end{figure}
+
+
+% \subsubsection{Випадок граничних умов другої основної задачі теорії пружності на бічних гранях}
 
 
 
-\subsection{Динамічні задачі}
+% \subsection{Динамічні задачі}
